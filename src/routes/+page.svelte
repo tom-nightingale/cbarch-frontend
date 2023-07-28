@@ -8,7 +8,6 @@
   let email: HTMLElement;
 
   onMount(() => {
-    console.log("hello motion");
     animate(
       image,
       {
@@ -50,7 +49,7 @@
   class="flex flex-col items-center overflow-hidden transition-all duration-200 justfiy-center xl:flex-row xl:flex-wrap"
 >
   <div
-    class="w-full min-h-[25vh] bg-white p-8 flex flex-col justify-center items-center xl:w-1/3 xl:min-h-screen transition-all duration-200 xl:p-20"
+    class="w-full min-h-[25vh] bg-white p-8 pt-12 flex flex-col justify-center items-center xl:w-1/3 xl:min-h-screen transition-all duration-200 xl:p-20"
   >
     <img
       class="w-full max-w-lg mx-auto opacity-0"
@@ -64,7 +63,7 @@
     <a
       bind:this={email}
       class="mt-6 opacity-0 text-primary"
-      href="mailto:jonathan@cbarch.co.uk">Get in touch</a
+      href="mailto:jonathan@cbarch.co.uk,matthew@cbarch.co.uk">Get in touch</a
     >
   </div>
   <div

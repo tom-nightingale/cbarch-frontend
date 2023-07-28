@@ -13,7 +13,7 @@ export default {
       "4xl": "2000px",
     },
     fontFamily: {
-      sans: ["Source Sans Pro", "sans-serif"],
+      sans: ["Mulish", "sans-serif"],
     },
     extend: {
       colors: {
