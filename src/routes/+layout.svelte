@@ -1,6 +1,6 @@
 <script>
   import "$lib/styles/app.css";
-  import PageTransition from "$lib/components/_shared/PageTransition/PageTransition.svelte";
+  import PageTransition from "$lib/components/PageTransition/PageTransition.svelte";
   export let data;
 </script>
 

@@ -1,11 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { animate, timeline } from "motion";
+  import Image from "$lib/components/Image/Image.svelte";
+  import Seo from "$lib/components/Seo/Seo.svelte";
+  import type { PageData } from "./$types";
 
   let image: HTMLElement;
   let logo: HTMLElement;
   let text: HTMLElement;
   let email: HTMLElement;
+
+  export let data: PageData;
 
   onMount(() => {
     animate(
@@ -45,6 +50,20 @@
   });
 </script>
 
+<Seo
+  seo={{
+    metaTitle: data.data.seo.metaTitle,
+    metaDesc: data.data.seo.metaDesc,
+    keywords: data.data.seo.keywords,
+    shareGraphic: {
+      src: data?.data?.seo?.shareGraphic?.asset?.url
+        ? data?.data?.seo?.shareGraphic?.asset?.url
+        : "",
+      alt: data.data.seo.metaTitle ? data.data.seo.metaTitle : "",
+    },
+  }}
+/>
+
 <main
   class="flex flex-col items-center overflow-hidden transition-all duration-200 justfiy-center xl:flex-row xl:flex-wrap"
 >
@@ -66,15 +85,17 @@
       href="mailto:jonathan@cbarch.co.uk,matthew@cbarch.co.uk">Get in touch</a
     >
   </div>
-  <div
-    class="relative w-full min-h-[75vh] xl:w-2/3 xl:min-h-screen transition-all duration-200 overflow-hidden"
-  >
-    <img
-      src="landing-image.jpg"
-      alt="Coleflax Bennett Architecture"
-      loading="lazy"
-      class="absolute top-0 bottom-0 left-0 right-0 object-cover object-center w-full h-full"
+  {#if data.data.landingImage}
+    <div
+      class="relative w-full min-h-[75vh] xl:w-2/3 xl:min-h-screen transition-all duration-200 overflow-hidden"
       bind:this={image}
-    />
-  </div>
+    >
+      <Image
+        image={data.data.landingImage}
+        altText={data.data.title}
+        lgImg={true}
+        imageClasses="absolute top-0 bottom-0 left-0 right-0 h-full bg-gray-200 object-cover object-center w-full h-full"
+      />
+    </div>
+  {/if}
 </main>
