@@ -52,14 +52,14 @@
 
 <Seo
   seo={{
-    metaTitle: data.data.seo.metaTitle,
-    metaDesc: data.data.seo.metaDesc,
-    keywords: data.data.seo.keywords,
+    metaTitle: data?.seo?.metaTitle,
+    metaDesc: data?.seo?.metaDesc,
+    keywords: data?.seo?.keywords,
     shareGraphic: {
-      src: data?.data?.seo?.shareGraphic?.asset?.url
-        ? data?.data?.seo?.shareGraphic?.asset?.url
+      src: data?.seo?.shareGraphic?.asset?.url
+        ? data?.seo?.shareGraphic?.asset?.url
         : "",
-      alt: data.data.seo.metaTitle ? data.data.seo.metaTitle : "",
+      alt: data?.seo?.metaTitle ? data?.seo?.metaTitle : "",
     },
   }}
 />
@@ -85,16 +85,38 @@
       href="mailto:jonathan@cbarch.co.uk,matthew@cbarch.co.uk">Get in touch</a
     >
   </div>
-  {#if data.data.landingImage}
+  {#if data.landingImage}
     <div
       class="relative w-full min-h-[75vh] xl:w-2/3 xl:min-h-screen transition-all duration-200 overflow-hidden"
       bind:this={image}
     >
       <Image
-        image={data.data.landingImage}
-        altText={data.data.title}
+        image={data.landingImage.asset?.url}
+        altText={data.title ? data.title : "CB Architecture"}
         lgImg={true}
         imageClasses="absolute top-0 bottom-0 left-0 right-0 h-full bg-gray-200 object-cover object-center w-full h-full"
+        lgSizes={{
+          lg: {
+            width: 1500,
+            height: 1500,
+          },
+          md: {
+            width: 800,
+            height: 800,
+          },
+          sm: {
+            width: 1280,
+            height: 1280,
+          },
+          xs: {
+            width: 768,
+            height: 768,
+          },
+          fallback: {
+            width: 768,
+            height: 768,
+          },
+        }}
       />
     </div>
   {/if}

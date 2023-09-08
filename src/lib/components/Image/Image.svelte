@@ -4,10 +4,10 @@
     smSizesDefault,
     type imageSizes,
   } from "./defaultImageSizes";
-  import type { Image, ImageAsset, ImageUrlFitMode } from "@sanity/types";
+  import type { ImageUrlFitMode } from "@sanity/types";
   import { urlFor } from "$lib/utils/image";
   export let fit: ImageUrlFitMode = "min";
-  export let image: ImageAsset | Image;
+  export let image: any;
   export let altText = "";
   export let lazyLoad: boolean = true;
   export let pictureClasses = "";

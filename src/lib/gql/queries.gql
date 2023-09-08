@@ -1,0 +1,45 @@
+fragment imageHotspot on SanityImageHotspot {
+  x
+  y
+  width
+  height
+}
+
+fragment imageCrop on SanityImageCrop {
+  top
+  bottom
+  left
+  right
+}
+
+fragment seo on Seo {
+  metaTitle
+  metaDesc
+  keywords
+  shareGraphic {
+    asset {
+      url
+    }
+  }
+}
+
+query getLanding {
+  allLanding {
+    title
+    landingImage {
+      asset {
+        url
+        altText
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    seo {
+      ...seo
+    }
+  }
+}
