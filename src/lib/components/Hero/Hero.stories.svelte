@@ -1,0 +1,14 @@
+<script>
+  import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+  import Hero from "./Hero.svelte";
+</script>
+
+<Meta title="Hero" component={Hero} />
+
+<Template let:args>
+  <Hero {...args} />
+</Template>
+
+<Story name="Primary" args={{ primary: true }} />
+
+<Story name="Secondary" args={{ primary: false }} />
