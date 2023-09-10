@@ -9,6 +9,4 @@
   <Hero {...args} />
 </Template>
 
-<Story name="Primary" args={{ primary: true }} />
-
-<Story name="Secondary" args={{ primary: false }} />
+<Story name="Primary" />
