@@ -1,12 +1,12 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-  import Typography from "./Typography.view.svelte";
+  import WorkWithUs from "./WorkWithUs.svelte";
 </script>
 
-<Meta title="Components/Typography" component={Typography} />
+<Meta title="Components/WorkWithUs" component={WorkWithUs} />
 
 <Template let:args>
-  <Typography {...args} />
+  <WorkWithUs {...args} />
 </Template>
 
 <Story name="Default" />

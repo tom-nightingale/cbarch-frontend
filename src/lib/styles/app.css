@@ -13,3 +13,14 @@ html {
 body {
   @apply font-sans antialiased leading-relaxed text-dark;
 }
+
+blockquote:before {
+  content: open-quote;
+}
+
+@supports (hanging-punctuation: first) {
+  blockquote {
+    text-indent: 0;
+    hanging-punctuation: first;
+  }
+}

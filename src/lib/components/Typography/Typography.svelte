@@ -94,34 +94,29 @@
 
 <style>
   .heading {
-    @apply leading-[41px] font-heading font-bold;
+    @apply leading-[41px];
   }
 
   .title1 {
-    @apply text-[40px] font-extralight;
+    @apply text-[40px] leading-[45px] font-extralight;
+    @apply md:leading-normal;
     @apply lg:text-[65px];
   }
 
   .headline1 {
-    @apply text-[30px];
+    @apply text-[30px] font-heading font-bold;
   }
 
   .headline2 {
-    @apply text-[26px];
+    @apply text-[26px] font-heading font-bold;
   }
 
   .headline3 {
-    @apply text-[22px];
+    @apply text-[22px] font-heading font-bold;
   }
 
   .headline4 {
-    @apply text-[18px];
-  }
-
-  .headline5 {
-  }
-
-  .headline6 {
+    @apply text-[18px] font-heading font-bold;
   }
 
   .body1 {
@@ -133,6 +128,19 @@
   }
 
   .sub1 {
-    @apply leading-[35px];
+    @apply text-[16px] leading-[24px];
+  }
+
+  .testimonial1 {
+    @apply text-[30px] font-extralight font-heading leading-normal;
+    @apply md:text-[35px];
+  }
+
+  .button1 {
+    @apply uppercase font-sans font-bold;
+  }
+
+  .nav1 {
+    @apply text-[18px];
   }
 </style>

@@ -15,6 +15,7 @@ const config: StorybookConfig = {
     name: "@storybook/sveltekit",
     options: {},
   },
+  staticDirs: ["../static"],
   docs: {
     autodocs: "tag",
   },

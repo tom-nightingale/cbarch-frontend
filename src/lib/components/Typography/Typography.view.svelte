@@ -6,7 +6,7 @@
   export let spaced = false;
 </script>
 
-<div class="type-preview">
+<div class="flex flex-col gap-8 p-12">
   <Typography
     variant="headline1"
     component="h1"
@@ -79,11 +79,3 @@
     uppercase={true}>sub1</Typography
   >
 </div>
-
-<style>
-  :global(.type-preview > *) {
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-  }
-</style>

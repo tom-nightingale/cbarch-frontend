@@ -3,7 +3,7 @@
   import Hero from "./Hero.svelte";
 </script>
 
-<Meta title="Hero" component={Hero} />
+<Meta title="Components/Hero" component={Hero} />
 
 <Template let:args>
   <Hero {...args} />

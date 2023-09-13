@@ -13,7 +13,7 @@
       alt={altText}
     />
   </div>
-  <div class="absolute bottom-0 left-0 w-full py-[35px] px-[25px] bg-white/50">
+  <div class="absolute bottom-0 left-0 w-full py-[35px] px-[25px] bg-white/80">
     <Typography component="p" variant="title1" theme="text-blue"
       >{title}</Typography
     >

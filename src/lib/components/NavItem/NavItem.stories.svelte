@@ -1,12 +1,12 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-  import Typography from "./Typography.view.svelte";
+  import NavItem from "./NavItem.svelte";
 </script>
 
-<Meta title="Components/Typography" component={Typography} />
+<Meta title="Components/NavItem" component={NavItem} />
 
 <Template let:args>
-  <Typography {...args} />
+  <NavItem {...args} />
 </Template>
 
 <Story name="Default" />

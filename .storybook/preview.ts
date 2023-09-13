@@ -9,6 +9,7 @@ const preview: Preview = {
       viewports: viewports,
       defaultViewport: "lg",
     },
+    layout: "fullscreen",
     controls: {
       matchers: {
         color: /(background|color)$/i,

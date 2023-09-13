@@ -1,12 +1,12 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-  import Typography from "./Typography.view.svelte";
+  import Header from "./Header.svelte";
 </script>
 
-<Meta title="Components/Typography" component={Typography} />
+<Meta title="Components/Header" component={Header} />
 
 <Template let:args>
-  <Typography {...args} />
+  <Header {...args} />
 </Template>
 
 <Story name="Default" />
