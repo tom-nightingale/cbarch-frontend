@@ -2,10 +2,11 @@
   import Typography from "$lib/components/Typography/Typography.svelte";
   export let label = "Home";
   export let href = "/";
+  export let classes = "";
 </script>
 
-<Typography component="p" theme="nav1">
-  <a {href} class="text-blue">
+<Typography component="p" theme="nav1" uppercase>
+  <a {href} class={`text-blue ${classes}`}>
     {label}
   </a>
 </Typography>

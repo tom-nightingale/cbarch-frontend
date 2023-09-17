@@ -141,6 +141,6 @@
   }
 
   .nav1 {
-    @apply text-[18px];
+    @apply text-[18px] tracking-wide;
   }
 </style>

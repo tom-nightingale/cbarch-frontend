@@ -24,3 +24,7 @@ blockquote:before {
     hanging-punctuation: first;
   }
 }
+
+a {
+  @apply transition-all duration-200;
+}

@@ -26,19 +26,13 @@
 
     <div class="flex flex-wrap items-center justify-center gap-4">
       <Typography variant="sub1" component="p"
-        ><a
-          class="transition-all duration-200 hover:text-blue"
-          href={`mailto:${email}`}>{email}</a
-        >
+        ><a class="hover:text-blue" href={`mailto:${email}`}>{email}</a>
       </Typography>
       <span class="inline-block w-[4px] h-[4px] rounded-full bg-blue"
         >&nbsp;</span
       >
       <Typography variant="sub1" component="p"
-        ><a
-          class="transition-all duration-200 hover:text-blue"
-          href="/privacy-policy">Privacy Policy</a
-        >
+        ><a class="hover:text-blue" href="/privacy-policy">Privacy Policy</a>
       </Typography>
     </div>
   </div>
