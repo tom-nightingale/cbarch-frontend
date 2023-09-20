@@ -1,5 +1,6 @@
 <script lang="ts">
   import Typography from "$lib/components/Typography/Typography.svelte";
+  import Button from "$lib/components/Button/Button.svelte";
   export let image;
   export let altText = "";
   export let title = "From inception, to completion.";
@@ -17,5 +18,9 @@
     <Typography component="p" variant="title1" theme="text-blue"
       >{title}</Typography
     >
+
+    <div class="mt-[18px]">
+      <Button label="Our Projects" theme="secondary" href="/projects" />
+    </div>
   </div>
 </div>

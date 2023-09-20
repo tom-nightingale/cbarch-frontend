@@ -2,7 +2,7 @@ import client from "$lib/gql/apolloClient";
 import type { GetLandingQuery } from "$lib/gql/gen/codegen";
 import { GetLandingDoc } from "$lib/gql/gen/codegen";
 import { error } from "@sveltejs/kit";
-import type { PageLoad } from "./$types";
+import type { PageLoad } from "../$types";
 
 export const load = (async () => {
   const data = await client.query<GetLandingQuery>({

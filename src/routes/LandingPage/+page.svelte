@@ -3,7 +3,7 @@
   import { animate, timeline } from "motion";
   import Image from "$lib/components/Image/Image.svelte";
   import Seo from "$lib/components/Seo/Seo.svelte";
-  import type { PageData } from "./$types";
+  import type { PageData } from "../$types";
 
   let image: HTMLElement;
   let logo: HTMLElement;

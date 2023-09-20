@@ -1,11 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { MetaModel } from "$lib/groq/queries";
+  import type { MetaModel } from "./Meta.models";
   import { getImageDimensions } from "@sanity/asset-utils";
 
   export let seo: MetaModel;
 
-  $: ({ metaTitle, metaDesc, keywords, shareGraphic, ogType } = seo);
+  $: ({ title, description, keywords, shareGraphic, ogType } = seo);
 
   onMount(() => {
     document.head
@@ -17,24 +17,24 @@
   });
 
   const { height, width } = getImageDimensions({
-    url: seo.shareGraphic.src,
+    url: shareGraphic && shareGraphic.src ? shareGraphic.src : "",
   });
 </script>
 
 <svelte:head>
-  {#if metaTitle}
-    <title>{metaTitle}</title>
-    <meta name="twitter:title" content={metaTitle} />
-    <meta property="og:title" content={metaTitle} />
+  {#if title}
+    <title>{title}</title>
+    <meta name="twitter:title" content={title} />
+    <meta property="og:title" content={title} />
   {/if}
 
-  {#if metaDesc}
-    <meta name="description" content={metaDesc} />
-    <meta property="og:description" content={metaDesc} />
-    <meta name="twitter:description" content={metaDesc} />
+  {#if description}
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:description" content={description} />
   {/if}
 
-  {#if shareGraphic}
+  {#if shareGraphic && shareGraphic.src}
     <meta
       property="og:image"
       content={shareGraphic.src
