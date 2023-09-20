@@ -43,3 +43,73 @@ query getLanding {
     }
   }
 }
+
+query GetHome {
+  allHome {
+    heroImages {
+      asset {
+        url
+        altText
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    heroHeadline
+    copySubtitle
+    copyTitleRaw
+    copyRaw
+    copyImage {
+      asset {
+        url
+        altText
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    projectsSubtitle
+    featuredProjects {
+      title
+      slug {
+        current
+      }
+      heroImage {
+        asset {
+          url
+          altText
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    gallery {
+      asset {
+        url
+        altText
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}

@@ -365,10 +365,21 @@ export type Home = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  bodyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  heroImage?: Maybe<Image>;
+  copyImage?: Maybe<Image>;
+  copyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the copy heading */
+  copySubtitle?: Maybe<Scalars["String"]["output"]>;
+  copyTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
+  featuredProjects?: Maybe<Array<Maybe<Project>>>;
+  gallery?: Maybe<Array<Maybe<Image>>>;
+  /** Text to accompany the hero image */
+  heroHeadline?: Maybe<Scalars["String"]["output"]>;
+  heroImages?: Maybe<Array<Maybe<Image>>>;
+  /** Text above the projects heading */
+  projectsSubtitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -381,7 +392,10 @@ export type HomeFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
+  copyImage?: InputMaybe<ImageFilter>;
+  copySubtitle?: InputMaybe<StringFilter>;
+  heroHeadline?: InputMaybe<StringFilter>;
+  projectsSubtitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -394,7 +408,10 @@ export type HomeSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroImage?: InputMaybe<ImageSorting>;
+  copyImage?: InputMaybe<ImageSorting>;
+  copySubtitle?: InputMaybe<SortOrder>;
+  heroHeadline?: InputMaybe<SortOrder>;
+  projectsSubtitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -1277,6 +1294,205 @@ export type GetLandingQuery = {
   }>;
 };
 
+export type GetHomeQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetHomeQuery = {
+  __typename?: "RootQuery";
+  allHome: Array<{
+    __typename?: "Home";
+    heroHeadline?: string | null | undefined;
+    copySubtitle?: string | null | undefined;
+    copyTitleRaw?: any | null | undefined;
+    copyRaw?: any | null | undefined;
+    projectsSubtitle?: string | null | undefined;
+    heroImages?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    copyImage?:
+      | {
+          __typename?: "Image";
+          asset?:
+            | {
+                __typename?: "SanityImageAsset";
+                url?: string | null | undefined;
+                altText?: string | null | undefined;
+              }
+            | null
+            | undefined;
+          hotspot?:
+            | {
+                __typename?: "SanityImageHotspot";
+                x?: number | null | undefined;
+                y?: number | null | undefined;
+                width?: number | null | undefined;
+                height?: number | null | undefined;
+              }
+            | null
+            | undefined;
+          crop?:
+            | {
+                __typename?: "SanityImageCrop";
+                top?: number | null | undefined;
+                bottom?: number | null | undefined;
+                left?: number | null | undefined;
+                right?: number | null | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    featuredProjects?:
+      | Array<
+          | {
+              __typename?: "Project";
+              title?: string | null | undefined;
+              slug?:
+                | { __typename?: "Slug"; current?: string | null | undefined }
+                | null
+                | undefined;
+              heroImage?:
+                | {
+                    __typename?: "Image";
+                    asset?:
+                      | {
+                          __typename?: "SanityImageAsset";
+                          url?: string | null | undefined;
+                          altText?: string | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    hotspot?:
+                      | {
+                          __typename?: "SanityImageHotspot";
+                          x?: number | null | undefined;
+                          y?: number | null | undefined;
+                          width?: number | null | undefined;
+                          height?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    crop?:
+                      | {
+                          __typename?: "SanityImageCrop";
+                          top?: number | null | undefined;
+                          bottom?: number | null | undefined;
+                          left?: number | null | undefined;
+                          right?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    gallery?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
 export const ImageHotspotFragmentDoc = gql`
   fragment imageHotspot on SanityImageHotspot {
     x
@@ -1330,6 +1546,80 @@ export const GetLandingDoc = gql`
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
 `;
+export const GetHomeDoc = gql`
+  query GetHome {
+    allHome {
+      heroImages {
+        asset {
+          url
+          altText
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      heroHeadline
+      copySubtitle
+      copyTitleRaw
+      copyRaw
+      copyImage {
+        asset {
+          url
+          altText
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      projectsSubtitle
+      featuredProjects {
+        title
+        slug {
+          current
+        }
+        heroImage {
+          asset {
+            url
+            altText
+          }
+          hotspot {
+            ...imageHotspot
+          }
+          crop {
+            ...imageCrop
+          }
+        }
+      }
+      gallery {
+        asset {
+          url
+          altText
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${SeoFragmentDoc}
+`;
 export const getLanding = (
   options: Omit<WatchQueryOptions<GetLandingQueryVariables>, "query">,
 ): Readable<
@@ -1344,6 +1634,38 @@ export const getLanding = (
   var result = readable<
     ApolloQueryResult<GetLandingQuery> & {
       query: ObservableQuery<GetLandingQuery, GetLandingQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetHome = (
+  options: Omit<WatchQueryOptions<GetHomeQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetHomeQuery> & {
+    query: ObservableQuery<GetHomeQuery, GetHomeQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetHomeDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetHomeQuery> & {
+      query: ObservableQuery<GetHomeQuery, GetHomeQueryVariables>;
     }
   >(
     {
