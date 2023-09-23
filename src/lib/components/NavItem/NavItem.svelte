@@ -5,7 +5,7 @@
   export let classes = "";
 </script>
 
-<Typography component="p" theme="nav1" uppercase>
+<Typography component="p" variant="nav1" uppercase>
   <a {href} class={`text-blue ${classes}`}>
     {label}
   </a>

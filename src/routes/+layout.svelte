@@ -6,6 +6,8 @@
   export let data;
 </script>
 
+<Header />
+<MobileMenu />
 <PageTransition pathname={data.url}>
   <slot />
 </PageTransition>

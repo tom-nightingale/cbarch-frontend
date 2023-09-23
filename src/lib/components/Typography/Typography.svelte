@@ -128,7 +128,7 @@
   }
 
   .sub1 {
-    @apply text-[16px] leading-[24px];
+    @apply text-[16px] leading-[24px] tracking-wide;
   }
 
   .testimonial1 {

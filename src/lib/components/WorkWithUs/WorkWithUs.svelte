@@ -11,7 +11,9 @@
 
 <div class="text-white bg-blue">
   <Container>
-    <div class="p-40 text-center max-w-[730px] md:px-0 md:py-[136px] mx-auto">
+    <div
+      class="p-[40px] text-center max-w-[730px] md:px-0 md:py-[136px] mx-auto"
+    >
       <div class="mb-4">
         <Typography variant="sub1" uppercase component="p"
           >{subtitle}</Typography

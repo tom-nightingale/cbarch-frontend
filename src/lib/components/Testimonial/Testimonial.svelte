@@ -5,9 +5,8 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
 
-  export let testimonial =
-    "This is a testimonial by one of your clients. It will explain how pleased they are with your service and entice the reader to learn more about your business...";
-  export let author = "Mr Smith, Company Name";
+  export let testimonial: string = "";
+  export let author: string = "";
 </script>
 
 <div

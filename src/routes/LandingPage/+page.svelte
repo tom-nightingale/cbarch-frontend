@@ -92,7 +92,7 @@
     >
       <Image
         image={data.landingImage.asset?.url}
-        altText={data.title ? data.title : "CB Architecture"}
+        altText={data.title ? data.title : "Coleflax Bennett Architecture"}
         lgImg={true}
         imageClasses="absolute top-0 bottom-0 left-0 right-0 h-full bg-gray-200 object-cover object-center w-full h-full"
         lgSizes={{
