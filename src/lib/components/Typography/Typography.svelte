@@ -103,19 +103,23 @@
     @apply lg:text-[65px];
   }
 
-  .headline1 {
+  .headline1,
+  .h1 {
     @apply text-[30px] font-heading font-bold;
   }
 
-  .headline2 {
+  .headline2,
+  .h2 {
     @apply text-[26px] font-heading font-bold;
   }
 
-  .headline3 {
+  .headline3,
+  .h3 {
     @apply text-[22px] font-heading font-bold;
   }
 
-  .headline4 {
+  .headline4,
+  .h4 {
     @apply text-[18px] font-heading font-bold;
   }
 

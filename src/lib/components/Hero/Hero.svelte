@@ -11,10 +11,23 @@
   export let images: ImageType[];
   export let title = "From inception, to completion.";
 
+  let swiperEl: any;
+
   onMount(() => {
     if (browser) {
       //initialise swiperJs
       register();
+
+      const swiperParams = {
+        autoplay: {
+          delay: 3000,
+        },
+        speed: 1000,
+        slidesPerView: 1,
+      };
+
+      Object.assign(swiperEl, swiperParams);
+      swiperEl.initialize();
     }
   });
 </script>
@@ -23,9 +36,8 @@
   <div class="relative min-h-screen bg-gray-100">
     {#if images && images.length > 0}
       <swiper-container
-        autoplay={{ delay: 3000 }}
-        speed={1000}
-        slidesPerView={1}
+        init="false"
+        bind:this={swiperEl}
         autoplay-disable-on-interaction={false}
       >
         {#each images as image, i}
