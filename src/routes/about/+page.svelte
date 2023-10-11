@@ -5,4 +5,4 @@
   $: console.log("data", data);
 </script>
 
-<div class="flex flex-col justify-center align-center">Coming soon...</div>
+<div class="flex flex-col justify-center align-center">About page.</div>
