@@ -23,13 +23,17 @@ fragment seo on Seo {
   }
 }
 
+fragment imageAsset on SanityImageAsset {
+  url
+  altText
+}
+
 query getLanding {
   allLanding {
     title
     landingImage {
       asset {
-        url
-        altText
+        ...imageAsset
       }
       hotspot {
         ...imageHotspot
@@ -48,8 +52,7 @@ query GetHome {
   allHome {
     heroImages {
       asset {
-        url
-        altText
+        ...imageAsset
       }
       hotspot {
         ...imageHotspot
@@ -64,8 +67,7 @@ query GetHome {
     copyRaw
     copyImage {
       asset {
-        url
-        altText
+        ...imageAsset
       }
       hotspot {
         ...imageHotspot
@@ -80,10 +82,9 @@ query GetHome {
       slug {
         current
       }
-      heroImage {
+      heroImages {
         asset {
-          url
-          altText
+          ...imageAsset
         }
         hotspot {
           ...imageHotspot
@@ -95,8 +96,7 @@ query GetHome {
     }
     gallery {
       asset {
-        url
-        altText
+        ...imageAsset
       }
       hotspot {
         ...imageHotspot
@@ -105,6 +105,157 @@ query GetHome {
         ...imageCrop
       }
     }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetAbout {
+  allAbout {
+    introSubtitle
+    introTitleRaw
+    introCopyRaw
+    copySubtitle
+    copyTitle
+    copyRaw
+    copyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    teamSubtitle
+    teamTitle
+    team {
+      name
+      email
+      phone
+      bioRaw
+      image {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetContact {
+  allContact {
+    introSubtitle
+    introTitleRaw
+    introCopyRaw
+    team {
+      name
+      email
+      phone
+      bioRaw
+      image {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetProjectSingleton {
+  page: allProjects {
+    introSubtitle
+    introTitleRaw
+    introCopyRaw
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+  projects: allProject {
+    heroImages {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    heroHeadline
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetProject($slug: String) {
+  project: allProject(where: { slug: { current: { eq: $slug } } }) {
+    heroImages {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    heroHeadline
+    projectSubtitle
+    projectTitle
+    projectCopyRaw
+    gallery {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    testimonialRaw
+    testimonialAuthor
     slug {
       current
     }

@@ -52,10 +52,24 @@ export type About = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  bodyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  heroImage?: Maybe<Image>;
+  copyImage?: Maybe<Image>;
+  copyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the copy heading */
+  copySubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** H1 */
+  copyTitle?: Maybe<Scalars["String"]["output"]>;
+  introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the intro heading */
+  introSubtitle?: Maybe<Scalars["String"]["output"]>;
+  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  team?: Maybe<Array<Maybe<TeamMember>>>;
+  /** Text above the team members heading */
+  teamSubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** Team title */
+  teamTitle?: Maybe<Scalars["String"]["output"]>;
+  /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -68,9 +82,14 @@ export type AboutFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
+  copyImage?: InputMaybe<ImageFilter>;
+  copySubtitle?: InputMaybe<StringFilter>;
+  copyTitle?: InputMaybe<StringFilter>;
+  introSubtitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
+  teamSubtitle?: InputMaybe<StringFilter>;
+  teamTitle?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -81,9 +100,14 @@ export type AboutSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroImage?: InputMaybe<ImageSorting>;
+  copyImage?: InputMaybe<ImageSorting>;
+  copySubtitle?: InputMaybe<SortOrder>;
+  copyTitle?: InputMaybe<SortOrder>;
+  introSubtitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
+  teamSubtitle?: InputMaybe<SortOrder>;
+  teamTitle?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -116,10 +140,14 @@ export type Contact = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  bodyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  heroImage?: Maybe<Image>;
+  introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the intro heading */
+  introSubtitle?: Maybe<Scalars["String"]["output"]>;
+  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  team?: Maybe<Array<Maybe<TeamMember>>>;
+  /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -132,7 +160,7 @@ export type ContactFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
+  introSubtitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -145,7 +173,7 @@ export type ContactSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroImage?: InputMaybe<ImageSorting>;
+  introSubtitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -527,11 +555,22 @@ export type Project = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  bodyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  heroImage?: Maybe<Image>;
+  gallery?: Maybe<Array<Maybe<Image>>>;
+  /** Text to accompany the hero image */
+  heroHeadline?: Maybe<Scalars["String"]["output"]>;
+  heroImages?: Maybe<Array<Maybe<Image>>>;
   orderRank?: Maybe<Scalars["String"]["output"]>;
+  projectCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the project title */
+  projectSubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** Project title */
+  projectTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  /** Who wrote this testimonial? */
+  testimonialAuthor?: Maybe<Scalars["String"]["output"]>;
+  testimonialRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -544,10 +583,13 @@ export type ProjectFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
+  heroHeadline?: InputMaybe<StringFilter>;
   orderRank?: InputMaybe<StringFilter>;
+  projectSubtitle?: InputMaybe<StringFilter>;
+  projectTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
+  testimonialAuthor?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -558,10 +600,13 @@ export type ProjectSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroImage?: InputMaybe<ImageSorting>;
+  heroHeadline?: InputMaybe<SortOrder>;
   orderRank?: InputMaybe<SortOrder>;
+  projectSubtitle?: InputMaybe<SortOrder>;
+  projectTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
+  testimonialAuthor?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -578,10 +623,13 @@ export type Projects = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  bodyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  heroImage?: Maybe<Image>;
+  introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the intro heading */
+  introSubtitle?: Maybe<Scalars["String"]["output"]>;
+  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -594,7 +642,7 @@ export type ProjectsFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroImage?: InputMaybe<ImageFilter>;
+  introSubtitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -607,7 +655,7 @@ export type ProjectsSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroImage?: InputMaybe<ImageSorting>;
+  introSubtitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -625,6 +673,7 @@ export type RootQuery = {
   Projects?: Maybe<Projects>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
+  TeamMember?: Maybe<TeamMember>;
   allAbout: Array<About>;
   allContact: Array<Contact>;
   allDocument: Array<Document>;
@@ -635,6 +684,7 @@ export type RootQuery = {
   allProjects: Array<Projects>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
+  allTeamMember: Array<TeamMember>;
 };
 
 export type RootQueryAboutArgs = {
@@ -674,6 +724,10 @@ export type RootQuerySanityFileAssetArgs = {
 };
 
 export type RootQuerySanityImageAssetArgs = {
+  id: Scalars["ID"]["input"];
+};
+
+export type RootQueryTeamMemberArgs = {
   id: Scalars["ID"]["input"];
 };
 
@@ -745,6 +799,13 @@ export type RootQueryAllSanityImageAssetArgs = {
   offset?: InputMaybe<Scalars["Int"]["input"]>;
   sort?: InputMaybe<Array<SanityImageAssetSorting>>;
   where?: InputMaybe<SanityImageAssetFilter>;
+};
+
+export type RootQueryAllTeamMemberArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  sort?: InputMaybe<Array<TeamMemberSorting>>;
+  where?: InputMaybe<TeamMemberFilter>;
 };
 
 export type SanityAssetSourceData = {
@@ -1195,6 +1256,57 @@ export type StringFilter = {
   nin?: InputMaybe<Array<Scalars["String"]["input"]>>;
 };
 
+export type TeamMember = Document & {
+  __typename?: "TeamMember";
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** Document ID */
+  _id?: Maybe<Scalars["ID"]["output"]>;
+  _key?: Maybe<Scalars["String"]["output"]>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars["String"]["output"]>;
+  /** Document type */
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  bioRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Email address of the team member */
+  email?: Maybe<Scalars["String"]["output"]>;
+  image?: Maybe<Image>;
+  /** Name of the team member */
+  name?: Maybe<Scalars["String"]["output"]>;
+  /** Phone number of the team member */
+  phone?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type TeamMemberFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  email?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+  name?: InputMaybe<StringFilter>;
+  phone?: InputMaybe<StringFilter>;
+};
+
+export type TeamMemberSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  email?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
+  name?: InputMaybe<SortOrder>;
+  phone?: InputMaybe<SortOrder>;
+};
+
 export type ImageHotspotFragment = {
   __typename?: "SanityImageHotspot";
   x?: number | null | undefined;
@@ -1226,6 +1338,12 @@ export type SeoFragment = {
       }
     | null
     | undefined;
+};
+
+export type ImageAssetFragment = {
+  __typename?: "SanityImageAsset";
+  url?: string | null | undefined;
+  altText?: string | null | undefined;
 };
 
 export type GetLandingQueryVariables = Exact<{ [key: string]: never }>;
@@ -1386,38 +1504,42 @@ export type GetHomeQuery = {
                 | { __typename?: "Slug"; current?: string | null | undefined }
                 | null
                 | undefined;
-              heroImage?:
-                | {
-                    __typename?: "Image";
-                    asset?:
-                      | {
-                          __typename?: "SanityImageAsset";
-                          url?: string | null | undefined;
-                          altText?: string | null | undefined;
-                        }
-                      | null
-                      | undefined;
-                    hotspot?:
-                      | {
-                          __typename?: "SanityImageHotspot";
-                          x?: number | null | undefined;
-                          y?: number | null | undefined;
-                          width?: number | null | undefined;
-                          height?: number | null | undefined;
-                        }
-                      | null
-                      | undefined;
-                    crop?:
-                      | {
-                          __typename?: "SanityImageCrop";
-                          top?: number | null | undefined;
-                          bottom?: number | null | undefined;
-                          left?: number | null | undefined;
-                          right?: number | null | undefined;
-                        }
-                      | null
-                      | undefined;
-                  }
+              heroImages?:
+                | Array<
+                    | {
+                        __typename?: "Image";
+                        asset?:
+                          | {
+                              __typename?: "SanityImageAsset";
+                              url?: string | null | undefined;
+                              altText?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                        hotspot?:
+                          | {
+                              __typename?: "SanityImageHotspot";
+                              x?: number | null | undefined;
+                              y?: number | null | undefined;
+                              width?: number | null | undefined;
+                              height?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                        crop?:
+                          | {
+                              __typename?: "SanityImageCrop";
+                              top?: number | null | undefined;
+                              bottom?: number | null | undefined;
+                              left?: number | null | undefined;
+                              right?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | null
+                    | undefined
+                  >
                 | null
                 | undefined;
             }
@@ -1493,6 +1615,442 @@ export type GetHomeQuery = {
   }>;
 };
 
+export type GetAboutQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetAboutQuery = {
+  __typename?: "RootQuery";
+  allAbout: Array<{
+    __typename?: "About";
+    introSubtitle?: string | null | undefined;
+    introTitleRaw?: any | null | undefined;
+    introCopyRaw?: any | null | undefined;
+    copySubtitle?: string | null | undefined;
+    copyTitle?: string | null | undefined;
+    copyRaw?: any | null | undefined;
+    teamSubtitle?: string | null | undefined;
+    teamTitle?: string | null | undefined;
+    copyImage?:
+      | {
+          __typename?: "Image";
+          asset?:
+            | {
+                __typename?: "SanityImageAsset";
+                url?: string | null | undefined;
+                altText?: string | null | undefined;
+              }
+            | null
+            | undefined;
+          hotspot?:
+            | {
+                __typename?: "SanityImageHotspot";
+                x?: number | null | undefined;
+                y?: number | null | undefined;
+                width?: number | null | undefined;
+                height?: number | null | undefined;
+              }
+            | null
+            | undefined;
+          crop?:
+            | {
+                __typename?: "SanityImageCrop";
+                top?: number | null | undefined;
+                bottom?: number | null | undefined;
+                left?: number | null | undefined;
+                right?: number | null | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    team?:
+      | Array<
+          | {
+              __typename?: "TeamMember";
+              name?: string | null | undefined;
+              email?: string | null | undefined;
+              phone?: string | null | undefined;
+              bioRaw?: any | null | undefined;
+              image?:
+                | {
+                    __typename?: "Image";
+                    asset?:
+                      | {
+                          __typename?: "SanityImageAsset";
+                          url?: string | null | undefined;
+                          altText?: string | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    hotspot?:
+                      | {
+                          __typename?: "SanityImageHotspot";
+                          x?: number | null | undefined;
+                          y?: number | null | undefined;
+                          width?: number | null | undefined;
+                          height?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    crop?:
+                      | {
+                          __typename?: "SanityImageCrop";
+                          top?: number | null | undefined;
+                          bottom?: number | null | undefined;
+                          left?: number | null | undefined;
+                          right?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
+export type GetContactQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetContactQuery = {
+  __typename?: "RootQuery";
+  allContact: Array<{
+    __typename?: "Contact";
+    introSubtitle?: string | null | undefined;
+    introTitleRaw?: any | null | undefined;
+    introCopyRaw?: any | null | undefined;
+    team?:
+      | Array<
+          | {
+              __typename?: "TeamMember";
+              name?: string | null | undefined;
+              email?: string | null | undefined;
+              phone?: string | null | undefined;
+              bioRaw?: any | null | undefined;
+              image?:
+                | {
+                    __typename?: "Image";
+                    asset?:
+                      | {
+                          __typename?: "SanityImageAsset";
+                          url?: string | null | undefined;
+                          altText?: string | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    hotspot?:
+                      | {
+                          __typename?: "SanityImageHotspot";
+                          x?: number | null | undefined;
+                          y?: number | null | undefined;
+                          width?: number | null | undefined;
+                          height?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                    crop?:
+                      | {
+                          __typename?: "SanityImageCrop";
+                          top?: number | null | undefined;
+                          bottom?: number | null | undefined;
+                          left?: number | null | undefined;
+                          right?: number | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
+export type GetProjectSingletonQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetProjectSingletonQuery = {
+  __typename?: "RootQuery";
+  page: Array<{
+    __typename?: "Projects";
+    introSubtitle?: string | null | undefined;
+    introTitleRaw?: any | null | undefined;
+    introCopyRaw?: any | null | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+  projects: Array<{
+    __typename?: "Project";
+    heroHeadline?: string | null | undefined;
+    heroImages?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
+export type GetProjectQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars["String"]["input"]>;
+}>;
+
+export type GetProjectQuery = {
+  __typename?: "RootQuery";
+  project: Array<{
+    __typename?: "Project";
+    heroHeadline?: string | null | undefined;
+    projectSubtitle?: string | null | undefined;
+    projectTitle?: string | null | undefined;
+    projectCopyRaw?: any | null | undefined;
+    testimonialRaw?: any | null | undefined;
+    testimonialAuthor?: string | null | undefined;
+    heroImages?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    gallery?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
 export const ImageHotspotFragmentDoc = gql`
   fragment imageHotspot on SanityImageHotspot {
     x
@@ -1521,14 +2079,19 @@ export const SeoFragmentDoc = gql`
     }
   }
 `;
+export const ImageAssetFragmentDoc = gql`
+  fragment imageAsset on SanityImageAsset {
+    url
+    altText
+  }
+`;
 export const GetLandingDoc = gql`
   query getLanding {
     allLanding {
       title
       landingImage {
         asset {
-          url
-          altText
+          ...imageAsset
         }
         hotspot {
           ...imageHotspot
@@ -1542,6 +2105,7 @@ export const GetLandingDoc = gql`
       }
     }
   }
+  ${ImageAssetFragmentDoc}
   ${ImageHotspotFragmentDoc}
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
@@ -1551,8 +2115,7 @@ export const GetHomeDoc = gql`
     allHome {
       heroImages {
         asset {
-          url
-          altText
+          ...imageAsset
         }
         hotspot {
           ...imageHotspot
@@ -1567,8 +2130,7 @@ export const GetHomeDoc = gql`
       copyRaw
       copyImage {
         asset {
-          url
-          altText
+          ...imageAsset
         }
         hotspot {
           ...imageHotspot
@@ -1583,10 +2145,9 @@ export const GetHomeDoc = gql`
         slug {
           current
         }
-        heroImage {
+        heroImages {
           asset {
-            url
-            altText
+            ...imageAsset
           }
           hotspot {
             ...imageHotspot
@@ -1598,8 +2159,7 @@ export const GetHomeDoc = gql`
       }
       gallery {
         asset {
-          url
-          altText
+          ...imageAsset
         }
         hotspot {
           ...imageHotspot
@@ -1616,8 +2176,180 @@ export const GetHomeDoc = gql`
       }
     }
   }
+  ${ImageAssetFragmentDoc}
   ${ImageHotspotFragmentDoc}
   ${ImageCropFragmentDoc}
+  ${SeoFragmentDoc}
+`;
+export const GetAboutDoc = gql`
+  query GetAbout {
+    allAbout {
+      introSubtitle
+      introTitleRaw
+      introCopyRaw
+      copySubtitle
+      copyTitle
+      copyRaw
+      copyImage {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      teamSubtitle
+      teamTitle
+      team {
+        name
+        email
+        phone
+        bioRaw
+        image {
+          asset {
+            ...imageAsset
+          }
+          hotspot {
+            ...imageHotspot
+          }
+          crop {
+            ...imageCrop
+          }
+        }
+      }
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ImageAssetFragmentDoc}
+  ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${SeoFragmentDoc}
+`;
+export const GetContactDoc = gql`
+  query GetContact {
+    allContact {
+      introSubtitle
+      introTitleRaw
+      introCopyRaw
+      team {
+        name
+        email
+        phone
+        bioRaw
+        image {
+          asset {
+            ...imageAsset
+          }
+          hotspot {
+            ...imageHotspot
+          }
+          crop {
+            ...imageCrop
+          }
+        }
+      }
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ImageAssetFragmentDoc}
+  ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${SeoFragmentDoc}
+`;
+export const GetProjectSingletonDoc = gql`
+  query GetProjectSingleton {
+    page: allProjects {
+      introSubtitle
+      introTitleRaw
+      introCopyRaw
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+    projects: allProject {
+      heroImages {
+        asset {
+          ...imageAsset
+        }
+        crop {
+          ...imageCrop
+        }
+        hotspot {
+          ...imageHotspot
+        }
+      }
+      heroHeadline
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${SeoFragmentDoc}
+  ${ImageAssetFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${ImageHotspotFragmentDoc}
+`;
+export const GetProjectDoc = gql`
+  query GetProject($slug: String) {
+    project: allProject(where: { slug: { current: { eq: $slug } } }) {
+      heroImages {
+        asset {
+          ...imageAsset
+        }
+        crop {
+          ...imageCrop
+        }
+        hotspot {
+          ...imageHotspot
+        }
+      }
+      heroHeadline
+      projectSubtitle
+      projectTitle
+      projectCopyRaw
+      gallery {
+        asset {
+          ...imageAsset
+        }
+        crop {
+          ...imageCrop
+        }
+        hotspot {
+          ...imageHotspot
+        }
+      }
+      testimonialRaw
+      testimonialAuthor
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ImageAssetFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${ImageHotspotFragmentDoc}
   ${SeoFragmentDoc}
 `;
 export const getLanding = (
@@ -1666,6 +2398,140 @@ export const GetHome = (
   var result = readable<
     ApolloQueryResult<GetHomeQuery> & {
       query: ObservableQuery<GetHomeQuery, GetHomeQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetAbout = (
+  options: Omit<WatchQueryOptions<GetAboutQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetAboutQuery> & {
+    query: ObservableQuery<GetAboutQuery, GetAboutQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetAboutDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetAboutQuery> & {
+      query: ObservableQuery<GetAboutQuery, GetAboutQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetContact = (
+  options: Omit<WatchQueryOptions<GetContactQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetContactQuery> & {
+    query: ObservableQuery<GetContactQuery, GetContactQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetContactDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetContactQuery> & {
+      query: ObservableQuery<GetContactQuery, GetContactQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetProjectSingleton = (
+  options: Omit<WatchQueryOptions<GetProjectSingletonQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetProjectSingletonQuery> & {
+    query: ObservableQuery<
+      GetProjectSingletonQuery,
+      GetProjectSingletonQueryVariables
+    >;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetProjectSingletonDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetProjectSingletonQuery> & {
+      query: ObservableQuery<
+        GetProjectSingletonQuery,
+        GetProjectSingletonQueryVariables
+      >;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetProject = (
+  options: Omit<WatchQueryOptions<GetProjectQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetProjectQuery> & {
+    query: ObservableQuery<GetProjectQuery, GetProjectQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetProjectDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetProjectQuery> & {
+      query: ObservableQuery<GetProjectQuery, GetProjectQueryVariables>;
     }
   >(
     {
