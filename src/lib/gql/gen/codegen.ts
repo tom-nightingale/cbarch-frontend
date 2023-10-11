@@ -1332,7 +1332,11 @@ export type SeoFragment = {
     | {
         __typename?: "Image";
         asset?:
-          | { __typename?: "SanityImageAsset"; url?: string | null | undefined }
+          | {
+              __typename?: "SanityImageAsset";
+              url?: string | null | undefined;
+              altText?: string | null | undefined;
+            }
           | null
           | undefined;
       }
@@ -1400,6 +1404,7 @@ export type GetLandingQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -1603,6 +1608,7 @@ export type GetHomeQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -1728,6 +1734,7 @@ export type GetAboutQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -1814,6 +1821,7 @@ export type GetContactQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -1852,6 +1860,7 @@ export type GetProjectSingletonQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -1920,6 +1929,7 @@ export type GetProjectSingletonQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -2039,6 +2049,7 @@ export type GetProjectQuery = {
                   | {
                       __typename?: "SanityImageAsset";
                       url?: string | null | undefined;
+                      altText?: string | null | undefined;
                     }
                   | null
                   | undefined;
@@ -2075,6 +2086,7 @@ export const SeoFragmentDoc = gql`
     shareGraphic {
       asset {
         url
+        altText
       }
     }
   }

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import type { MetaModel } from "./Meta.models";
-  import { getImageDimensions } from "@sanity/asset-utils";
 
   export let seo: MetaModel;
 
@@ -14,10 +13,6 @@
     document.head
       .querySelectorAll("link[data-svelte]")
       .forEach((f) => f.remove());
-  });
-
-  const { height, width } = getImageDimensions({
-    url: shareGraphic && shareGraphic.src ? shareGraphic.src : "",
   });
 </script>
 
@@ -34,16 +29,14 @@
     <meta name="twitter:description" content={description} />
   {/if}
 
-  {#if shareGraphic && shareGraphic.src}
+  {#if shareGraphic && shareGraphic.url}
     <meta
       property="og:image"
-      content={shareGraphic.src
-        ? shareGraphic.src
+      content={shareGraphic.url
+        ? shareGraphic.url
         : "https://res.cloudinary.com/thisissoon/default-meta"}
     />
     <meta property="og:image:alt" content={shareGraphic?.alt} />
-    <meta property="og:image:width" content={width.toString()} />
-    <meta property="og:image:height" content={height.toString()} />
     <meta
       name="twitter:image"
       content={shareGraphic.src

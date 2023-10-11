@@ -1,12 +1,12 @@
+import type { SanityImageAsset } from "$lib/gql/gen/codegen";
+
 export interface MetaModel {
   title?: string;
   description?: string;
-  keywords?: string[];
+  keywords?: (string | null | undefined)[] | undefined;
   shareGraphic?: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
+    url?: string | null | undefined;
+    alt?: string;
   };
   ogType?: string;
 }

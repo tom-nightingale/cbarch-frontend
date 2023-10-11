@@ -3,6 +3,8 @@ import client from "$lib/gql/apolloClient";
 import type { GetProjectQuery } from "$lib/gql/gen/codegen";
 import { GetProjectDoc } from "$lib/gql/gen/codegen";
 
+export const prerender = "auto";
+
 export async function load({ params }) {
   const data = await client.query<GetProjectQuery>({
     query: GetProjectDoc,
