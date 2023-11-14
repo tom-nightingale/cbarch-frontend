@@ -4,8 +4,8 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
 
-  export let testimonial: string = "";
-  export let author: string = "";
+  export let testimonial: string | null | undefined;
+  export let author: string | null | undefined;
 </script>
 
 <div

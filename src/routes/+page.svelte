@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
-  import Home from "$lib/layouts/Home/Home.svelte";
   import Seo from "$lib/components/Seo/Seo.svelte";
+  import Home from "$lib/layouts/Home/Home.svelte";
 
   export let data: PageData;
 

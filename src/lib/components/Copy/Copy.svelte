@@ -43,7 +43,7 @@
 <style>
   .prose {
     :global(p) {
-      @apply mb-8;
+      @apply mb-8 last:mb-0;
     }
   }
 </style>

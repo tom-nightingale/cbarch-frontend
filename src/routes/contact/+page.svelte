@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
+  import Contact from "$lib/layouts/Contact/Contact.svelte";
 
   export let data: PageData;
 
@@ -8,8 +9,6 @@
 
   $: page = data.data;
 </script>
-
-<div class="flex flex-col justify-center align-center">Contact page.</div>
 
 <Seo
   seo={{
@@ -20,4 +19,10 @@
       ? page.seo?.shareGraphic?.asset
       : undefined,
   }}
+/>
+
+<Contact
+  introTitle={page.introTitle}
+  introSubtitle={page.introSubtitle}
+  introCopy={page.introCopyRaw}
 />

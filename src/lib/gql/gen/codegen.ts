@@ -61,7 +61,8 @@ export type About = Document & {
   introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Text above the intro heading */
   introSubtitle?: Maybe<Scalars["String"]["output"]>;
-  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Introduction title at the top of the page */
+  introTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
   team?: Maybe<Array<Maybe<TeamMember>>>;
@@ -86,6 +87,7 @@ export type AboutFilter = {
   copySubtitle?: InputMaybe<StringFilter>;
   copyTitle?: InputMaybe<StringFilter>;
   introSubtitle?: InputMaybe<StringFilter>;
+  introTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   teamSubtitle?: InputMaybe<StringFilter>;
@@ -104,6 +106,7 @@ export type AboutSorting = {
   copySubtitle?: InputMaybe<SortOrder>;
   copyTitle?: InputMaybe<SortOrder>;
   introSubtitle?: InputMaybe<SortOrder>;
+  introTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   teamSubtitle?: InputMaybe<SortOrder>;
@@ -140,10 +143,12 @@ export type Contact = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  gallery?: Maybe<Array<Maybe<Image>>>;
   introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Text above the intro heading */
   introSubtitle?: Maybe<Scalars["String"]["output"]>;
-  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Introduction title at the top of the page */
+  introTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
   team?: Maybe<Array<Maybe<TeamMember>>>;
@@ -161,6 +166,7 @@ export type ContactFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   introSubtitle?: InputMaybe<StringFilter>;
+  introTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -174,6 +180,7 @@ export type ContactSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   introSubtitle?: InputMaybe<SortOrder>;
+  introTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -637,7 +644,8 @@ export type Projects = Document & {
   introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Text above the intro heading */
   introSubtitle?: Maybe<Scalars["String"]["output"]>;
-  introTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Introduction title at the top of the page */
+  introTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
   /** Only used to generate the slug. */
@@ -654,6 +662,7 @@ export type ProjectsFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   introSubtitle?: InputMaybe<StringFilter>;
+  introTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -667,6 +676,7 @@ export type ProjectsSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   introSubtitle?: InputMaybe<SortOrder>;
+  introTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -1641,7 +1651,7 @@ export type GetAboutQuery = {
   allAbout: Array<{
     __typename?: "About";
     introSubtitle?: string | null | undefined;
-    introTitleRaw?: any | null | undefined;
+    introTitle?: string | null | undefined;
     introCopyRaw?: any | null | undefined;
     copySubtitle?: string | null | undefined;
     copyTitle?: string | null | undefined;
@@ -1767,7 +1777,7 @@ export type GetContactQuery = {
   allContact: Array<{
     __typename?: "Contact";
     introSubtitle?: string | null | undefined;
-    introTitleRaw?: any | null | undefined;
+    introTitle?: string | null | undefined;
     introCopyRaw?: any | null | undefined;
     team?:
       | Array<
@@ -1817,6 +1827,44 @@ export type GetContactQuery = {
         >
       | null
       | undefined;
+    gallery?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
     slug?:
       | { __typename?: "Slug"; current?: string | null | undefined }
       | null
@@ -1854,7 +1902,7 @@ export type GetProjectSingletonQuery = {
   page: Array<{
     __typename?: "Projects";
     introSubtitle?: string | null | undefined;
-    introTitleRaw?: any | null | undefined;
+    introTitle?: string | null | undefined;
     introCopyRaw?: any | null | undefined;
     slug?:
       | { __typename?: "Slug"; current?: string | null | undefined }
@@ -2212,7 +2260,7 @@ export const GetAboutDoc = gql`
   query GetAbout {
     allAbout {
       introSubtitle
-      introTitleRaw
+      introTitle
       introCopyRaw
       copySubtitle
       copyTitle
@@ -2264,7 +2312,7 @@ export const GetContactDoc = gql`
   query GetContact {
     allContact {
       introSubtitle
-      introTitleRaw
+      introTitle
       introCopyRaw
       team {
         name
@@ -2281,6 +2329,17 @@ export const GetContactDoc = gql`
           crop {
             ...imageCrop
           }
+        }
+      }
+      gallery {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
         }
       }
       slug {
@@ -2300,7 +2359,7 @@ export const GetProjectSingletonDoc = gql`
   query GetProjectSingleton {
     page: allProjects {
       introSubtitle
-      introTitleRaw
+      introTitle
       introCopyRaw
       slug {
         current

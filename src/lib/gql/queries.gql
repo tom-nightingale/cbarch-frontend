@@ -120,7 +120,7 @@ query GetHome {
 query GetAbout {
   allAbout {
     introSubtitle
-    introTitleRaw
+    introTitle
     introCopyRaw
     copySubtitle
     copyTitle
@@ -167,7 +167,7 @@ query GetAbout {
 query GetContact {
   allContact {
     introSubtitle
-    introTitleRaw
+    introTitle
     introCopyRaw
     team {
       name
@@ -186,6 +186,17 @@ query GetContact {
         }
       }
     }
+    gallery {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
     slug {
       current
     }
@@ -198,7 +209,7 @@ query GetContact {
 query GetProjectSingleton {
   page: allProjects {
     introSubtitle
-    introTitleRaw
+    introTitle
     introCopyRaw
     slug {
       current

@@ -5,9 +5,9 @@
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
 
-  export let name = "White Post Street";
-  export let images: ImageType[] = [];
-  export let slug = "";
+  export let name: string | null | undefined = "White Post Street";
+  export let images: ImageType[] | any[] | boolean = [];
+  export let slug: string | null | undefined = "";
 </script>
 
 <div class="bg-blue-light px-4 py-[45px]">
