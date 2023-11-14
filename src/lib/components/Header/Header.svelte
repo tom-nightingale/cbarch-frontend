@@ -9,7 +9,7 @@
 
 <div class="bg-white">
   <Container>
-    <div class="flex items-center justify-between p-4">
+    <div class="flex items-center justify-between p-8 px-4 md:px-8">
       <a class="hover:opacity-90" href="/">
         <Logo />
       </a>

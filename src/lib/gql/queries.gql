@@ -64,7 +64,7 @@ query GetHome {
     }
     heroHeadline
     copySubtitle
-    copyTitleRaw
+    copyTitle
     copyRaw
     copyImage {
       asset {
@@ -95,6 +95,8 @@ query GetHome {
         }
       }
     }
+    testimonial
+    testimonialAuthor
     gallery {
       asset {
         ...imageAsset

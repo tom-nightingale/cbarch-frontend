@@ -1,6 +1,5 @@
 <script>
   import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-  import { mockSeoData } from "$lib/data/mockSeoData";
   import { mockGallery, mockImage } from "$lib/data/mockImage";
   import Home from "./Home.svelte";
 </script>
@@ -14,7 +13,6 @@
 <Story
   name="Primary"
   args={{
-    seo: mockSeoData,
     heroImages: [mockImage, mockImage, mockImage, mockImage],
     heroTitle: "From inception, to completion",
     testimonial:

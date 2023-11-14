@@ -13,7 +13,6 @@
       blockContent.push(extractMarks(portableText.value.markDefs, child));
     });
 
-    console.log("block content", blockContent);
     let blockContentJoined = blockContent.join("");
     text = blockContentJoined;
   }

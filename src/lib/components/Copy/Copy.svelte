@@ -30,7 +30,8 @@
         h2: Heading,
         //@ts-ignore
         h3: Heading,
-        // quote: Quote,
+        //@ts-ignore
+        h4: Heading,
       },
       listItem: {
         normal: ListItem,
@@ -38,3 +39,11 @@
     }}
   />
 </div>
+
+<style>
+  .prose {
+    :global(p) {
+      @apply mb-8;
+    }
+  }
+</style>

@@ -397,7 +397,8 @@ export type Home = Document & {
   copyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Text above the copy heading */
   copySubtitle?: Maybe<Scalars["String"]["output"]>;
-  copyTitleRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** H1 */
+  copyTitle?: Maybe<Scalars["String"]["output"]>;
   featuredProjects?: Maybe<Array<Maybe<Project>>>;
   gallery?: Maybe<Array<Maybe<Image>>>;
   /** Text to accompany the hero image */
@@ -407,6 +408,10 @@ export type Home = Document & {
   projectsSubtitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  /** Testimonial to display on the homepage */
+  testimonial?: Maybe<Scalars["String"]["output"]>;
+  /** The author of the testimonial */
+  testimonialAuthor?: Maybe<Scalars["String"]["output"]>;
   /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
@@ -422,10 +427,13 @@ export type HomeFilter = {
   _updatedAt?: InputMaybe<DatetimeFilter>;
   copyImage?: InputMaybe<ImageFilter>;
   copySubtitle?: InputMaybe<StringFilter>;
+  copyTitle?: InputMaybe<StringFilter>;
   heroHeadline?: InputMaybe<StringFilter>;
   projectsSubtitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
+  testimonial?: InputMaybe<StringFilter>;
+  testimonialAuthor?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -438,10 +446,13 @@ export type HomeSorting = {
   _updatedAt?: InputMaybe<SortOrder>;
   copyImage?: InputMaybe<ImageSorting>;
   copySubtitle?: InputMaybe<SortOrder>;
+  copyTitle?: InputMaybe<SortOrder>;
   heroHeadline?: InputMaybe<SortOrder>;
   projectsSubtitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
+  testimonial?: InputMaybe<SortOrder>;
+  testimonialAuthor?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -1425,9 +1436,11 @@ export type GetHomeQuery = {
     __typename?: "Home";
     heroHeadline?: string | null | undefined;
     copySubtitle?: string | null | undefined;
-    copyTitleRaw?: any | null | undefined;
+    copyTitle?: string | null | undefined;
     copyRaw?: any | null | undefined;
     projectsSubtitle?: string | null | undefined;
+    testimonial?: string | null | undefined;
+    testimonialAuthor?: string | null | undefined;
     heroImages?:
       | Array<
           | {
@@ -2138,7 +2151,7 @@ export const GetHomeDoc = gql`
       }
       heroHeadline
       copySubtitle
-      copyTitleRaw
+      copyTitle
       copyRaw
       copyImage {
         asset {
@@ -2169,6 +2182,8 @@ export const GetHomeDoc = gql`
           }
         }
       }
+      testimonial
+      testimonialAuthor
       gallery {
         asset {
           ...imageAsset

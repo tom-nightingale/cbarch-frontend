@@ -8,8 +8,8 @@
   import { register } from "swiper/element/bundle";
   import "swiper/css/autoplay";
 
-  export let images: ImageType[];
-  export let title = "From inception, to completion.";
+  export let images: ImageType[] | null | undefined;
+  export let title: string | null | undefined;
 
   let swiperEl: any;
 
@@ -82,7 +82,7 @@
     {/if}
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full py-[35px] px-[25px] bg-white/80 z-20"
+    class="absolute bottom-0 left-0 w-full py-[35px] px-4 md:px-8 bg-white/80 z-20"
   >
     <Typography component="p" variant="title1" theme="text-blue"
       >{title}</Typography

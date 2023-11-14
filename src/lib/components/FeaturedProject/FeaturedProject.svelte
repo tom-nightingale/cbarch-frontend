@@ -5,8 +5,9 @@
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
 
-  export let projectName = "White Post Street";
+  export let name = "White Post Street";
   export let images: ImageType[] = [];
+  export let slug = "";
 </script>
 
 <div class="bg-blue-light px-4 py-[45px]">
@@ -15,11 +16,15 @@
 
     <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-start">
       <Typography component="h3" variant="headline1"
-        >Featured Project - {projectName}</Typography
+        >Featured Project - {name}</Typography
       >
 
       <div class="lg:ml-auto">
-        <Button href="/projects" label="View project" theme="secondary" />
+        <Button
+          href={`/projects/${slug}`}
+          label="View project"
+          theme="secondary"
+        />
       </div>
     </div>
 

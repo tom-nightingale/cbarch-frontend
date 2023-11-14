@@ -1,6 +1,5 @@
 <script lang="ts">
   import Typography from "$lib/components/Typography/Typography.svelte";
-  import logo from "$lib/assets/cb-initials.png";
   import Button from "$lib/components/Button/Button.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
@@ -24,7 +23,7 @@
       </div>
 
       <div class="mt-[52px]">
-        <Button theme="tertiary" href="/about-us" label="Our testimonials" />
+        <Button theme="tertiary" href="/about" label="Our testimonials" />
       </div>
     </div>
   </Container>

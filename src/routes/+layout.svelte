@@ -1,13 +1,15 @@
 <script>
   import "$lib/styles/app.css";
   import PageTransition from "$lib/components/PageTransition/PageTransition.svelte";
-  // import Header from "$lib/components/Header/Header.svelte";
+  import Header from "$lib/components/Header/Header.svelte";
+  import Footer from "$lib/components/Footer/Footer.svelte";
   // import MobileMenu from "$lib/components/MobileMenu/MobileMenu.svelte";
   export let data;
 </script>
 
-<!-- <Header /> -->
+<Header />
 <!-- <MobileMenu /> -->
 <PageTransition pathname={data.url}>
   <slot />
 </PageTransition>
+<Footer />
