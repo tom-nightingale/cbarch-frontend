@@ -4506,18 +4506,6 @@
             "deprecationReason": null
           },
           {
-            "name": "heroHeadline",
-            "description": "Text to accompany the hero image",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "heroImages",
             "description": null,
             "args": [],
@@ -4558,8 +4546,8 @@
             "deprecationReason": null
           },
           {
-            "name": "projectSubtitle",
-            "description": "Text above the project title",
+            "name": "projectInvolvement",
+            "description": "Involvement in the project",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -4570,8 +4558,20 @@
             "deprecationReason": null
           },
           {
-            "name": "projectTitle",
-            "description": "Project title",
+            "name": "projectLocation",
+            "description": "Location of the project",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projectValue",
+            "description": "Value of the project",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -4631,7 +4631,7 @@
           },
           {
             "name": "title",
-            "description": "Only used to generate the slug.",
+            "description": "Project title",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -4744,18 +4744,6 @@
             "deprecationReason": null
           },
           {
-            "name": "heroHeadline",
-            "description": null,
-            "type": {
-              "kind": "INPUT_OBJECT",
-              "name": "StringFilter",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "orderRank",
             "description": null,
             "type": {
@@ -4768,7 +4756,7 @@
             "deprecationReason": null
           },
           {
-            "name": "projectSubtitle",
+            "name": "projectInvolvement",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -4780,7 +4768,19 @@
             "deprecationReason": null
           },
           {
-            "name": "projectTitle",
+            "name": "projectLocation",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projectValue",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -4923,18 +4923,6 @@
             "deprecationReason": null
           },
           {
-            "name": "heroHeadline",
-            "description": null,
-            "type": {
-              "kind": "ENUM",
-              "name": "SortOrder",
-              "ofType": null
-            },
-            "defaultValue": null,
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "orderRank",
             "description": null,
             "type": {
@@ -4947,7 +4935,7 @@
             "deprecationReason": null
           },
           {
-            "name": "projectSubtitle",
+            "name": "projectInvolvement",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -4959,7 +4947,19 @@
             "deprecationReason": null
           },
           {
-            "name": "projectTitle",
+            "name": "projectLocation",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortOrder",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projectValue",
             "description": null,
             "type": {
               "kind": "ENUM",

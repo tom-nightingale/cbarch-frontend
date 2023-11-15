@@ -230,7 +230,8 @@ query GetProjectSingleton {
         ...imageHotspot
       }
     }
-    heroHeadline
+    title
+    projectLocation
     slug {
       current
     }
@@ -253,10 +254,11 @@ query GetProject($slug: String) {
         ...imageHotspot
       }
     }
-    heroHeadline
-    projectSubtitle
-    projectTitle
+    title
     projectCopyRaw
+    projectLocation
+    projectValue
+    projectInvolvement
     gallery {
       asset {
         ...imageAsset

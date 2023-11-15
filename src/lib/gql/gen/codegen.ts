@@ -574,21 +574,21 @@ export type Project = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
   gallery?: Maybe<Array<Maybe<Image>>>;
-  /** Text to accompany the hero image */
-  heroHeadline?: Maybe<Scalars["String"]["output"]>;
   heroImages?: Maybe<Array<Maybe<Image>>>;
   orderRank?: Maybe<Scalars["String"]["output"]>;
   projectCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  /** Text above the project title */
-  projectSubtitle?: Maybe<Scalars["String"]["output"]>;
-  /** Project title */
-  projectTitle?: Maybe<Scalars["String"]["output"]>;
+  /** Involvement in the project */
+  projectInvolvement?: Maybe<Scalars["String"]["output"]>;
+  /** Location of the project */
+  projectLocation?: Maybe<Scalars["String"]["output"]>;
+  /** Value of the project */
+  projectValue?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
   /** Who wrote this testimonial? */
   testimonialAuthor?: Maybe<Scalars["String"]["output"]>;
   testimonialRaw?: Maybe<Scalars["JSON"]["output"]>;
-  /** Only used to generate the slug. */
+  /** Project title */
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
@@ -601,10 +601,10 @@ export type ProjectFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  heroHeadline?: InputMaybe<StringFilter>;
   orderRank?: InputMaybe<StringFilter>;
-  projectSubtitle?: InputMaybe<StringFilter>;
-  projectTitle?: InputMaybe<StringFilter>;
+  projectInvolvement?: InputMaybe<StringFilter>;
+  projectLocation?: InputMaybe<StringFilter>;
+  projectValue?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   testimonialAuthor?: InputMaybe<StringFilter>;
@@ -618,10 +618,10 @@ export type ProjectSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  heroHeadline?: InputMaybe<SortOrder>;
   orderRank?: InputMaybe<SortOrder>;
-  projectSubtitle?: InputMaybe<SortOrder>;
-  projectTitle?: InputMaybe<SortOrder>;
+  projectInvolvement?: InputMaybe<SortOrder>;
+  projectLocation?: InputMaybe<SortOrder>;
+  projectValue?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   testimonialAuthor?: InputMaybe<SortOrder>;
@@ -1934,7 +1934,8 @@ export type GetProjectSingletonQuery = {
   }>;
   projects: Array<{
     __typename?: "Project";
-    heroHeadline?: string | null | undefined;
+    title?: string | null | undefined;
+    projectLocation?: string | null | undefined;
     heroImages?:
       | Array<
           | {
@@ -2011,10 +2012,11 @@ export type GetProjectQuery = {
   __typename?: "RootQuery";
   project: Array<{
     __typename?: "Project";
-    heroHeadline?: string | null | undefined;
-    projectSubtitle?: string | null | undefined;
-    projectTitle?: string | null | undefined;
+    title?: string | null | undefined;
     projectCopyRaw?: any | null | undefined;
+    projectLocation?: string | null | undefined;
+    projectValue?: string | null | undefined;
+    projectInvolvement?: string | null | undefined;
     testimonialRaw?: any | null | undefined;
     testimonialAuthor?: string | null | undefined;
     heroImages?:
@@ -2380,7 +2382,8 @@ export const GetProjectSingletonDoc = gql`
           ...imageHotspot
         }
       }
-      heroHeadline
+      title
+      projectLocation
       slug {
         current
       }
@@ -2408,10 +2411,11 @@ export const GetProjectDoc = gql`
           ...imageHotspot
         }
       }
-      heroHeadline
-      projectSubtitle
-      projectTitle
+      title
       projectCopyRaw
+      projectLocation
+      projectValue
+      projectInvolvement
       gallery {
         asset {
           ...imageAsset

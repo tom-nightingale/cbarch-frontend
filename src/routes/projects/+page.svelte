@@ -1,9 +1,14 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
+  import Archive from "$lib/layouts/Projects/Archive.svelte";
 
   export let data: PageData;
   $: page = data.page;
+  $: projects = data.projects;
+
+  $: console.log(page);
+  $: console.log(projects);
 </script>
 
 <Seo
@@ -17,6 +22,4 @@
   }}
 />
 
-<div class="flex flex-col justify-center align-center">
-  Projects archive page.
-</div>
+<Archive title={page.introTitle} {projects} />
