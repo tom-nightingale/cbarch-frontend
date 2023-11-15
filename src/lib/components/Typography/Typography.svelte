@@ -95,6 +95,10 @@
 <style>
   .heading {
     @apply leading-[41px];
+
+    :global(span) {
+      @apply text-blue;
+    }
   }
 
   .title1 {
@@ -106,10 +110,6 @@
   .headline1,
   .h1 {
     @apply text-[30px] font-heading font-bold;
-
-    :global(span) {
-      @apply text-blue;
-    }
   }
 
   .headline2,

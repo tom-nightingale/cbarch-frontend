@@ -25,4 +25,6 @@
   introTitle={page.introTitle}
   introSubtitle={page.introSubtitle}
   introCopy={page.introCopyRaw}
+  images={page.gallery}
+  teamMembers={page.team}
 />
