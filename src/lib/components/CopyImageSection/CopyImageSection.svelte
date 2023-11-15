@@ -48,12 +48,12 @@
         lgImg={true}
         lgSizes={{
           lg: {
-            width: 2560,
-            height: 1376,
+            width: 1600,
+            height: 1200,
           },
           md: {
             width: 1600,
-            height: 1101,
+            height: 1200,
           },
           sm: {
             width: 1280,
@@ -68,7 +68,7 @@
             height: 768,
           },
         }}
-        pictureClasses="block aspect-square lg:aspect-auto self-center"
+        pictureClasses="block self-center"
       />
     {/if}
   </div>

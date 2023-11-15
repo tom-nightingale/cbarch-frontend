@@ -7,7 +7,7 @@
   import { NavItems } from "$lib/data/NavItems";
 </script>
 
-<div class="bg-white">
+<div class="fixed top-0 left-0 z-50 w-full bg-white">
   <Container>
     <div class="flex items-center justify-between p-8 px-4 md:px-8">
       <a class="hover:opacity-90" href="/">

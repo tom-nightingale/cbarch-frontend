@@ -32,8 +32,8 @@
   });
 </script>
 
-<div class="relative w-full min-h-screen">
-  <div class="relative min-h-screen bg-gray-100">
+<div class="relative w-full">
+  <div class="relative overflow-hidden bg-gray-100">
     {#if images && images.length > 0}
       <swiper-container
         init="false"
@@ -57,7 +57,7 @@
                   },
                   md: {
                     width: 1600,
-                    height: 1200,
+                    height: 760,
                   },
                   sm: {
                     width: 1280,
@@ -73,7 +73,7 @@
                   },
                 }}
                 pictureClasses="block"
-                imageClasses="object-cover object-center min-h-screen w-full"
+                imageClasses="object-cover object-center w-full"
               />
             </div>
           </swiper-slide>

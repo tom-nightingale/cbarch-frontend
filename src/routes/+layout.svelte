@@ -10,6 +10,8 @@
 <Header />
 <!-- <MobileMenu /> -->
 <PageTransition pathname={data.url}>
-  <slot />
+  <div class="pt-28">
+    <slot />
+  </div>
 </PageTransition>
 <Footer />

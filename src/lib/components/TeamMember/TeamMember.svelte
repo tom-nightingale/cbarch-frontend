@@ -13,7 +13,41 @@
 
 <div class="bg-blue-light p-[30px]">
   <div class="grid lg:grid-cols-2">
-    <div class="min-h-[490px] bg-white">image</div>
+    <div class="bg-white">
+      {#if image && image.asset}
+        <Image
+          {image}
+          altText={image?.asset?.altText
+            ? image?.asset?.altText
+            : "Coleflax Bennett Architecture"}
+          lgImg={true}
+          lgSizes={{
+            lg: {
+              width: 1000,
+              height: 1200,
+            },
+            md: {
+              width: 800,
+              height: 1200,
+            },
+            sm: {
+              width: 800,
+              height: 1000,
+            },
+            xs: {
+              width: 768,
+              height: 500,
+            },
+            fallback: {
+              width: 768,
+              height: 768,
+            },
+          }}
+          pictureClasses="block object-center object-cover self-center"
+        />
+      {/if}
+    </div>
+
     <div class="bg-blue p-[25px] text-white grid">
       <div class="mt-auto">
         <Typography component="h1" variant="headline1" theme="mb-2"
