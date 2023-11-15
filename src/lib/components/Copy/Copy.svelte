@@ -4,12 +4,10 @@
   import Heading from "$lib/components/Copy/Heading.svelte";
   import ListItem from "$lib/components/Copy/ListItem.svelte";
 
-  export let content: [] = [];
+  export let content: any = [];
 </script>
 
 <div class="prose">
-  <!-- <PortableText value={content} /> -->
-
   <PortableText
     value={content}
     onMissingComponent={false}

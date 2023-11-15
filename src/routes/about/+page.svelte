@@ -29,4 +29,7 @@
   copySubtitle={page.copySubtitle}
   copy={page.copyRaw}
   copyImage={page.copyImage}
+  teamTitle={page.teamTitle}
+  teamSubtitle={page.teamSubtitle}
+  team={page.team}
 />

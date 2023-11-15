@@ -12,12 +12,23 @@
 </script>
 
 <div class="bg-blue-light p-[30px]">
-  <div class="grid grid-cols-2">
-    <div class="">image</div>
-    <div class="">
-      <Typography component="h1" variant="headline1">{name}</Typography>
-      <Typography component="p" variant="sub1">{name}</Typography>
-      <Typography component="p" variant="sub1">{name}</Typography>
+  <div class="grid lg:grid-cols-2">
+    <div class="min-h-[490px] bg-white">image</div>
+    <div class="bg-blue p-[25px] text-white grid">
+      <div class="mt-auto">
+        <Typography component="h1" variant="headline1" theme="mb-2"
+          >{name}</Typography
+        >
+        <a href="mailto:{email}">
+          <Typography component="p" variant="sub1">{email}</Typography>
+        </a>
+        <a href="tel:{phone && phone.replaceAll(' ', '')}">
+          <Typography component="p" variant="sub1">{phone}</Typography>
+        </a>
+      </div>
     </div>
+  </div>
+  <div class="mt-[43px]">
+    <Copy content={bio} />
   </div>
 </div>

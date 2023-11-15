@@ -13,8 +13,9 @@
   <h1
     class={`heading ${variant} ${uppercase && "uppercase"} ${
       underline && "underline"
-    } ${bold && "bold"} ${italic && "italic"} ${spaced && "tracking-wide"}`}
-    style="color: var(--{theme})"
+    } ${bold && "bold"} ${italic && "italic"} ${
+      spaced && "tracking-wide"
+    } ${theme}`}
     {...$$props}
   >
     <slot />
