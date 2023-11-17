@@ -119,7 +119,10 @@
 </script>
 
 <picture class={pictureClasses}>
-  <source srcset={`${xlImageUrl}, ${xlImageUrl}`} media="(min-width: 2000px)" />
+  <source
+    srcset={`${xlImageUrl}, ${xlImageUrl2x}`}
+    media="(min-width: 2000px)"
+  />
 
   <source
     srcset={`${lgImageUrl}, ${lgImageUrl2x}`}

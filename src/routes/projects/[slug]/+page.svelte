@@ -21,7 +21,9 @@
 />
 
 <Project
-  heroImages={project.heroImages && project.heroImages}
+  heroImages={project.heroImages &&
+    project.heroImages.length > 0 &&
+    project.heroImages}
   title={`${project.title}`}
   location={project.projectLocation}
   value={project.projectValue}

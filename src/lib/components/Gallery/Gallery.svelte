@@ -6,6 +6,7 @@
   import { browser } from "$app/environment";
 
   export let images: ImageType[] = [];
+  export let square: boolean = false;
 
   const primaryImageSizes = {
     lg: {
@@ -29,6 +30,7 @@
       height: 448,
     },
   };
+
   const secondaryImageSizes = {
     lg: {
       width: 630,
@@ -52,6 +54,29 @@
     },
   };
 
+  const squareImageSizes = {
+    lg: {
+      width: 600,
+      height: 600,
+    },
+    md: {
+      width: 600,
+      height: 600,
+    },
+    sm: {
+      width: 500,
+      height: 500,
+    },
+    xs: {
+      width: 500,
+      height: 500,
+    },
+    fallback: {
+      width: 600,
+      height: 600,
+    },
+  };
+
   onMount(async () => {
     if (browser) {
       // @ts-ignore
@@ -68,13 +93,17 @@
           data-fslightbox="gallery"
           class={`block overflow-hidden
             ${
+              !square &&
               i === 0 &&
               "aspect-[12/7] col-span-2 bg-gray-100 md:col-span-6 md:aspect-auto"
             }
             ${
+              !square &&
               i !== 0 &&
               "aspect-[7/11] bg-gray-100 md:col-span-3 md:aspect-[128/205] w-full"
             }
+
+            ${square && "aspect-square col-span-1 md:col-span-3 w-full"}
           `}
           href={image?.asset?.url}
         >
@@ -84,7 +113,11 @@
               ? image?.asset?.altText
               : "Coleflax Bennett Architecture"}
             lgImg={true}
-            lgSizes={i === 0 ? primaryImageSizes : secondaryImageSizes}
+            lgSizes={square
+              ? squareImageSizes
+              : i === 0
+              ? primaryImageSizes
+              : secondaryImageSizes}
             pictureClasses="overflow-hidden"
             imageClasses="object-cover object-center h-full hover:scale-105 transition duration-500"
           />
