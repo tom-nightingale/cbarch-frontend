@@ -1,10 +1,12 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
+  import Project from "$lib/layouts/Projects/Single.svelte";
 
   export let data: PageData;
 
   $: project = data.data;
+  $: console.log(project);
 </script>
 
 <Seo
@@ -18,6 +20,12 @@
   }}
 />
 
-<div class="flex flex-col justify-center align-center">
-  Project - {project.heroHeadline}
-</div>
+<Project
+  heroImages={project.heroImages && project.heroImages}
+  title={`${project.title}`}
+  location={project.projectLocation}
+  value={project.projectValue}
+  involvement={project.projectInvolvement}
+  gallery={project.gallery}
+  copy={project.projectCopyRaw}
+/>

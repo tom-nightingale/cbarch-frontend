@@ -21,7 +21,7 @@
       : 'max-w-screen-xl'}"
   >
     <div class="mb-12 md:mb-0 self-center {reverse && 'order-2'}">
-      <div class="grid gap-6 mb-8 grid-col">
+      <div class="grid gap-6 mb-8">
         <Typography component="p" variant="sub1" uppercase
           >{subtitle}</Typography
         >

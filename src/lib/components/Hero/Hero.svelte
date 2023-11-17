@@ -10,6 +10,7 @@
 
   export let images: ImageType[] | null | undefined;
   export let title: string | null | undefined;
+  export let isHome: boolean = false;
 
   let swiperEl: any;
 
@@ -82,14 +83,17 @@
     {/if}
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full py-[35px] px-4 md:px-8 bg-white/80 z-20"
+    class="absolute bottom-0 left-0 w-full py-[35px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-between"
   >
-    <Typography component="p" variant="title1" theme="text-blue"
-      >{title}</Typography
+    <Typography
+      component="p"
+      variant={isHome ? "title1" : "title2"}
+      theme="text-blue">{title}</Typography
     >
-
-    <div class="mt-[18px]">
-      <Button label="Our Projects" theme="secondary" href="/projects" />
-    </div>
+    {#if isHome}
+      <div class="mt-[18px]">
+        <Button label="Our Projects" theme="secondary" href="/projects" />
+      </div>
+    {/if}
   </div>
 </div>

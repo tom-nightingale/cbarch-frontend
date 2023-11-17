@@ -39,7 +39,8 @@
           height: 768,
         },
       }}
-      pictureClasses="block"
+      pictureClasses="block overflow-hidden"
+      imageClasses="object-cover object-center h-full hover:scale-105 transition duration-500"
     />
   {/if}
 

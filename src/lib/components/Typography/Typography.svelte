@@ -103,9 +103,15 @@
   }
 
   .title1 {
-    @apply text-[40px] leading-[45px] font-extralight;
+    @apply text-[40px] leading-[45px] font-heading;
     @apply md:leading-normal;
     @apply lg:text-[65px];
+  }
+
+  .title2 {
+    @apply text-[40px] leading-[45px] font-heading;
+    @apply md:leading-normal;
+    @apply lg:text-[50px];
   }
 
   .headline1,
@@ -120,7 +126,7 @@
 
   .headline3,
   .h3 {
-    @apply text-[22px] font-heading font-bold;
+    @apply text-[22px] leading-snug font-heading font-bold;
   }
 
   .headline4,
