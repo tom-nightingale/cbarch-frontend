@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
-  import { browser } from "$app/environment";
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
@@ -78,19 +77,24 @@
   };
 
   onMount(async () => {
-    if (browser) {
-      // @ts-ignore
-      const fslightbox = await import("fslightbox");
-    }
+    // @ts-ignore
+    const lightbox = new FsLightbox();
   });
 </script>
+
+<svelte:head>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.js"
+    defer
+  ></script>
+</svelte:head>
 
 {#if images && images.length > 0}
   <Container>
     <div class="grid grid-cols-2 gap-2 px-4 py-14 md:grid-cols-12">
       {#each images as image, i}
         <a
-          data-fslightbox="gallery"
+          data-fslightbox
           class={`block overflow-hidden
             ${
               !square &&

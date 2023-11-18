@@ -67,7 +67,6 @@
     "@sanity/client": "^6.1.7",
     "@sanity/image-url": "^1.0.2",
     "@storybook/cli": "^7.4.0",
-    "fslightbox": "^3.4.1",
     "graphql": "^16.7.1",
     "graphql-codegen-svelte-apollo": "^1.1.0",
     "groq": "^3.14.3",

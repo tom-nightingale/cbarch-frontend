@@ -6,7 +6,6 @@
   export let data: PageData;
 
   $: project = data.data;
-  $: console.log(project);
 </script>
 
 <Seo

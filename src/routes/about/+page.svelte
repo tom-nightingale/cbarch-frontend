@@ -5,8 +5,6 @@
 
   export let data: PageData;
 
-  $: console.log("data", data);
-
   $: page = data.data;
 </script>
 

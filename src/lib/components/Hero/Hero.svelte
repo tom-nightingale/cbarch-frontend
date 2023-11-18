@@ -26,9 +26,10 @@
         speed: 1000,
         slidesPerView: 1,
       };
-
-      Object.assign(swiperEl, swiperParams);
-      swiperEl.initialize();
+      $: if (images && images.length > 0) {
+        Object.assign(swiperEl, swiperParams);
+        swiperEl.initialize();
+      }
     }
   });
 </script>
@@ -80,6 +81,41 @@
           </swiper-slide>
         {/each}
       </swiper-container>
+    {:else if images && images[0] && images[0].asset}
+      <div class="bg-gray-100">
+        <Image
+          lazyLoad={false}
+          image={images[0]}
+          altText={images[0]?.asset?.altText
+            ? images[0]?.asset?.altText
+            : "Coleflax Bennett Architecture"}
+          lgImg={true}
+          lgSizes={{
+            lg: {
+              width: 2560,
+              height: 1440,
+            },
+            md: {
+              width: 1600,
+              height: 760,
+            },
+            sm: {
+              width: 1280,
+              height: 1000,
+            },
+            xs: {
+              width: 768,
+              height: 1000,
+            },
+            fallback: {
+              width: 768,
+              height: 1622,
+            },
+          }}
+          pictureClasses="block"
+          imageClasses="object-cover object-center w-full"
+        />
+      </div>
     {/if}
   </div>
   <div

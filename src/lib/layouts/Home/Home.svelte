@@ -7,6 +7,7 @@
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
   import type Image from "$lib/components/Image/Image.svelte";
+  import { fade } from "svelte/transition";
 
   export let heroImages: ImageType[] | null | undefined;
   export let heroTitle: string | null | undefined;
@@ -20,6 +21,8 @@
   export let testimonial: string | null | undefined;
   export let author: string | null | undefined;
   export let galleryImages: ImageType[];
+
+  let open = true;
 </script>
 
 <Hero images={heroImages} title={heroTitle} isHome />
