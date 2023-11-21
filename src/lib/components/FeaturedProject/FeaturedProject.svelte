@@ -5,19 +5,31 @@
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
   import { onMount } from "svelte";
-  import { scroll, animate } from "motion";
+  import { inView, animate, stagger } from "motion";
 
   export let name: string | null | undefined = "White Post Street";
   export let images: ImageType[] | any[] | boolean = [];
   export let slug: string | null | undefined = "";
 
-  let imageContainer: any;
+  let imageContainer: HTMLElement;
 
   onMount(() => {
     const projectImages = imageContainer.querySelectorAll("img");
-    projectImages.forEach((image: HTMLElement) => {
-      scroll(animate(image, { scale: [1, 1.2] }));
-    });
+    inView(
+      projectImages,
+      () => {
+        animate(
+          projectImages,
+          { opacity: 1, y: [20, 0] },
+          {
+            delay: stagger(0.2),
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
   });
 </script>
 
@@ -47,7 +59,7 @@
         {#each images as image, i}
           <a
             href={`/projects/${slug}`}
-            class="overflow-hidden bg-gray-100 aspect-square lg:aspect-auto"
+            class="overflow-hidden aspect-square lg:aspect-auto"
           >
             <Image
               {image}
@@ -78,6 +90,7 @@
                 },
               }}
               pictureClasses="block aspect-square lg:aspect-auto transition-all duration-300 hover:scale-[1.05]"
+              imageClasses="opacity-0"
             />
           </a>
         {/each}

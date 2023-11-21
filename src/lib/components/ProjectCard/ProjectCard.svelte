@@ -9,7 +9,7 @@
   export let slug: string | null | undefined;
 </script>
 
-<a href={`/projects/${slug}`} class="relative block col-span-1 bg-white">
+<a href={`/projects/${slug}`} class="relative block">
   {#if image}
     <Image
       {image}

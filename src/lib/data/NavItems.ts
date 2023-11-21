@@ -4,11 +4,11 @@ export const NavItems = [
     href: "/",
   },
   {
-    label: "About",
+    label: "About Us",
     href: "/about",
   },
   {
-    label: "Projects",
+    label: "Our Projects",
     href: "/projects",
   },
   {

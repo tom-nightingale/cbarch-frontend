@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { onMount, afterUpdate } from "svelte";
+  import { onMount } from "svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
+  import { inView, animate, stagger } from "motion";
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
@@ -76,9 +77,28 @@
     },
   };
 
+  let imageContainer: HTMLElement;
+
   onMount(async () => {
     // @ts-ignore
     const lightbox = new FsLightbox();
+
+    const projectImages = imageContainer.querySelectorAll("img");
+    inView(
+      projectImages,
+      () => {
+        animate(
+          projectImages,
+          { opacity: 1, y: [20, 0] },
+          {
+            delay: stagger(0.2),
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
   });
 </script>
 
@@ -91,7 +111,10 @@
 
 {#if images && images.length > 0}
   <Container>
-    <div class="grid grid-cols-2 gap-2 px-4 py-14 md:grid-cols-12">
+    <div
+      class="grid grid-cols-2 gap-2 px-4 py-14 md:grid-cols-12"
+      bind:this={imageContainer}
+    >
       {#each images as image, i}
         <a
           data-fslightbox
@@ -99,12 +122,12 @@
             ${
               !square &&
               i === 0 &&
-              "aspect-[12/7] col-span-2 bg-gray-100 md:col-span-6 md:aspect-auto"
+              "aspect-[12/7] col-span-2  md:col-span-6 md:aspect-auto"
             }
             ${
               !square &&
               i !== 0 &&
-              "aspect-[7/11] bg-gray-100 md:col-span-3 md:aspect-[128/205] w-full"
+              "aspect-[7/11] md:col-span-3 md:aspect-[128/205] w-full"
             }
 
             ${square && "aspect-square col-span-1 md:col-span-3 w-full"}
@@ -122,8 +145,8 @@
               : i === 0
               ? primaryImageSizes
               : secondaryImageSizes}
-            pictureClasses="overflow-hidden"
-            imageClasses="object-cover object-center h-full hover:scale-105 transition duration-500"
+            pictureClasses="block transition-all duration-300 hover:scale-[1.05]"
+            imageClasses="opacity-0 object-cover object-center"
           />
         </a>
       {/each}

@@ -22,7 +22,7 @@
   let sequence: any[];
 
   onMount(() => {
-    $: if (imageComponent) {
+    if (imageComponent) {
       sequence = [
         [
           [copyComponent],
@@ -50,7 +50,7 @@
       () => {
         timeline(sequence, {});
       },
-      { amount: 0.25 },
+      { amount: 0.2 },
     );
   });
 </script>
