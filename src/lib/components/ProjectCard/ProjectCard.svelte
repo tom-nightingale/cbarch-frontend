@@ -9,7 +9,7 @@
   export let slug: string | null | undefined;
 </script>
 
-<a href={`/projects/${slug}`} class="relative bg-white">
+<a href={`/projects/${slug}`} class="relative block col-span-1 bg-white">
   {#if image}
     <Image
       {image}
@@ -47,8 +47,9 @@
   <div class="absolute bottom-0 left-0 w-full py-5 bg-white/80 px-7 text-blue">
     <div class="max-w-sm">
       <Typography component="h3" variant="headline3" uppercase>
-        {title},
-        <span class="block">{location}</span>
+        {@html title && location
+          ? `${title}, <span class="block">${location}</span>`
+          : `${title}`}
       </Typography>
     </div>
   </div>

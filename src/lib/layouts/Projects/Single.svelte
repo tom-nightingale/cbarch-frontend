@@ -30,7 +30,6 @@
       const swiperParams = {
         slidesPerView: 1,
         speed: 1000,
-        autoplay: false,
         navigation: {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
@@ -38,7 +37,7 @@
         modules: [Navigation],
       };
 
-      $: if (gallery && gallery.length > 0 && gallery.length < 3) {
+      $: if (gallery && gallery.length > 0 && gallery.length <= 3) {
         Object.assign(swiperEl, swiperParams);
         swiperEl.initialize();
       }
@@ -48,13 +47,13 @@
 
 <Hero
   images={heroImages && heroImages.length > 0 && [heroImages[0]]}
-  title={`${title}, ${location}`}
+  title={`${title} ${location && location !== null ? `, ${location}` : ``}`}
 />
 
 <Container>
   <div class="md:grid md:grid-cols-2 md:mb-12">
     <div class="relative p-9">
-      {#if gallery && gallery.length > 0 && gallery.length < 3}
+      {#if gallery && gallery.length > 0 && gallery.length <= 3}
         <swiper-container init="false" bind:this={swiperEl}>
           {#each gallery as image, i}
             <swiper-slide>
@@ -144,50 +143,56 @@
         >Project Details</Typography
       >
       <div class="grid gap-2 p-4 bg-white lg:p-8">
-        <div class="flex flex-wrap">
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
-            uppercase>Location</Typography
-          >
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-2/3  md:w-1/2 lg:w-2/3 3xl:w-4/5"
-            >{location}</Typography
-          >
-        </div>
+        {#if location}
+          <div class="flex flex-wrap">
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
+              uppercase>Location</Typography
+            >
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-2/3  md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              >{location}</Typography
+            >
+          </div>
+        {/if}
 
-        <div class="flex flex-wrap">
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
-            uppercase>Project Value</Typography
-          >
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
-            >{value}</Typography
-          >
-        </div>
+        {#if value}
+          <div class="flex flex-wrap">
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
+              uppercase>Project Value</Typography
+            >
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              >{value}</Typography
+            >
+          </div>
+        {/if}
 
-        <div class="flex flex-wrap">
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
-            uppercase>Involvement</Typography
-          >
-          <Typography
-            component="p"
-            variant="body1"
-            theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
-            >{involvement}</Typography
-          >
-        </div>
+        {#if involvement}
+          <div class="flex flex-wrap">
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-1/3 md:w-1/2 lg:w-1/3 3xl:w-1/5"
+              uppercase>Involvement</Typography
+            >
+            <Typography
+              component="p"
+              variant="body1"
+              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              >{involvement}</Typography
+            >
+          </div>
+        {/if}
       </div>
       <Copy content={copy} />
     </div>

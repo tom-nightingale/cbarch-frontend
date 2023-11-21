@@ -28,7 +28,7 @@
   featuredProjectImages={page &&
     page.featuredProjects &&
     page.featuredProjects.length > 0 &&
-    page.featuredProjects[0]?.heroImages.slice(0, 2)}
+    page.featuredProjects[0]?.gallery.slice(0, 2)}
   featuredProjectName={page.featuredProjects && page.featuredProjects[0]?.title}
   featuredProjectSlug={page.featuredProjects &&
     page.featuredProjects[0]?.slug?.current}

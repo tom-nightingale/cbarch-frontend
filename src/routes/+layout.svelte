@@ -28,16 +28,9 @@
   {animateItems}
 />
 
-<div
-  class={`${
-    mobileMenuOpen
-      ? "fixed top-0 left-0 w-full h-screen z-[80] bg-black/20"
-      : ""
-  } transition duration-500 ease-in-out`}
-/>
 <Header on:menuOpen={toggleMobileMenu} />
 <PageTransition pathname={data.url}>
-  <div class="pt-28">
+  <div class="pt-[107px] md:pt-[119px]">
     <slot />
   </div>
 </PageTransition>

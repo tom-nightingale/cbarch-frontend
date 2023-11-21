@@ -83,7 +83,7 @@ query GetHome {
       slug {
         current
       }
-      heroImages {
+      gallery {
         asset {
           ...imageAsset
         }
@@ -218,7 +218,7 @@ query GetProjectSingleton {
       ...seo
     }
   }
-  projects: allProject {
+  projects: allProject(sort: [{ orderRank: ASC }]) {
     heroImages {
       asset {
         ...imageAsset

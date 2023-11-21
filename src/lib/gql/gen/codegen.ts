@@ -1532,7 +1532,7 @@ export type GetHomeQuery = {
                 | { __typename?: "Slug"; current?: string | null | undefined }
                 | null
                 | undefined;
-              heroImages?:
+              gallery?:
                 | Array<
                     | {
                         __typename?: "Image";
@@ -2220,7 +2220,7 @@ export const GetHomeDoc = gql`
         slug {
           current
         }
-        heroImages {
+        gallery {
           asset {
             ...imageAsset
           }
@@ -2370,7 +2370,7 @@ export const GetProjectSingletonDoc = gql`
         ...seo
       }
     }
-    projects: allProject {
+    projects: allProject(sort: [{ orderRank: ASC }]) {
       heroImages {
         asset {
           ...imageAsset

@@ -18,7 +18,7 @@
 
 <svelte:window bind:scrollY={y} />
 
-<div class="fixed top-0 left-0 z-50 w-full bg-white header">
+<div class="fixed top-0 left-0 z-50 w-full bg-white shadow-sm header">
   <Container>
     <div
       class="flex items-center justify-between p-8 px-4 md:px-8 transition-all duration-300 {y >
@@ -26,7 +26,10 @@
         ? 'py-4'
         : ''}"
     >
-      <a class="hover:opacity-90" href="/">
+      <a
+        class="hover:opacity-90 block w-[255px] max-w-[200px] md:max-w-[255px]"
+        href="/"
+      >
         <Logo />
       </a>
 

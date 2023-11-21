@@ -10,7 +10,9 @@
 
 <Seo
   seo={{
-    title: project.seo?.metaTitle ? project.seo.metaTitle : "",
+    title: project.seo?.metaTitle
+      ? `${project.seo.metaTitle} | Projects | Coleflax Bennett Architecture`
+      : "",
     description: project.seo?.metaDesc ? project.seo.metaDesc : "",
     keywords: project.seo?.keywords ? project.seo.keywords : undefined,
     shareGraphic: project.seo?.shareGraphic?.asset

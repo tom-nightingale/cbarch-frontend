@@ -44,7 +44,9 @@
       >
         {#each images as image, i}
           <swiper-slide>
-            <div class="bg-gray-100">
+            <div
+              class="relative h-[calc(100vh-107px)] md:h-[calc(100vh-119px)] overflow-y-hidden bg-gray-100"
+            >
               <Image
                 lazyLoad={false}
                 {image}
@@ -75,14 +77,16 @@
                   },
                 }}
                 pictureClasses="block"
-                imageClasses="object-cover object-center w-full"
+                imageClasses="absolute top-0 left-0 w-full h-full object-cover object-center w-full"
               />
             </div>
           </swiper-slide>
         {/each}
       </swiper-container>
     {:else if images && images[0] && images[0].asset}
-      <div class="bg-gray-100">
+      <div
+        class="relative h-[calc(100vh-107px)] md:h-[calc(100vh-119px)] overflow-y-hidden bg-gray-100"
+      >
         <Image
           lazyLoad={false}
           image={images[0]}
@@ -113,7 +117,7 @@
             },
           }}
           pictureClasses="block"
-          imageClasses="object-cover object-center w-full"
+          imageClasses="absolute top-0 left-0 w-full h-full object-cover object-center w-full"
         />
       </div>
     {/if}

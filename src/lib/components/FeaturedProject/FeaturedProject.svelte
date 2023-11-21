@@ -4,10 +4,21 @@
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
+  import { onMount } from "svelte";
+  import { scroll, animate } from "motion";
 
   export let name: string | null | undefined = "White Post Street";
   export let images: ImageType[] | any[] | boolean = [];
   export let slug: string | null | undefined = "";
+
+  let imageContainer: any;
+
+  onMount(() => {
+    const projectImages = imageContainer.querySelectorAll("img");
+    projectImages.forEach((image: HTMLElement) => {
+      scroll(animate(image, { scale: [1, 1.2] }));
+    });
+  });
 </script>
 
 <div class="bg-blue-light px-4 py-[45px]">
@@ -28,10 +39,16 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div
+      class="grid grid-cols-1 gap-4 sm:grid-cols-2"
+      bind:this={imageContainer}
+    >
       {#if images && images.length > 0}
         {#each images as image, i}
-          <div class="bg-gray-100 aspect-square lg:aspect-auto">
+          <a
+            href={`/projects/${slug}`}
+            class="overflow-hidden bg-gray-100 aspect-square lg:aspect-auto"
+          >
             <Image
               {image}
               altText={image?.asset?.altText
@@ -60,9 +77,9 @@
                   height: 768,
                 },
               }}
-              pictureClasses="block aspect-square lg:aspect-auto"
+              pictureClasses="block aspect-square lg:aspect-auto transition-all duration-300 hover:scale-[1.05]"
             />
-          </div>
+          </a>
         {/each}
       {/if}
     </div>

@@ -9,7 +9,7 @@
 </script>
 
 <Container>
-  <div class="px-4 py-[95px]">
+  <div class="px-4 py-[55px]">
     <Typography component="h1" variant="title1" theme="text-blue"
       >{title}</Typography
     >
@@ -19,11 +19,11 @@
 <div class="px-4 py-16 bg-blue-light mb-14">
   {#if projects && projects.length > 0}
     <Container>
-      <div class="grid gap-3 md:grid-cols-2">
+      <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
         {#each projects as item, i}
           <ProjectCard
             title={item.title}
-            location={item.projectLocation}
+            location={item.projectLocation && item.projectLocation}
             image={item.heroImages &&
               item.heroImages.length > 0 &&
               item.heroImages[0]}
