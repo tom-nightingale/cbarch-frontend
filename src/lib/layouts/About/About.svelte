@@ -1,10 +1,12 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
   import type Image from "$lib/components/Image/Image.svelte";
   import TeamMember from "$lib/components/TeamMember/TeamMember.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
+  import { inView, animate, stagger } from "motion";
 
   export let introTitle: string | null | undefined;
   export let introSubtitle: string | null | undefined;
@@ -16,6 +18,26 @@
   export let team: any;
   export let teamTitle: string | null | undefined;
   export let teamSubtitle: string | null | null;
+
+  let teamContainer: HTMLElement;
+  onMount(() => {
+    const members = teamContainer.querySelectorAll(".team-member");
+    inView(
+      members,
+      () => {
+        animate(
+          members,
+          { opacity: 1, y: [20, 0] },
+          {
+            delay: stagger(0.2),
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
+  });
 </script>
 
 <div class="px-4 py-12 md:py-[70px]">
@@ -46,7 +68,10 @@
 
         <Typography component="h1" variant="headline1">{teamTitle}</Typography>
       </div>
-      <div class="grid grid-col-1 md:grid-cols-2 md:gap-[42px] mb-[109px]">
+      <div
+        class="grid grid-col-1 md:grid-cols-2 md:gap-[42px] mb-[109px]"
+        bind:this={teamContainer}
+      >
         {#each team as item, i}
           <TeamMember
             name={item.name}

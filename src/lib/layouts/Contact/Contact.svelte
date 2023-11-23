@@ -68,10 +68,13 @@
             <Typography component="h2" variant="headline2"
               ><span>Contact {item.name.split(" ")[0]}</span></Typography
             >
-            <a href="mailto:{item.email}">
+            <a href="mailto:{item.email}" class="hover:text-blue">
               <Typography component="p" variant="sub1">{item.email}</Typography>
             </a>
-            <a href="tel:{item.phone.replaceAll(' ', '')}">
+            <a
+              href="tel:{item.phone.replaceAll(' ', '')}"
+              class="hover:text-blue"
+            >
               <Typography component="p" variant="sub1">{item.phone}</Typography>
             </a>
           </div>

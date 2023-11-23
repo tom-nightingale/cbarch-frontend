@@ -21,7 +21,12 @@
 
   let sequence: any[];
 
-  onMount(() => {
+  onMount(async () => {
+    if (image && image.asset) {
+      // @ts-ignore
+      const lightbox = new FsLightbox();
+    }
+
     if (imageComponent) {
       sequence = [
         [
@@ -55,6 +60,15 @@
   });
 </script>
 
+<svelte:head>
+  {#if image && image.asset}
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.0.9/index.js"
+      defer
+    ></script>
+  {/if}
+</svelte:head>
+
 <Container>
   <div
     bind:this={contentContainer}
@@ -85,7 +99,13 @@
     </div>
 
     {#if image && image.asset}
-      <div bind:this={imageComponent} class="opacity-0">
+      <a
+        data-fslightbox
+        href={image?.asset?.url}
+        bind:this={imageComponent}
+        class="opacity-0 transform transition-none
+        {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} "
+      >
         <Image
           {image}
           altText={image?.asset?.altText
@@ -114,9 +134,10 @@
               height: 768,
             },
           }}
-          pictureClasses="block self-center"
+          pictureClasses="block self-center overflow-hidden"
+          imageClasses="hover:scale-[1.05] transition duration-300"
         />
-      </div>
+      </a>
     {/if}
   </div>
 </Container>

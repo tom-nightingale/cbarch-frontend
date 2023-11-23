@@ -11,7 +11,7 @@
   export let bio: any[];
 </script>
 
-<div class="bg-blue-light p-[30px]">
+<div class="bg-blue-light p-[30px] team-member opacity-0">
   <div class="grid lg:grid-cols-2">
     <div class="bg-white">
       {#if image && image.asset}
