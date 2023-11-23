@@ -11,15 +11,15 @@
   export let images: ImageType[] | any[] | boolean = [];
   export let slug: string | null | undefined = "";
 
+  let titleContainer: HTMLElement;
   let imageContainer: HTMLElement;
 
   onMount(() => {
-    const projectImages = imageContainer.querySelectorAll("img");
     inView(
-      projectImages,
+      titleContainer,
       () => {
         animate(
-          projectImages,
+          titleContainer,
           { opacity: 1, y: [20, 0] },
           {
             delay: stagger(0.2),
@@ -30,24 +30,47 @@
       },
       { amount: 0.15 },
     );
+    const projectImages = imageContainer.querySelectorAll("img");
+    projectImages.forEach((project, i) => {
+      inView(
+        project,
+        () => {
+          animate(
+            project,
+            { opacity: 1, y: [20, 0] },
+            {
+              delay: 0.2 * i,
+              duration: 1,
+              easing: [0.17, 0.55, 0.55, 1],
+            },
+          );
+        },
+        { amount: 0.15 },
+      );
+    });
   });
 </script>
 
 <div class="bg-blue-light px-4 py-[45px]">
   <Container>
-    <Typography component="p" variant="sub1" uppercase>Our work</Typography>
+    <div
+      bind:this={titleContainer}
+      class="opacity-0 transform translate-y-[20px]"
+    >
+      <Typography component="p" variant="sub1" uppercase>Our work</Typography>
 
-    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-start">
-      <Typography component="h3" variant="headline1"
-        >Featured Project - {name}</Typography
-      >
+      <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-start">
+        <Typography component="h3" variant="headline1"
+          >Featured Project - {name}</Typography
+        >
 
-      <div class="lg:ml-auto">
-        <Button
-          href={`/projects/${slug}`}
-          label="View project"
-          theme="secondary"
-        />
+        <div class="lg:ml-auto">
+          <Button
+            href={`/projects/${slug}`}
+            label="View project"
+            theme="secondary"
+          />
+        </div>
       </div>
     </div>
 
@@ -90,7 +113,7 @@
                 },
               }}
               pictureClasses="block aspect-square lg:aspect-auto transition-all duration-300 hover:scale-[1.05]"
-              imageClasses="opacity-0"
+              imageClasses="opacity-0 translate-y-[20px]"
             />
           </a>
         {/each}

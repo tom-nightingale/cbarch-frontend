@@ -32,12 +32,12 @@
         [
           [copyComponent],
           { opacity: 1, y: [20, 0] },
-          { delay: 0.2, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] },
+          { delay: 0.2, duration: 1, easing: [0.17, 0.55, 0.55, 1] },
         ],
         [
           [imageComponent],
           { opacity: 1, x: reverse ? [-400, 0] : [400, 0] },
-          { at: 0.15, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] },
+          { at: 0.15, duration: 1, easing: [0.17, 0.55, 0.55, 1] },
         ],
       ];
     } else {

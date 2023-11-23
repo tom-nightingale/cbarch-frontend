@@ -37,7 +37,7 @@
         modules: [Navigation],
       };
 
-      $: if (gallery && gallery.length > 0 && gallery.length <= 3) {
+      if (gallery && gallery.length > 0 && gallery.length <= 3) {
         Object.assign(swiperEl, swiperParams);
         swiperEl.initialize();
       }

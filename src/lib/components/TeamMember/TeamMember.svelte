@@ -1,7 +1,6 @@
 <script lang="ts">
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Image from "$lib/components/Image/Image.svelte";
-  import type { Image as ImageType } from "$lib/gql/gen/codegen";
   import Copy from "$lib/components/Copy/Copy.svelte";
 
   export let image: Image | undefined;
@@ -11,7 +10,7 @@
   export let bio: any[];
 </script>
 
-<div class="bg-blue-light p-[30px] team-member opacity-0">
+<div class="bg-blue-light p-[30px] team-member opacity-0 mb-4 md:mb-0">
   <div class="grid lg:grid-cols-2">
     <div class="bg-white">
       {#if image && image.asset}

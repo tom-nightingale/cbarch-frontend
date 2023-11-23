@@ -3,7 +3,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
-  import { inView, animate, stagger } from "motion";
+  import { inView, animate } from "motion";
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
@@ -45,12 +45,12 @@
       height: 500,
     },
     xs: {
-      width: 768,
-      height: 448,
+      width: 448,
+      height: 768,
     },
     fallback: {
-      width: 768,
-      height: 448,
+      width: 448,
+      height: 768,
     },
   };
 
@@ -79,26 +79,30 @@
 
   let imageContainer: HTMLElement;
 
+  $: console.log(square);
+
   onMount(async () => {
     // @ts-ignore
     const lightbox = new FsLightbox();
 
     const projectImages = imageContainer.querySelectorAll("img");
-    inView(
-      projectImages,
-      () => {
-        animate(
-          projectImages,
-          { opacity: 1, y: [20, 0] },
-          {
-            delay: stagger(0.2),
-            duration: 1,
-            easing: [0.17, 0.55, 0.55, 1],
-          },
-        );
-      },
-      { amount: 0.15 },
-    );
+    projectImages.forEach((image, i) => {
+      inView(
+        image,
+        () => {
+          animate(
+            image,
+            { opacity: 1, y: [20, 0] },
+            {
+              delay: 0.2 * i,
+              duration: 1,
+              easing: [0.17, 0.55, 0.55, 1],
+            },
+          );
+        },
+        { amount: 0.15 },
+      );
+    });
   });
 </script>
 
