@@ -131,7 +131,7 @@
       theme="text-blue">{title}</Typography
     >
     {#if isHome}
-      <div class="mt-[18px]">
+      <div class="ml-auto mt-[18px] md:mt-0">
         <Button label="Our Projects" theme="secondary" href="/projects" />
       </div>
     {/if}
