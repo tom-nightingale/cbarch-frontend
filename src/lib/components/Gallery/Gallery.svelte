@@ -10,8 +10,8 @@
 
   const primaryImageSizes = {
     lg: {
-      width: 2560,
-      height: 1500,
+      width: 1600,
+      height: 1265,
     },
     md: {
       width: 1600,
@@ -147,8 +147,8 @@
               : i === 0
               ? primaryImageSizes
               : secondaryImageSizes}
-            pictureClasses="block transition-all duration-300 hover:scale-[1.05]"
-            imageClasses="opacity-0 object-cover object-center"
+            pictureClasses="block h-full transition-all duration-300 hover:scale-[1.05]"
+            imageClasses="opacity-0 object-cover object-center h-full"
           />
         </a>
       {/each}
