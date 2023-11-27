@@ -79,8 +79,6 @@
 
   let imageContainer: HTMLElement;
 
-  $: console.log(square);
-
   onMount(async () => {
     // @ts-ignore
     const lightbox = new FsLightbox();

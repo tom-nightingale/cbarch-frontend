@@ -4,7 +4,7 @@
   import Button from "$lib/components/Button/Button.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
-  import { inView, animate, stagger } from "motion";
+  import { inView, animate } from "motion";
 
   export let testimonial: string | null | undefined;
   export let author: string | null | undefined;

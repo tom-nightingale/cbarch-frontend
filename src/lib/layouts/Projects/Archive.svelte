@@ -4,7 +4,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import ProjectCard from "$lib/components/ProjectCard/ProjectCard.svelte";
-  import { inView, animate } from "motion";
+  import { inView, animate, stagger } from "motion";
 
   export let title: string | null | undefined;
   export let projects: any;
@@ -14,21 +14,16 @@
   onMount(() => {
     const projects = projectContainer.querySelectorAll(".project");
     projects.forEach((project, i) => {
-      inView(
-        project,
-        () => {
-          animate(
-            project,
-            { opacity: 1, y: [20, 0] },
-            {
-              delay: 0.2 * i,
-              duration: 1,
-              easing: [0.17, 0.55, 0.55, 1],
-            },
-          );
-        },
-        { amount: 0.15 },
-      );
+      inView(project, () => {
+        animate(
+          project,
+          { opacity: 1, y: [20, 0] },
+          {
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      });
     });
   });
 </script>

@@ -12,7 +12,6 @@ html {
 
 body {
   @apply font-sans antialiased leading-relaxed text-dark;
-  text-wrap: balance;
 }
 
 blockquote:before {

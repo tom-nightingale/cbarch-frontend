@@ -26,7 +26,7 @@
         speed: 1000,
         slidesPerView: 1,
       };
-      $: if (images && images.length > 0) {
+      if (images && images.length > 0) {
         Object.assign(swiperEl, swiperParams);
         swiperEl.initialize();
       }

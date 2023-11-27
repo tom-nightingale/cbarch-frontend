@@ -96,6 +96,7 @@
 <style>
   .heading {
     @apply leading-[41px];
+    text-wrap: balance;
 
     :global(span) {
       @apply text-blue;

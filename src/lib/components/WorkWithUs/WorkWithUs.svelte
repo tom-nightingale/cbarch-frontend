@@ -8,7 +8,7 @@
   export let subtitle = "Get in touch";
   export let title = "Interested in working with us?";
   export let text =
-    "We are dedicated to bringing your ideas to fruition through meticulous planning, innovative concepts and expert craftsmanship. Let's embark on this exciting journey together and create spaces that inspire and endure. Contact us today to start the conversation - your dream project awaits our transformative touch.";
+    "If you would like to experience the difference that thoughtful, innovative, and client centric design can make, then please get in touch to discuss your project.";
 
   let contentContainer: HTMLElement;
 
