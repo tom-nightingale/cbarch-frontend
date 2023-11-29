@@ -13,17 +13,21 @@
 
   onMount(() => {
     const projects = projectContainer.querySelectorAll(".project");
-    projects.forEach((project, i) => {
-      inView(project, () => {
-        animate(
-          project,
-          { opacity: 1, y: [20, 0] },
-          {
-            duration: 1,
-            easing: [0.17, 0.55, 0.55, 1],
-          },
-        );
-      });
+
+    projects.forEach((project) => {
+      inView(
+        project,
+        (item) => {
+          animate(
+            item.target,
+            { opacity: 1, y: [20, 0] },
+            {
+              duration: 1,
+            },
+          );
+        },
+        { amount: 0.15 },
+      );
     });
   });
 </script>

@@ -3,7 +3,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
-  import { inView, animate } from "motion";
+  import { inView, animate, stagger } from "motion";
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
@@ -84,23 +84,21 @@
     const lightbox = new FsLightbox();
 
     const projectImages = imageContainer.querySelectorAll("img");
-    projectImages.forEach((image, i) => {
-      inView(
-        image,
-        () => {
-          animate(
-            image,
-            { opacity: 1, y: [20, 0] },
-            {
-              delay: 0.2 * i,
-              duration: 1,
-              easing: [0.17, 0.55, 0.55, 1],
-            },
-          );
-        },
-        { amount: 0.15 },
-      );
-    });
+
+    inView(
+      projectImages,
+      () => {
+        animate(
+          projectImages,
+          { opacity: 1, y: [20, 0] },
+          {
+            delay: stagger(0.2),
+            duration: 1,
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
   });
 </script>
 
