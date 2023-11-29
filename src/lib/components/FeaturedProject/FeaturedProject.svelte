@@ -31,23 +31,21 @@
       { amount: 0.15 },
     );
     const projectImages = imageContainer.querySelectorAll("img");
-    projectImages.forEach((project, i) => {
-      inView(
-        project,
-        () => {
-          animate(
-            project,
-            { opacity: 1, y: [20, 0] },
-            {
-              delay: 0.2 * i,
-              duration: 1,
-              easing: [0.17, 0.55, 0.55, 1],
-            },
-          );
-        },
-        { amount: 0.15 },
-      );
-    });
+
+    inView(
+      projectImages,
+      () => {
+        animate(
+          projectImages,
+          { opacity: 1, y: [20, 0] },
+          {
+            delay: stagger(0.2),
+            duration: 1,
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
   });
 </script>
 
