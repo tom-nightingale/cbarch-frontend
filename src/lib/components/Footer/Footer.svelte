@@ -2,7 +2,7 @@
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Container from "$lib/components/Container/Container.svelte";
 
-  export let regNumber = "12345678";
+  export let regNumber = "13263042";
   export let email = "enquiries@cbarch.co.uk";
 
   let year = new Date().getFullYear();
