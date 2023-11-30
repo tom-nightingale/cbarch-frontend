@@ -3,7 +3,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Image from "$lib/components/Image/Image.svelte";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
-  import { inView, animate, stagger } from "motion";
+  import { inView, animate } from "motion";
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
@@ -85,20 +85,21 @@
 
     const projectImages = imageContainer.querySelectorAll("img");
 
-    inView(
-      projectImages,
-      () => {
-        animate(
-          projectImages,
-          { opacity: 1, y: [20, 0] },
-          {
-            delay: stagger(0.2),
-            duration: 1,
-          },
-        );
-      },
-      { amount: 0.15 },
-    );
+    projectImages.forEach((project) => {
+      inView(
+        project,
+        (item) => {
+          animate(
+            item.target,
+            { opacity: 1, y: [20, 0] },
+            {
+              duration: 1,
+            },
+          );
+        },
+        { amount: 0.15 },
+      );
+    });
   });
 </script>
 

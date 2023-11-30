@@ -6,7 +6,7 @@
   import TeamMember from "$lib/components/TeamMember/TeamMember.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
-  import { inView, animate, stagger } from "motion";
+  import { inView, animate } from "motion";
 
   export let introTitle: string | null | undefined;
   export let introSubtitle: string | null | undefined;
@@ -22,20 +22,21 @@
   let teamContainer: HTMLElement;
   onMount(() => {
     const members = teamContainer.querySelectorAll(".team-member");
-    inView(
-      members,
-      () => {
-        animate(
-          members,
-          { opacity: 1, y: [20, 0] },
-          {
-            delay: stagger(0.2),
-            duration: 1,
-          },
-        );
-      },
-      { amount: 0.15 },
-    );
+    members.forEach((team) => {
+      inView(
+        team,
+        (item) => {
+          animate(
+            item.target,
+            { opacity: 1, y: [20, 0] },
+            {
+              duration: 1,
+            },
+          );
+        },
+        { amount: 0.15 },
+      );
+    });
   });
 </script>
 

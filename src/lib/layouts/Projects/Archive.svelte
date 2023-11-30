@@ -4,7 +4,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import ProjectCard from "$lib/components/ProjectCard/ProjectCard.svelte";
-  import { inView, animate, stagger } from "motion";
+  import { inView, animate } from "motion";
 
   export let title: string | null | undefined;
   export let projects: any;

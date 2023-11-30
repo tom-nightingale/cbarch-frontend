@@ -7,7 +7,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Form from "$lib/components/Form/Form.svelte";
-  import { inView, timeline, stagger } from "motion";
+  import { inView, timeline } from "motion";
 
   export let introTitle: string | null | undefined;
   export let introSubtitle: string | null | undefined;
