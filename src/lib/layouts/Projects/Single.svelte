@@ -47,7 +47,7 @@
 
 <Hero
   images={heroImages && heroImages.length > 0 && [heroImages[0]]}
-  title={`${title} ${location && location !== null ? `, ${location}` : ``}`}
+  title={`${title}${location && location !== null ? `, ${location}` : ``}`}
 />
 
 <Container>

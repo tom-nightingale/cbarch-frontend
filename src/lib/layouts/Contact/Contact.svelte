@@ -87,5 +87,3 @@
 {#if images && images.length > 0}
   <Gallery {images} />
 {/if}
-
-<WorkWithUs />
