@@ -46,7 +46,7 @@
 
   <div class="absolute bottom-0 left-0 w-full py-5 bg-white/80 px-7 text-blue">
     <div class="max-w-sm">
-      <Typography component="h3" variant="headline3" uppercase>
+      <Typography component="h3" variant="project1" uppercase>
         {@html title && location
           ? `${title}, <span class="block">${location}</span>`
           : `${title}`}

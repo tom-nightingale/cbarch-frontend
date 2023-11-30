@@ -95,7 +95,7 @@
 
 <style>
   .heading {
-    @apply leading-[41px];
+    @apply leading-[41px] capitalize;
     text-wrap: balance;
 
     :global(span) {
@@ -141,6 +141,10 @@
 
   .body2 {
     @apply leading-[38px] text-[22px];
+  }
+
+  .project1 {
+    @apply text-[20px] leading-snug font-heading font-bold uppercase;
   }
 
   .sub1 {

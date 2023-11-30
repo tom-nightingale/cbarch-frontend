@@ -131,7 +131,7 @@
             },
           }}
           pictureClasses="block md:sticky md:top-40"
-          imageClasses="object-cover object-center h-full"
+          imageClasses="object-cover object-center h-full w-full"
         />
       {/if}
     </div>

@@ -25,8 +25,8 @@
           $page.route.id &&
           $page.route.id.includes("/projects") &&
           href.includes("/projects"))
-          ? "bg-blue-light lg:bg-none lg:after:h-[1px] lg:after:w-1/2 lg:after:absolute lg:after:-bottom-2  lg:after:bg-blue lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:hover:w-full lg:after:transition-all lg:after:duration-300"
-          : ""
+          ? "bg-blue-light lg:bg-transparent lg:after:h-[1px] lg:after:w-1/2 lg:after:absolute lg:after:-bottom-2  lg:after:bg-blue lg:after:left-1/2 lg:after:-translate-x-1/2 lg:after:hover:w-full lg:after:transition-all lg:after:duration-300"
+          : "lg:hover:bg-blue-light"
       } `}
   >
     {label}

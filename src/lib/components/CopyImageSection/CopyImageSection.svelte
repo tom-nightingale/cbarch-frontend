@@ -77,7 +77,7 @@
       : 'max-w-screen-xl'}"
   >
     <div
-      class="mb-12 md:mb-0 self-center {reverse && 'order-2'} opacity-0"
+      class="pb-12 md:mb-0 self-center {reverse && 'order-2'} opacity-0"
       bind:this={copyComponent}
     >
       <div class="grid gap-6 mb-8">

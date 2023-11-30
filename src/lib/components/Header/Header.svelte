@@ -38,7 +38,7 @@
           <NavItem
             label={item.label}
             href={item.href}
-            classes={item.mobileOnly ? "hidden" : "hover:bg-blue-light p-2"}
+            classes={item.mobileOnly ? "hidden" : "p-2"}
           />
         {/each}
       </div>

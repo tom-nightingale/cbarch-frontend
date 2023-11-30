@@ -34,7 +34,7 @@
     {copy}
     image={copyImage}
     linkLabel="Meet the team"
-    linkUrl="/about"
+    linkUrl="/about?anchor=team"
   />
 </div>
 

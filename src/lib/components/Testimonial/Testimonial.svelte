@@ -26,11 +26,11 @@
 </script>
 
 <div
-  class="relative bg-blue py-[60px] px-[30px] md:px-[40px] text-white overflow-hidden"
+  class="relative bg-blue py-[60px] my-[25px] md:mt-[100px] md:mb-[50px] px-[30px] md:px-[40px] text-white overflow-hidden"
 >
   <Container>
     <div
-      class="max-w-[1100px] opacity-0 transform translate-y-[20px]"
+      class="max-w-[1100px] 2xl:max-w-[1300px] opacity-0 transform translate-y-[20px]"
       bind:this={textContainer}
     >
       <Typography variant="testimonial1" component="p">
@@ -42,9 +42,9 @@
         <Typography variant="sub1" component="p" uppercase>{author}</Typography>
       </div>
 
-      <div class="mt-[52px]">
+      <!-- <div class="mt-[52px]">
         <Button theme="tertiary" href="/about" label="Our testimonials" />
-      </div>
+      </div> -->
     </div>
   </Container>
 
