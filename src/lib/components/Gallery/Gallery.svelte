@@ -7,6 +7,7 @@
 
   export let images: ImageType[] = [];
   export let square: boolean = false;
+  export let removeMarginBottom: boolean = false;
 
   const primaryImageSizes = {
     lg: {
@@ -113,7 +114,8 @@
 {#if images && images.length > 0}
   <Container>
     <div
-      class="grid grid-cols-2 gap-2 px-4 py-14 md:grid-cols-12"
+      class="grid grid-cols-2 gap-2 px-4 py-14 md:grid-cols-12 {removeMarginBottom &&
+        'pb-0'}"
       bind:this={imageContainer}
     >
       {#each images as image, i}

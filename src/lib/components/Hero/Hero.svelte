@@ -44,9 +44,7 @@
       >
         {#each images as image, i}
           <swiper-slide>
-            <div
-              class="relative h-[calc(100vh-107px)] md:h-[calc(100vh-119px)] overflow-y-hidden bg-gray-100"
-            >
+            <div class="relative overflow-y-hidden bg-gray-100 hero-container">
               <Image
                 lazyLoad={false}
                 {image}
@@ -57,7 +55,7 @@
                 lgSizes={{
                   lg: {
                     width: 2560,
-                    height: 1440,
+                    height: 1175,
                   },
                   md: {
                     width: 1600,
@@ -84,9 +82,7 @@
         {/each}
       </swiper-container>
     {:else if images && images[0] && images[0].asset}
-      <div
-        class="relative h-[calc(100vh-107px)] md:h-[calc(100vh-119px)] overflow-y-hidden bg-gray-100"
-      >
+      <div class="relative overflow-y-hidden bg-gray-100 hero-container">
         <Image
           lazyLoad={false}
           image={images[0]}
@@ -137,3 +133,24 @@
     {/if}
   </div>
 </div>
+
+<style>
+  .hero-container {
+    @apply min-h-[calc(88vh-120px)];
+    @apply md:min-h-[calc(100vh-119px)];
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    /* CSS specific to iOS devices */
+    .hero-container {
+      height: -webkit-fill-available;
+    }
+  }
+
+  @supports not (-webkit-touch-callout: none) {
+    /* CSS for other than iOS devices */
+    .hero-container {
+      height: -webkit-fill-available;
+    }
+  }
+</style>

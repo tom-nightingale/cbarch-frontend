@@ -77,7 +77,7 @@
       : 'max-w-screen-xl'}"
   >
     <div
-      class="pb-12 md:mb-0 self-center {reverse && 'order-2'} opacity-0"
+      class="md:mb-0 self-center {reverse && 'order-2'} opacity-0"
       bind:this={copyComponent}
     >
       <div class="grid gap-6 mb-8">
@@ -92,7 +92,7 @@
       <Copy content={copy} />
 
       {#if linkUrl}
-        <div class="mt-12">
+        <div class="my-12">
           <Button href={linkUrl} label={linkLabel} />
         </div>
       {/if}
@@ -103,7 +103,7 @@
         data-fslightbox
         href={image?.asset?.url}
         bind:this={imageComponent}
-        class="opacity-0 transform transition-none
+        class="block opacity-0 transform transition-none
         {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} "
       >
         <Image
@@ -134,7 +134,7 @@
               height: 768,
             },
           }}
-          pictureClasses="block self-center overflow-hidden"
+          pictureClasses="block self-center overflow-hidden mt-12 md:mt-0"
           imageClasses="hover:scale-[1.05] transition duration-300"
         />
       </a>

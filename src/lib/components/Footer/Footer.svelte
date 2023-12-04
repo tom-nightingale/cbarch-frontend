@@ -10,7 +10,7 @@
 
 <Container>
   <div
-    class="p-4 md:p-[40px] bg-white text-center md:flex md:flex-wrap md:justify-between"
+    class="py-[40px] px-[30px] bg-white text-center md:flex md:flex-wrap md:justify-between"
   >
     <div class="mb-4 lg:mb-0 md:flex md:flex-wrap md:items-center md:gap-2">
       <Typography variant="sub1" component="p"
@@ -24,11 +24,13 @@
       </Typography>
     </div>
 
-    <div class="flex flex-wrap items-center justify-center gap-4">
+    <div
+      class="flex flex-col flex-wrap items-center justify-center gap-4 xs:flex-row"
+    >
       <Typography variant="sub1" component="p"
         ><a class="hover:text-blue" href={`mailto:${email}`}>{email}</a>
       </Typography>
-      <span class="inline-block w-[4px] h-[4px] rounded-full bg-blue"
+      <span class="hidden xs:inline-block w-[4px] h-[4px] rounded-full bg-blue"
         >&nbsp;</span
       >
       <Typography variant="sub1" component="p"

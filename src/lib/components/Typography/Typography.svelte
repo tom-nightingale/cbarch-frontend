@@ -95,7 +95,7 @@
 
 <style>
   .heading {
-    @apply leading-[41px] capitalize;
+    @apply leading-[41px];
     text-wrap: balance;
 
     :global(span) {
@@ -152,8 +152,8 @@
   }
 
   .testimonial1 {
-    @apply text-[30px] font-extralight font-heading leading-normal;
-    @apply md:text-[35px];
+    @apply text-[24px] font-extralight font-heading leading-normal;
+    @apply lg:text-[35px];
   }
 
   .button1 {

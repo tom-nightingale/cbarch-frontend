@@ -7,7 +7,6 @@
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
   import type Image from "$lib/components/Image/Image.svelte";
-  import { fade } from "svelte/transition";
 
   export let heroImages: ImageType[] | null | undefined;
   export let heroTitle: string | null | undefined;

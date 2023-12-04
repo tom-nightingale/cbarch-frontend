@@ -34,7 +34,7 @@
 <div class="text-white bg-blue">
   <Container>
     <div
-      class="p-[40px] text-center max-w-[610px] md:px-0 md:py-[136px] mx-auto opacity-0 translate-y-[20px]"
+      class="p-[60px] text-center max-w-[610px] md:px-0 md:py-[136px] mx-auto opacity-0 translate-y-[20px]"
       bind:this={contentContainer}
     >
       <div class="mb-4">

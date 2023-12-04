@@ -1,9 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
-  import Button from "$lib/components/Button/Button.svelte";
   import Container from "$lib/components/Container/Container.svelte";
-  import Icon from "$lib/components/Icon/Icon.svelte";
   import { inView, animate } from "motion";
 
   export let testimonial: string | null | undefined;
@@ -26,7 +24,7 @@
 </script>
 
 <div
-  class="relative bg-blue py-[60px] my-[25px] md:mt-[100px] md:mb-[50px] px-[30px] md:px-[40px] text-white overflow-hidden"
+  class="relative bg-blue py-[60px] mt-[45px] lg:mt-[100px] px-[30px] md:px-[40px] text-white overflow-hidden"
 >
   <Container>
     <div
@@ -41,16 +39,17 @@
       <div class="mt-4">
         <Typography variant="sub1" component="p" uppercase>{author}</Typography>
       </div>
-
-      <!-- <div class="mt-[52px]">
-        <Button theme="tertiary" href="/about" label="Our testimonials" />
-      </div> -->
     </div>
   </Container>
 
   <div
     class="absolute bottom-0 right-0 w-full pointer-events-none sm:w-auto opacity-20"
   >
-    <Icon icon="cb-initials" width={400} height={385} />
+    <img
+      loading="lazy"
+      src="cb-initials.png"
+      alt="Coleflax Bennett Architecture"
+      class="object-cover object-center w-full h-full"
+    />
   </div>
 </div>

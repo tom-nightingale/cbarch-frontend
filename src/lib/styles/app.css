@@ -18,11 +18,8 @@ blockquote:before {
   content: open-quote;
 }
 
-@supports (hanging-punctuation: first) {
-  blockquote {
-    text-indent: 0;
-    hanging-punctuation: first;
-  }
+blockquote:after {
+  content: close-quote;
 }
 
 a {
