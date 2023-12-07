@@ -153,7 +153,7 @@
 
   .testimonial1 {
     @apply text-[24px] font-extralight font-heading leading-normal;
-    @apply lg:text-[35px];
+    @apply lg:text-[30px];
   }
 
   .button1 {

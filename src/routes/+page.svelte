@@ -5,7 +5,8 @@
 
   export let data: PageData;
 
-  $: page = data.data;
+  $: page = data.home;
+  $: testimonials = data.testimonials;
 </script>
 
 <Seo
@@ -22,7 +23,7 @@
 <Home
   heroImages={page.heroImages}
   heroTitle={page.heroHeadline}
-  testimonial={page.testimonial}
+  {testimonials}
   author={page.testimonialAuthor}
   galleryImages={page.gallery}
   featuredProjectImages={page &&

@@ -95,8 +95,6 @@ query GetHome {
         }
       }
     }
-    testimonial
-    testimonialAuthor
     gallery {
       asset {
         ...imageAsset
@@ -114,6 +112,10 @@ query GetHome {
     seo {
       ...seo
     }
+  }
+  testimonials: allTestimonial {
+    testimonial
+    testimonialAuthor
   }
 }
 
@@ -281,8 +283,6 @@ query GetProject($slug: String) {
         ...imageHotspot
       }
     }
-    testimonialRaw
-    testimonialAuthor
     slug {
       current
     }

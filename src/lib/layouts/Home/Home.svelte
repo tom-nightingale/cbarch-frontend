@@ -2,7 +2,7 @@
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
   import Hero from "$lib/components/Hero/Hero.svelte";
   import FeaturedProject from "$lib/components/FeaturedProject/FeaturedProject.svelte";
-  import Testimonial from "$lib/components/Testimonial/Testimonial.svelte";
+  import Testimonials from "$lib/components/Testimonials/Testimonials.svelte";
   import Gallery from "$lib/components/Gallery/Gallery.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
@@ -17,9 +17,10 @@
   export let copySubtitle: string | null | undefined;
   export let copyImage: Image | undefined;
   export let copy: any[];
-  export let testimonial: string | null | undefined;
-  export let author: string | null | undefined;
+  export let testimonials: any[];
   export let galleryImages: ImageType[];
+
+  $: console.log(testimonials);
 
   let open = true;
 </script>
@@ -45,8 +46,8 @@
   />
 {/if}
 
-{#if testimonial}
-  <Testimonial {testimonial} {author} />
+{#if testimonials && testimonials.length > 0}
+  <Testimonials {testimonials} />
 {/if}
 
 {#if galleryImages && galleryImages.length > 0}

@@ -13,6 +13,7 @@ export async function load() {
   }
 
   return {
-    data: data.data.allHome[0],
+    home: data.data.allHome[0],
+    testimonials: data.data.testimonials,
   };
 }

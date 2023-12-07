@@ -586,9 +586,6 @@ export type Project = Document & {
   projectValue?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
-  /** Who wrote this testimonial? */
-  testimonialAuthor?: Maybe<Scalars["String"]["output"]>;
-  testimonialRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Project title */
   title?: Maybe<Scalars["String"]["output"]>;
 };
@@ -609,7 +606,6 @@ export type ProjectFilter = {
   projectValue?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
-  testimonialAuthor?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -627,7 +623,6 @@ export type ProjectSorting = {
   projectValue?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
-  testimonialAuthor?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -698,6 +693,7 @@ export type RootQuery = {
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
   TeamMember?: Maybe<TeamMember>;
+  Testimonial?: Maybe<Testimonial>;
   allAbout: Array<About>;
   allContact: Array<Contact>;
   allDocument: Array<Document>;
@@ -709,6 +705,7 @@ export type RootQuery = {
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
   allTeamMember: Array<TeamMember>;
+  allTestimonial: Array<Testimonial>;
 };
 
 export type RootQueryAboutArgs = {
@@ -752,6 +749,10 @@ export type RootQuerySanityImageAssetArgs = {
 };
 
 export type RootQueryTeamMemberArgs = {
+  id: Scalars["ID"]["input"];
+};
+
+export type RootQueryTestimonialArgs = {
   id: Scalars["ID"]["input"];
 };
 
@@ -830,6 +831,13 @@ export type RootQueryAllTeamMemberArgs = {
   offset?: InputMaybe<Scalars["Int"]["input"]>;
   sort?: InputMaybe<Array<TeamMemberSorting>>;
   where?: InputMaybe<TeamMemberFilter>;
+};
+
+export type RootQueryAllTestimonialArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  sort?: InputMaybe<Array<TestimonialSorting>>;
+  where?: InputMaybe<TestimonialFilter>;
 };
 
 export type SanityAssetSourceData = {
@@ -1331,6 +1339,49 @@ export type TeamMemberSorting = {
   phone?: InputMaybe<SortOrder>;
 };
 
+export type Testimonial = Document & {
+  __typename?: "Testimonial";
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** Document ID */
+  _id?: Maybe<Scalars["ID"]["output"]>;
+  _key?: Maybe<Scalars["String"]["output"]>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars["String"]["output"]>;
+  /** Document type */
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** Project testimonial */
+  testimonial?: Maybe<Scalars["String"]["output"]>;
+  /** Who wrote this testimonial? */
+  testimonialAuthor?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type TestimonialFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  testimonial?: InputMaybe<StringFilter>;
+  testimonialAuthor?: InputMaybe<StringFilter>;
+};
+
+export type TestimonialSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  testimonial?: InputMaybe<SortOrder>;
+  testimonialAuthor?: InputMaybe<SortOrder>;
+};
+
 export type ImageHotspotFragment = {
   __typename?: "SanityImageHotspot";
   x?: number | null | undefined;
@@ -1452,8 +1503,6 @@ export type GetHomeQuery = {
     copyTitle?: string | null | undefined;
     copyRaw?: any | null | undefined;
     projectsSubtitle?: string | null | undefined;
-    testimonial?: string | null | undefined;
-    testimonialAuthor?: string | null | undefined;
     heroImages?:
       | Array<
           | {
@@ -1644,6 +1693,11 @@ export type GetHomeQuery = {
         }
       | null
       | undefined;
+  }>;
+  testimonials: Array<{
+    __typename?: "Testimonial";
+    testimonial?: string | null | undefined;
+    testimonialAuthor?: string | null | undefined;
   }>;
 };
 
@@ -2020,8 +2074,6 @@ export type GetProjectQuery = {
     projectLocation?: string | null | undefined;
     projectValue?: string | null | undefined;
     projectInvolvement?: string | null | undefined;
-    testimonialRaw?: any | null | undefined;
-    testimonialAuthor?: string | null | undefined;
     heroImages?:
       | Array<
           | {
@@ -2269,8 +2321,6 @@ export const GetHomeDoc = gql`
           }
         }
       }
-      testimonial
-      testimonialAuthor
       gallery {
         asset {
           ...imageAsset
@@ -2288,6 +2338,10 @@ export const GetHomeDoc = gql`
       seo {
         ...seo
       }
+    }
+    testimonials: allTestimonial {
+      testimonial
+      testimonialAuthor
     }
   }
   ${ImageAssetFragmentDoc}
@@ -2475,8 +2529,6 @@ export const GetProjectDoc = gql`
           ...imageHotspot
         }
       }
-      testimonialRaw
-      testimonialAuthor
       slug {
         current
       }
