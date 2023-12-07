@@ -5,39 +5,18 @@
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Button from "$lib/components/Button/Button.svelte";
-  import { register } from "swiper/element/bundle";
-  import "swiper/css/autoplay";
 
   export let images: ImageType[] | null | undefined;
   export let title: string | null | undefined;
   export let isHome: boolean = false;
 
-  let swiperEl: any;
-
-  onMount(() => {
-    if (browser) {
-      //initialise swiperJs
-      register();
-
-      const swiperParams = {
-        autoplay: {
-          delay: 3000,
-        },
-        speed: 1000,
-        slidesPerView: 1,
-      };
-      if (images && images.length > 0) {
-        Object.assign(swiperEl, swiperParams);
-        swiperEl.initialize();
-      }
-    }
-  });
+  onMount(() => {});
 </script>
 
 <div class="relative w-full">
   <div class="relative overflow-hidden bg-gray-100">
     {#if images && images.length > 0}
-      <swiper-container
+      <!-- <swiper-container
         init="false"
         bind:this={swiperEl}
         autoplay-disable-on-interaction={false}
@@ -80,7 +59,7 @@
             </div>
           </swiper-slide>
         {/each}
-      </swiper-container>
+      </swiper-container> -->
     {:else if images && images[0] && images[0].asset}
       <div class="relative overflow-y-hidden bg-gray-100 hero-container">
         <Image
