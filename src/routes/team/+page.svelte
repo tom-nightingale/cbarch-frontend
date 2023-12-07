@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
-  import About from "$lib/layouts/About/About.svelte";
+  import Team from "$lib/layouts/Team/Team.svelte";
 
   export let data: PageData;
-
   $: page = data.data;
 </script>
 
@@ -19,12 +18,8 @@
   }}
 />
 
-<About
-  introTitle={page.introTitle}
-  introSubtitle={page.introSubtitle}
-  introCopy={page.introCopyRaw}
-  copyTitle={page.copyTitle}
-  copySubtitle={page.copySubtitle}
-  copy={page.copyRaw}
-  copyImage={page.copyImage}
+<Team
+  teamTitle={page.teamTitle}
+  teamSubtitle={page.teamSubtitle}
+  team={page.team}
 />

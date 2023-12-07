@@ -138,6 +138,18 @@ query GetAbout {
         ...imageCrop
       }
     }
+
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetTeam {
+  allTeam {
     teamSubtitle
     teamTitle
     team {

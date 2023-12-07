@@ -65,11 +65,6 @@ export type About = Document & {
   introTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
-  team?: Maybe<Array<Maybe<TeamMember>>>;
-  /** Text above the team members heading */
-  teamSubtitle?: Maybe<Scalars["String"]["output"]>;
-  /** Team title */
-  teamTitle?: Maybe<Scalars["String"]["output"]>;
   /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
@@ -90,8 +85,6 @@ export type AboutFilter = {
   introTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
-  teamSubtitle?: InputMaybe<StringFilter>;
-  teamTitle?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -109,8 +102,6 @@ export type AboutSorting = {
   introTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
-  teamSubtitle?: InputMaybe<SortOrder>;
-  teamTitle?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -692,6 +683,7 @@ export type RootQuery = {
   Projects?: Maybe<Projects>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
   SanityImageAsset?: Maybe<SanityImageAsset>;
+  Team?: Maybe<Team>;
   TeamMember?: Maybe<TeamMember>;
   Testimonial?: Maybe<Testimonial>;
   allAbout: Array<About>;
@@ -704,6 +696,7 @@ export type RootQuery = {
   allProjects: Array<Projects>;
   allSanityFileAsset: Array<SanityFileAsset>;
   allSanityImageAsset: Array<SanityImageAsset>;
+  allTeam: Array<Team>;
   allTeamMember: Array<TeamMember>;
   allTestimonial: Array<Testimonial>;
 };
@@ -745,6 +738,10 @@ export type RootQuerySanityFileAssetArgs = {
 };
 
 export type RootQuerySanityImageAssetArgs = {
+  id: Scalars["ID"]["input"];
+};
+
+export type RootQueryTeamArgs = {
   id: Scalars["ID"]["input"];
 };
 
@@ -824,6 +821,13 @@ export type RootQueryAllSanityImageAssetArgs = {
   offset?: InputMaybe<Scalars["Int"]["input"]>;
   sort?: InputMaybe<Array<SanityImageAssetSorting>>;
   where?: InputMaybe<SanityImageAssetFilter>;
+};
+
+export type RootQueryAllTeamArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  sort?: InputMaybe<Array<TeamSorting>>;
+  where?: InputMaybe<TeamFilter>;
 };
 
 export type RootQueryAllTeamMemberArgs = {
@@ -1288,6 +1292,46 @@ export type StringFilter = {
   nin?: InputMaybe<Array<Scalars["String"]["input"]>>;
 };
 
+export type Team = Document & {
+  __typename?: "Team";
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** Document ID */
+  _id?: Maybe<Scalars["ID"]["output"]>;
+  _key?: Maybe<Scalars["String"]["output"]>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars["String"]["output"]>;
+  /** Document type */
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  seo?: Maybe<Seo>;
+  slug?: Maybe<Slug>;
+  team?: Maybe<Array<Maybe<TeamMember>>>;
+  /** Text above the team members heading */
+  teamSubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** Team title */
+  teamTitle?: Maybe<Scalars["String"]["output"]>;
+  /** Only used to generate the slug. */
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type TeamFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  seo?: InputMaybe<SeoFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  teamSubtitle?: InputMaybe<StringFilter>;
+  teamTitle?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
 export type TeamMember = Document & {
   __typename?: "TeamMember";
   /** Date the document was created */
@@ -1337,6 +1381,20 @@ export type TeamMemberSorting = {
   image?: InputMaybe<ImageSorting>;
   name?: InputMaybe<SortOrder>;
   phone?: InputMaybe<SortOrder>;
+};
+
+export type TeamSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  seo?: InputMaybe<SeoSorting>;
+  slug?: InputMaybe<SlugSorting>;
+  teamSubtitle?: InputMaybe<SortOrder>;
+  teamTitle?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
 };
 
 export type Testimonial = Document & {
@@ -1713,8 +1771,6 @@ export type GetAboutQuery = {
     copySubtitle?: string | null | undefined;
     copyTitle?: string | null | undefined;
     copyRaw?: any | null | undefined;
-    teamSubtitle?: string | null | undefined;
-    teamTitle?: string | null | undefined;
     copyImage?:
       | {
           __typename?: "Image";
@@ -1749,6 +1805,44 @@ export type GetAboutQuery = {
         }
       | null
       | undefined;
+    slug?:
+      | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                      altText?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
+export type GetTeamQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetTeamQuery = {
+  __typename?: "RootQuery";
+  allTeam: Array<{
+    __typename?: "Team";
+    teamSubtitle?: string | null | undefined;
+    teamTitle?: string | null | undefined;
     team?:
       | Array<
           | {
@@ -2369,6 +2463,22 @@ export const GetAboutDoc = gql`
           ...imageCrop
         }
       }
+      slug {
+        current
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ImageAssetFragmentDoc}
+  ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
+  ${SeoFragmentDoc}
+`;
+export const GetTeamDoc = gql`
+  query GetTeam {
+    allTeam {
       teamSubtitle
       teamTitle
       team {
@@ -2620,6 +2730,38 @@ export const GetAbout = (
   var result = readable<
     ApolloQueryResult<GetAboutQuery> & {
       query: ObservableQuery<GetAboutQuery, GetAboutQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetTeam = (
+  options: Omit<WatchQueryOptions<GetTeamQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetTeamQuery> & {
+    query: ObservableQuery<GetTeamQuery, GetTeamQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetTeamDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetTeamQuery> & {
+      query: ObservableQuery<GetTeamQuery, GetTeamQueryVariables>;
     }
   >(
     {
