@@ -106,7 +106,7 @@
     });
 
     //Initialise glide slider.
-    new Glide(".glide", {
+    new Glide(".glide-gallery", {
       perView: 4,
       gap: 10,
       autoplay: false,
@@ -136,7 +136,7 @@
     class="px-4 py-14 {removeMarginBottom && 'pb-0'}"
     bind:this={imageContainer}
   >
-    <div class="relative glide">
+    <div class="relative glide-gallery">
       <div data-glide-el="track" class="glide__track">
         <div class="glide__slides">
           {#each images as image, i}

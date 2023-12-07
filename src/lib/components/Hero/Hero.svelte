@@ -11,8 +11,8 @@
   export let isHome: boolean = false;
 
   onMount(() => {
-    if (images && images.length > 0) {
-      new Glide(".glide", {
+    if (images && images.length > 1) {
+      new Glide(".glide-hero", {
         perView: 1,
         gap: 10,
         autoplay: false,
@@ -21,15 +21,20 @@
       }).mount();
     }
   });
+
+  let randomImages = images
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 </script>
 
 <div class="relative w-full">
   <div class="relative overflow-hidden bg-gray-100">
-    {#if images && images.length > 0}
-      <div class="relative glide">
+    {#if randomImages && randomImages.length > 1}
+      <div class="relative glide-hero">
         <div data-glide-el="track" class="glide__track">
           <div class="glide__slides">
-            {#each images as image, i}
+            {#each randomImages as image, i}
               <div
                 class="relative overflow-y-hidden bg-gray-100 hero-container"
               >

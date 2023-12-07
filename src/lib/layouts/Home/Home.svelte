@@ -20,8 +20,6 @@
   export let testimonials: any[];
   export let galleryImages: ImageType[];
 
-  $: console.log(testimonials);
-
   let open = true;
 </script>
 

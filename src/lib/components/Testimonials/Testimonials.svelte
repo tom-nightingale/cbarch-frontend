@@ -4,6 +4,7 @@
   import Container from "$lib/components/Container/Container.svelte";
   import { inView, animate } from "motion";
   import Glide from "@glidejs/glide";
+
   export let testimonials: any[] = [];
 
   let textContainer: HTMLElement;
@@ -29,6 +30,11 @@
       autoplay: false,
     }).mount();
   });
+
+  let randomTestimonials = testimonials
+    .map((value) => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
 </script>
 
 <div
@@ -42,7 +48,7 @@
       <div class="relative testimonial-glide">
         <div data-glide-el="track" class="glide__track">
           <div class="glide__slides">
-            {#each testimonials as item, i}
+            {#each randomTestimonials as item, i}
               <div class="m-auto glide__slide">
                 <div class="max-w-[900px] 2xl:max-w-[1100px]">
                   <Typography variant="testimonial1" component="p">
