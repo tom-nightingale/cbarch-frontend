@@ -115,10 +115,8 @@
   <div
     class="absolute bottom-0 left-0 w-full py-[25px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-between"
   >
-    <Typography
-      component="p"
-      variant={isHome ? "title1" : "title2"}
-      theme="text-blue">{title}</Typography
+    <Typography component="p" variant="title1" theme="text-blue"
+      >{title}</Typography
     >
     {#if isHome}
       <div class="ml-auto mt-[18px] md:mt-0">
