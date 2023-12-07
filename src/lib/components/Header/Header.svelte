@@ -7,8 +7,6 @@
   import Logo from "$lib/components/Logo/Logo.svelte";
   import { NavItems } from "$lib/data/NavItems";
 
-  let y: number = 0;
-
   const dispatch = createEventDispatcher();
 
   const handleMenuOpen = (e) => {
@@ -16,15 +14,11 @@
   };
 </script>
 
-<svelte:window bind:scrollY={y} />
 
 <div class="fixed top-0 left-0 z-50 w-full bg-white shadow-sm header">
   <Container>
     <div
-      class="flex items-center justify-between p-8 px-4 md:px-8 transition-all duration-300 {y >
-      50
-        ? 'py-4'
-        : ''}"
+      class="flex items-center justify-between p-8 px-4 transition-all duration-300 md:px-8"
     >
       <a
         class="hover:opacity-90 block w-[255px] max-w-[200px] md:max-w-[255px]"

@@ -576,6 +576,7 @@ export type Project = Document & {
   gallery?: Maybe<Array<Maybe<Image>>>;
   heroImages?: Maybe<Array<Maybe<Image>>>;
   orderRank?: Maybe<Scalars["String"]["output"]>;
+  projectCopyImage?: Maybe<Image>;
   projectCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Involvement in the project */
   projectInvolvement?: Maybe<Scalars["String"]["output"]>;
@@ -602,6 +603,7 @@ export type ProjectFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   orderRank?: InputMaybe<StringFilter>;
+  projectCopyImage?: InputMaybe<ImageFilter>;
   projectInvolvement?: InputMaybe<StringFilter>;
   projectLocation?: InputMaybe<StringFilter>;
   projectValue?: InputMaybe<StringFilter>;
@@ -619,6 +621,7 @@ export type ProjectSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   orderRank?: InputMaybe<SortOrder>;
+  projectCopyImage?: InputMaybe<ImageSorting>;
   projectInvolvement?: InputMaybe<SortOrder>;
   projectLocation?: InputMaybe<SortOrder>;
   projectValue?: InputMaybe<SortOrder>;
@@ -2057,6 +2060,40 @@ export type GetProjectQuery = {
         >
       | null
       | undefined;
+    projectCopyImage?:
+      | {
+          __typename?: "Image";
+          asset?:
+            | {
+                __typename?: "SanityImageAsset";
+                url?: string | null | undefined;
+                altText?: string | null | undefined;
+              }
+            | null
+            | undefined;
+          hotspot?:
+            | {
+                __typename?: "SanityImageHotspot";
+                x?: number | null | undefined;
+                y?: number | null | undefined;
+                width?: number | null | undefined;
+                height?: number | null | undefined;
+              }
+            | null
+            | undefined;
+          crop?:
+            | {
+                __typename?: "SanityImageCrop";
+                top?: number | null | undefined;
+                bottom?: number | null | undefined;
+                left?: number | null | undefined;
+                right?: number | null | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
     gallery?:
       | Array<
           | {
@@ -2413,6 +2450,17 @@ export const GetProjectDoc = gql`
       }
       title
       projectCopyRaw
+      projectCopyImage {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
       projectLocation
       projectValue
       projectInvolvement

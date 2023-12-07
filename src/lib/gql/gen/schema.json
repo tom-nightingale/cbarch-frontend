@@ -4534,6 +4534,18 @@
             "deprecationReason": null
           },
           {
+            "name": "projectCopyImage",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Image",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projectCopyRaw",
             "description": null,
             "args": [],
@@ -4756,6 +4768,18 @@
             "deprecationReason": null
           },
           {
+            "name": "projectCopyImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projectInvolvement",
             "description": null,
             "type": {
@@ -4928,6 +4952,18 @@
             "type": {
               "kind": "ENUM",
               "name": "SortOrder",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "projectCopyImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageSorting",
               "ofType": null
             },
             "defaultValue": null,

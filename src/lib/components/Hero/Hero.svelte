@@ -119,7 +119,7 @@
     {/if}
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full py-[35px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-between"
+    class="absolute bottom-0 left-0 w-full py-[25px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-between"
   >
     <Typography
       component="p"
@@ -138,6 +138,7 @@
   .hero-container {
     @apply min-h-[calc(88vh-120px)];
     @apply md:min-h-[calc(100vh-119px)];
+    /* @apply landscape:min-h-[150vh]; */
   }
 
   @supports (-webkit-touch-callout: none) {

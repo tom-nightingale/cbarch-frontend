@@ -256,6 +256,17 @@ query GetProject($slug: String) {
     }
     title
     projectCopyRaw
+    projectCopyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
     projectLocation
     projectValue
     projectInvolvement

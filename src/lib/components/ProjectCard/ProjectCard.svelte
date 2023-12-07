@@ -9,7 +9,7 @@
   export let slug: string | null | undefined;
 </script>
 
-<a href={`/projects/${slug}`} class="relative block">
+<a href={`/projects/${slug}`} class="relative block overflow-hidden group">
   {#if image}
     <Image
       {image}
@@ -44,11 +44,11 @@
     />
   {/if}
 
-  <div class="absolute bottom-0 left-0 w-full py-5 bg-white/80 px-7 text-blue">
+  <div class="absolute bottom-0 left-0 w-full py-5 transition-all duration-500 group-hover:bg-white/0 bg-white/80 px-7 text-blue">
     <div class="max-w-sm">
-      <Typography component="h3" variant="project1" uppercase>
+      <Typography component="h3" variant="project1 group-hover:text-white transition-all duration-500" uppercase>
         {@html title && location
-          ? `${title}, <span class="block">${location}</span>`
+          ? `${title}, <span class="block transition-all duration-500 group-hover:text-white">${location}</span>`
           : `${title}`}
       </Typography>
     </div>

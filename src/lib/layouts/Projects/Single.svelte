@@ -1,48 +1,22 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { browser } from "$app/environment";
   import type { Image as ImageType } from "$lib/gql/gen/codegen";
   import Hero from "$lib/components/Hero/Hero.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Copy from "$lib/components/Copy/Copy.svelte";
   import Image from "$lib/components/Image/Image.svelte";
-  import Gallery from "$lib/components/Gallery/Gallery.svelte";
+  import GlideGallery from "$lib/components/GlideGallery/GlideGallery.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
-  import { register } from "swiper/element/bundle";
-  import { Navigation } from "swiper/modules";
 
   export let heroImages: ImageType[] | null | undefined;
   export let title: string | null | undefined;
   export let location: string | null | undefined;
   export let value: string | null | undefined;
   export let copy: any[];
+  export let copyImage: ImageType | null | undefined;
   export let involvement: string | null | undefined;
   export let gallery: any;
-  let swiperEl: any;
-
-  onMount(() => {
-    if (browser) {
-      //initialise swiperJs
-      register();
-
-      const swiperParams = {
-        slidesPerView: 1,
-        speed: 1000,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        modules: [Navigation],
-      };
-
-      if (gallery && gallery.length > 0 && gallery.length <= 3) {
-        Object.assign(swiperEl, swiperParams);
-        swiperEl.initialize();
-      }
-    }
-  });
 </script>
 
 <Hero
@@ -53,59 +27,11 @@
 <Container>
   <div class="md:grid md:grid-cols-2 md:mb-12">
     <div class="relative p-9">
-      {#if gallery && gallery.length > 0 && gallery.length <= 3}
-        <swiper-container init="false" bind:this={swiperEl}>
-          {#each gallery as image, i}
-            <swiper-slide>
-              <Image
-                {image}
-                altText={image?.asset?.altText
-                  ? image?.asset?.altText
-                  : "Coleflax Bennett Architecture"}
-                lgImg={true}
-                lgSizes={{
-                  lg: {
-                    width: 1600,
-                    height: 1200,
-                  },
-                  md: {
-                    width: 800,
-                    height: 700,
-                  },
-                  sm: {
-                    width: 650,
-                    height: 1000,
-                  },
-                  xs: {
-                    width: 768,
-                    height: 768,
-                  },
-                  fallback: {
-                    width: 768,
-                    height: 768,
-                  },
-                }}
-                pictureClasses="block md:sticky md:top-40"
-                imageClasses="object-cover object-center h-full"
-              />
-            </swiper-slide>
-          {/each}
-        </swiper-container>
-        <div
-          class="absolute z-50 p-2 transition-all duration-300 -translate-y-1/2 bg-white/80 right-9 top-1/2 swiper-button-next aria-disabled:opacity-50 aria-disabled:pointer-events-none"
-        >
-          <Icon classNames="text-blue" icon="angle-right" />
-        </div>
-        <div
-          class="absolute z-50 p-2 transition-all duration-300 -translate-y-1/2 bg-white/80 left-9 top-1/2 swiper-button-prev aria-disabled:opacity-50 aria-disabled:pointer-events-none"
-        >
-          <Icon classNames="text-blue" icon="angle-left" />
-        </div>
-      {:else if gallery && gallery[0]?.asset}
+      {#if copyImage && copyImage.asset}
         <Image
-          image={gallery[0]}
-          altText={gallery[0]?.asset?.altText
-            ? gallery[0]?.asset?.altText
+          image={copyImage}
+          altText={copyImage?.asset?.altText
+            ? copyImage?.asset?.altText
             : "Coleflax Bennett Architecture"}
           lgImg={true}
           lgSizes={{
@@ -200,7 +126,7 @@
 </Container>
 
 {#if gallery && gallery.length > 3}
-  <Gallery images={gallery} square />
+  <GlideGallery images={gallery} square />
 {/if}
 
 <WorkWithUs />

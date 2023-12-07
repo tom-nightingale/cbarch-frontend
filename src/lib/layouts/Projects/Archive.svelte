@@ -32,14 +32,6 @@
   });
 </script>
 
-<Container>
-  <div class="px-4 py-[55px]">
-    <Typography component="h1" variant="title1" theme="text-blue"
-      >{title}</Typography
-    >
-  </div>
-</Container>
-
 <div class="px-4 py-16 bg-blue-light mb-14">
   {#if projects && projects.length > 0}
     <Container>

@@ -31,4 +31,5 @@
   involvement={project.projectInvolvement}
   gallery={project.gallery}
   copy={project.projectCopyRaw}
+  copyImage={project.projectCopyImage}
 />

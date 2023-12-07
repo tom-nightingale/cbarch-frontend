@@ -99,13 +99,9 @@
     </div>
 
     {#if image && image.asset}
-      <a
-        data-fslightbox
-        href={image?.asset?.url}
-        bind:this={imageComponent}
+      <div bind:this={imageComponent}
         class="block opacity-0 transform transition-none
-        {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} "
-      >
+        {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} ">
         <Image
           {image}
           altText={image?.asset?.altText
@@ -135,9 +131,8 @@
             },
           }}
           pictureClasses="block self-center overflow-hidden mt-12 md:mt-0"
-          imageClasses="hover:scale-[1.05] transition duration-300"
         />
-      </a>
+      </div>
     {/if}
   </div>
 </Container>
