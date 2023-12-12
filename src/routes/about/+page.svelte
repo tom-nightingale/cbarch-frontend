@@ -6,6 +6,8 @@
   export let data: PageData;
 
   $: page = data.data;
+
+  $: console.log(page.thirdCopyImage);
 </script>
 
 <Seo
@@ -20,11 +22,15 @@
 />
 
 <About
-  introTitle={page.introTitle}
-  introSubtitle={page.introSubtitle}
-  introCopy={page.introCopyRaw}
-  copyTitle={page.copyTitle}
-  copySubtitle={page.copySubtitle}
-  copy={page.copyRaw}
+  firstSubtitle={page.firstSubtitle}
+  firstTitle={page.firstTitle}
+  firstCopy={page.firstCopyRaw}
+  secondSubtitle={page.secondSubtitle}
+  secondTitle={page.secondTitle}
+  secondCopy={page.secondCopyRaw}
   copyImage={page.copyImage}
+  thirdSubtitle={page.thirdSubtitle}
+  thirdTitle={page.thirdTitle}
+  thirdCopy={page.thirdCopyRaw}
+  thirdCopyImage={page.thirdCopyImage}
 />

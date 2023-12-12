@@ -53,18 +53,24 @@ export type About = Document & {
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
   copyImage?: Maybe<Image>;
-  copyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  /** Text above the copy heading */
-  copySubtitle?: Maybe<Scalars["String"]["output"]>;
+  firstCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the first heading */
+  firstSubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** First title */
+  firstTitle?: Maybe<Scalars["String"]["output"]>;
+  secondCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the second heading */
+  secondSubtitle?: Maybe<Scalars["String"]["output"]>;
   /** H1 */
-  copyTitle?: Maybe<Scalars["String"]["output"]>;
-  introCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
-  /** Text above the intro heading */
-  introSubtitle?: Maybe<Scalars["String"]["output"]>;
-  /** Introduction title at the top of the page */
-  introTitle?: Maybe<Scalars["String"]["output"]>;
+  secondTitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
   slug?: Maybe<Slug>;
+  thirdCopyImage?: Maybe<Image>;
+  thirdCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
+  /** Text above the copy heading */
+  thirdSubtitle?: Maybe<Scalars["String"]["output"]>;
+  /** H1 */
+  thirdTitle?: Maybe<Scalars["String"]["output"]>;
   /** Only used to generate the slug. */
   title?: Maybe<Scalars["String"]["output"]>;
 };
@@ -79,12 +85,15 @@ export type AboutFilter = {
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
   copyImage?: InputMaybe<ImageFilter>;
-  copySubtitle?: InputMaybe<StringFilter>;
-  copyTitle?: InputMaybe<StringFilter>;
-  introSubtitle?: InputMaybe<StringFilter>;
-  introTitle?: InputMaybe<StringFilter>;
+  firstSubtitle?: InputMaybe<StringFilter>;
+  firstTitle?: InputMaybe<StringFilter>;
+  secondSubtitle?: InputMaybe<StringFilter>;
+  secondTitle?: InputMaybe<StringFilter>;
   seo?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
+  thirdCopyImage?: InputMaybe<ImageFilter>;
+  thirdSubtitle?: InputMaybe<StringFilter>;
+  thirdTitle?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
@@ -96,12 +105,15 @@ export type AboutSorting = {
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
   copyImage?: InputMaybe<ImageSorting>;
-  copySubtitle?: InputMaybe<SortOrder>;
-  copyTitle?: InputMaybe<SortOrder>;
-  introSubtitle?: InputMaybe<SortOrder>;
-  introTitle?: InputMaybe<SortOrder>;
+  firstSubtitle?: InputMaybe<SortOrder>;
+  firstTitle?: InputMaybe<SortOrder>;
+  secondSubtitle?: InputMaybe<SortOrder>;
+  secondTitle?: InputMaybe<SortOrder>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
+  thirdCopyImage?: InputMaybe<ImageSorting>;
+  thirdSubtitle?: InputMaybe<SortOrder>;
+  thirdTitle?: InputMaybe<SortOrder>;
   title?: InputMaybe<SortOrder>;
 };
 
@@ -1765,13 +1777,50 @@ export type GetAboutQuery = {
   __typename?: "RootQuery";
   allAbout: Array<{
     __typename?: "About";
-    introSubtitle?: string | null | undefined;
-    introTitle?: string | null | undefined;
-    introCopyRaw?: any | null | undefined;
-    copySubtitle?: string | null | undefined;
-    copyTitle?: string | null | undefined;
-    copyRaw?: any | null | undefined;
+    firstSubtitle?: string | null | undefined;
+    firstTitle?: string | null | undefined;
+    firstCopyRaw?: any | null | undefined;
+    secondSubtitle?: string | null | undefined;
+    secondTitle?: string | null | undefined;
+    secondCopyRaw?: any | null | undefined;
+    thirdSubtitle?: string | null | undefined;
+    thirdTitle?: string | null | undefined;
+    thirdCopyRaw?: any | null | undefined;
     copyImage?:
+      | {
+          __typename?: "Image";
+          asset?:
+            | {
+                __typename?: "SanityImageAsset";
+                url?: string | null | undefined;
+                altText?: string | null | undefined;
+              }
+            | null
+            | undefined;
+          hotspot?:
+            | {
+                __typename?: "SanityImageHotspot";
+                x?: number | null | undefined;
+                y?: number | null | undefined;
+                width?: number | null | undefined;
+                height?: number | null | undefined;
+              }
+            | null
+            | undefined;
+          crop?:
+            | {
+                __typename?: "SanityImageCrop";
+                top?: number | null | undefined;
+                bottom?: number | null | undefined;
+                left?: number | null | undefined;
+                right?: number | null | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    thirdCopyImage?:
       | {
           __typename?: "Image";
           asset?:
@@ -2446,13 +2495,27 @@ export const GetHomeDoc = gql`
 export const GetAboutDoc = gql`
   query GetAbout {
     allAbout {
-      introSubtitle
-      introTitle
-      introCopyRaw
-      copySubtitle
-      copyTitle
-      copyRaw
+      firstSubtitle
+      firstTitle
+      firstCopyRaw
+      secondSubtitle
+      secondTitle
+      secondCopyRaw
       copyImage {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      thirdSubtitle
+      thirdTitle
+      thirdCopyRaw
+      thirdCopyImage {
         asset {
           ...imageAsset
         }

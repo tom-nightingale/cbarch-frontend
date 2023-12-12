@@ -96,7 +96,7 @@
             "deprecationReason": null
           },
           {
-            "name": "copyRaw",
+            "name": "firstCopyRaw",
             "description": null,
             "args": [],
             "type": {
@@ -108,8 +108,8 @@
             "deprecationReason": null
           },
           {
-            "name": "copySubtitle",
-            "description": "Text above the copy heading",
+            "name": "firstSubtitle",
+            "description": "Text above the first heading",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -120,44 +120,44 @@
             "deprecationReason": null
           },
           {
-            "name": "copyTitle",
+            "name": "firstTitle",
+            "description": "First title",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondCopyRaw",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondSubtitle",
+            "description": "Text above the second heading",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "secondTitle",
             "description": "H1",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "introCopyRaw",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "JSON",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "introSubtitle",
-            "description": "Text above the intro heading",
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
-            "name": "introTitle",
-            "description": "Introduction title at the top of the page",
             "args": [],
             "type": {
               "kind": "SCALAR",
@@ -186,6 +186,54 @@
             "type": {
               "kind": "OBJECT",
               "name": "Slug",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdCopyImage",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Image",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdCopyRaw",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "JSON",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdSubtitle",
+            "description": "Text above the copy heading",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdTitle",
+            "description": "H1",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
               "ofType": null
             },
             "isDeprecated": false,
@@ -318,7 +366,7 @@
             "deprecationReason": null
           },
           {
-            "name": "copySubtitle",
+            "name": "firstSubtitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -330,7 +378,7 @@
             "deprecationReason": null
           },
           {
-            "name": "copyTitle",
+            "name": "firstTitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -342,7 +390,7 @@
             "deprecationReason": null
           },
           {
-            "name": "introSubtitle",
+            "name": "secondSubtitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -354,7 +402,7 @@
             "deprecationReason": null
           },
           {
-            "name": "introTitle",
+            "name": "secondTitle",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -383,6 +431,42 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdCopyImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdSubtitle",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdTitle",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
               "ofType": null
             },
             "defaultValue": null,
@@ -497,7 +581,7 @@
             "deprecationReason": null
           },
           {
-            "name": "copySubtitle",
+            "name": "firstSubtitle",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -509,7 +593,7 @@
             "deprecationReason": null
           },
           {
-            "name": "copyTitle",
+            "name": "firstTitle",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -521,7 +605,7 @@
             "deprecationReason": null
           },
           {
-            "name": "introSubtitle",
+            "name": "secondSubtitle",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -533,7 +617,7 @@
             "deprecationReason": null
           },
           {
-            "name": "introTitle",
+            "name": "secondTitle",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -562,6 +646,42 @@
             "type": {
               "kind": "INPUT_OBJECT",
               "name": "SlugSorting",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdCopyImage",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "ImageSorting",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdSubtitle",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortOrder",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "thirdTitle",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortOrder",
               "ofType": null
             },
             "defaultValue": null,

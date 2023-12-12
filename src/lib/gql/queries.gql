@@ -121,12 +121,12 @@ query GetHome {
 
 query GetAbout {
   allAbout {
-    introSubtitle
-    introTitle
-    introCopyRaw
-    copySubtitle
-    copyTitle
-    copyRaw
+    firstSubtitle
+    firstTitle
+    firstCopyRaw
+    secondSubtitle
+    secondTitle
+    secondCopyRaw
     copyImage {
       asset {
         ...imageAsset
@@ -138,7 +138,20 @@ query GetAbout {
         ...imageCrop
       }
     }
-
+    thirdSubtitle
+    thirdTitle
+    thirdCopyRaw
+    thirdCopyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
     slug {
       current
     }
