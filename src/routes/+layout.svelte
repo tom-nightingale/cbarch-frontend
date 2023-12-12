@@ -1,6 +1,5 @@
 <script lang="ts">
   import "$lib/styles/app.css";
-  import PageTransition from "$lib/components/PageTransition/PageTransition.svelte";
   import Header from "$lib/components/Header/Header.svelte";
   import Footer from "$lib/components/Footer/Footer.svelte";
   import MobileMenu from "$lib/components/MobileMenu/MobileMenu.svelte";
@@ -29,9 +28,7 @@
 />
 
 <Header on:menuOpen={toggleMobileMenu} />
-<PageTransition pathname={data.url}>
-  <div class="pt-[107px] md:pt-[119px]">
-    <slot />
-  </div>
-</PageTransition>
+<div class="pt-[107px] md:pt-[119px]">
+  <slot />
+</div>
 <Footer />
