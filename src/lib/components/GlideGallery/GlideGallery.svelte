@@ -177,18 +177,20 @@
         </div>
       </div>
 
-      <div class="glide__arrows" data-glide-el="controls">
-        <button
-          class="absolute flex items-center justify-center p-2 translate-y-[-15%] bg-white rounded-full top-1/2 left-4 transition-all duration-500"
-          data-glide-dir="<"
-          ><Icon icon="angle-left" width={16} height={16} /></button
-        >
-        <button
-          class="absolute flex items-center justify-center p-2 translate-y-[-15%] bg-white rounded-full top-1/2 right-4 transition-all duration-500"
-          data-glide-dir=">"
-          ><Icon icon="angle-right" width={16} height={16} /></button
-        >
-      </div>
+      {#if images && images.length > 4}
+        <div class="glide__arrows" data-glide-el="controls">
+          <button
+            class="absolute flex items-center justify-center p-2 translate-y-[-15%] bg-white rounded-full top-1/2 left-4 transition-all duration-500"
+            data-glide-dir="<"
+            ><Icon icon="angle-left" width={16} height={16} /></button
+          >
+          <button
+            class="absolute flex items-center justify-center p-2 translate-y-[-15%] bg-white rounded-full top-1/2 right-4 transition-all duration-500"
+            data-glide-dir=">"
+            ><Icon icon="angle-right" width={16} height={16} /></button
+          >
+        </div>
+      {/if}
     </div>
   </div>
 </Container>

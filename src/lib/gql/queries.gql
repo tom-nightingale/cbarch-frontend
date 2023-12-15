@@ -83,6 +83,17 @@ query GetHome {
       slug {
         current
       }
+      featuredProjectGallery {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
       gallery {
         asset {
           ...imageAsset

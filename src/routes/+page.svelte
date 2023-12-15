@@ -27,9 +27,12 @@
   author={page.testimonialAuthor}
   galleryImages={page.gallery}
   featuredProjectImages={page &&
-    page.featuredProjects &&
-    page.featuredProjects.length > 0 &&
-    page.featuredProjects[0]?.gallery.slice(0, 2)}
+  page.featuredProjects &&
+  page.featuredProjects.length > 0 &&
+  page.featuredProjects[0]?.featuredProjectGallery &&
+  page.featuredProjects[0]?.featuredProjectGallery.length > 0
+    ? page.featuredProjects[0]?.featuredProjectGallery.slice(0, 2)
+    : page.featuredProjects[0]?.gallery.slice(0, 2)}
   featuredProjectName={page.featuredProjects && page.featuredProjects[0]?.title}
   featuredProjectSlug={page.featuredProjects &&
     page.featuredProjects[0]?.slug?.current}

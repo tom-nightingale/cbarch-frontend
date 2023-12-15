@@ -576,6 +576,7 @@ export type Project = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  featuredProjectGallery?: Maybe<Array<Maybe<Image>>>;
   gallery?: Maybe<Array<Maybe<Image>>>;
   heroImages?: Maybe<Array<Maybe<Image>>>;
   orderRank?: Maybe<Scalars["String"]["output"]>;
@@ -1654,6 +1655,44 @@ export type GetHomeQuery = {
                 | { __typename?: "Slug"; current?: string | null | undefined }
                 | null
                 | undefined;
+              featuredProjectGallery?:
+                | Array<
+                    | {
+                        __typename?: "Image";
+                        asset?:
+                          | {
+                              __typename?: "SanityImageAsset";
+                              url?: string | null | undefined;
+                              altText?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                        hotspot?:
+                          | {
+                              __typename?: "SanityImageHotspot";
+                              x?: number | null | undefined;
+                              y?: number | null | undefined;
+                              width?: number | null | undefined;
+                              height?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                        crop?:
+                          | {
+                              __typename?: "SanityImageCrop";
+                              top?: number | null | undefined;
+                              bottom?: number | null | undefined;
+                              left?: number | null | undefined;
+                              right?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | null
+                    | undefined
+                  >
+                | null
+                | undefined;
               gallery?:
                 | Array<
                     | {
@@ -2451,6 +2490,17 @@ export const GetHomeDoc = gql`
         title
         slug {
           current
+        }
+        featuredProjectGallery {
+          asset {
+            ...imageAsset
+          }
+          hotspot {
+            ...imageHotspot
+          }
+          crop {
+            ...imageCrop
+          }
         }
         gallery {
           asset {

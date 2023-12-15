@@ -48,7 +48,7 @@
                   lgSizes={{
                     lg: {
                       width: 2560,
-                      height: 1175,
+                      height: 1400,
                     },
                     md: {
                       width: 1600,
@@ -128,7 +128,8 @@
 
 <style>
   .hero-container {
-    @apply min-h-[calc(88vh-120px)];
+    /* @apply min-h-[calc(88vh-120px)]; */
+    @apply min-h-[110vh];
     @apply md:min-h-[calc(100vh-119px)];
     /* @apply landscape:min-h-[150vh]; */
   }

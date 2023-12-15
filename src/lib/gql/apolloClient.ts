@@ -7,7 +7,7 @@ import {
 import fetch from "cross-fetch";
 import { onError } from "@apollo/client/link/error/error.cjs";
 
-const ENDPOINT = `https://tkusp14l.apicdn.sanity.io/v1/graphql/production/default`;
+const ENDPOINT = `https://tkusp14l.api.sanity.io/v1/graphql/production/default`;
 
 const httpLink = createHttpLink({
   uri: ENDPOINT,

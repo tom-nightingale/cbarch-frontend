@@ -38,7 +38,7 @@
 </script>
 
 <div
-  class="relative bg-blue py-[60px] mt-[45px] lg:mt-[100px] px-[30px] md:px-[40px] text-white overflow-hidden"
+  class="relative bg-blue py-[60px] pb-[160px] mt-[45px] lg:mt-[100px] px-[30px] md:px-[40px] md:py-[60px] text-white overflow-hidden"
 >
   <Container>
     <div
