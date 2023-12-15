@@ -3141,6 +3141,22 @@
             "deprecationReason": null
           },
           {
+            "name": "mobileHeroImages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Image",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "projectsSubtitle",
             "description": "Text above the projects heading",
             "args": [],
@@ -4565,6 +4581,22 @@
           },
           {
             "name": "heroImages",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Image",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "mobileHeroImages",
             "description": null,
             "args": [],
             "type": {

@@ -8,6 +8,7 @@
   import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
   import type Image from "$lib/components/Image/Image.svelte";
 
+  export let mobileHeroImages: ImageType[] | null | undefined;
   export let heroImages: ImageType[] | null | undefined;
   export let heroTitle: string | null | undefined;
   export let featuredProjectName: string | null | undefined;
@@ -23,7 +24,12 @@
   let open = true;
 </script>
 
-<Hero images={heroImages} title={heroTitle} isHome />
+<Hero
+  images={heroImages}
+  mobileImages={mobileHeroImages}
+  title={heroTitle}
+  isHome
+/>
 
 <div class="px-4 py-12 md:py-20">
   <CopyImageSection

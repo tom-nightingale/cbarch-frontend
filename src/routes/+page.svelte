@@ -21,6 +21,7 @@
 />
 
 <Home
+  mobileHeroImages={page.mobileHeroImages}
   heroImages={page.heroImages}
   heroTitle={page.heroHeadline}
   {testimonials}

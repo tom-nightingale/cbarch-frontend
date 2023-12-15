@@ -51,6 +51,17 @@ query getLanding {
 
 query GetHome {
   allHome {
+    mobileHeroImages {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
     heroImages {
       asset {
         ...imageAsset
@@ -281,6 +292,17 @@ query GetProjectSingleton {
 
 query GetProject($slug: String) {
   project: allProject(where: { slug: { current: { eq: $slug } } }) {
+    mobileHeroImages {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
     heroImages {
       asset {
         ...imageAsset

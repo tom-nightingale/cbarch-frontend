@@ -414,6 +414,7 @@ export type Home = Document & {
   /** Text to accompany the hero image */
   heroHeadline?: Maybe<Scalars["String"]["output"]>;
   heroImages?: Maybe<Array<Maybe<Image>>>;
+  mobileHeroImages?: Maybe<Array<Maybe<Image>>>;
   /** Text above the projects heading */
   projectsSubtitle?: Maybe<Scalars["String"]["output"]>;
   seo?: Maybe<Seo>;
@@ -579,6 +580,7 @@ export type Project = Document & {
   featuredProjectGallery?: Maybe<Array<Maybe<Image>>>;
   gallery?: Maybe<Array<Maybe<Image>>>;
   heroImages?: Maybe<Array<Maybe<Image>>>;
+  mobileHeroImages?: Maybe<Array<Maybe<Image>>>;
   orderRank?: Maybe<Scalars["String"]["output"]>;
   projectCopyImage?: Maybe<Image>;
   projectCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
@@ -1574,6 +1576,44 @@ export type GetHomeQuery = {
     copyTitle?: string | null | undefined;
     copyRaw?: any | null | undefined;
     projectsSubtitle?: string | null | undefined;
+    mobileHeroImages?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
     heroImages?:
       | Array<
           | {
@@ -2256,6 +2296,44 @@ export type GetProjectQuery = {
     projectLocation?: string | null | undefined;
     projectValue?: string | null | undefined;
     projectInvolvement?: string | null | undefined;
+    mobileHeroImages?:
+      | Array<
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined
+        >
+      | null
+      | undefined;
     heroImages?:
       | Array<
           | {
@@ -2459,6 +2537,17 @@ export const GetLandingDoc = gql`
 export const GetHomeDoc = gql`
   query GetHome {
     allHome {
+      mobileHeroImages {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
       heroImages {
         asset {
           ...imageAsset
@@ -2714,6 +2803,17 @@ export const GetProjectSingletonDoc = gql`
 export const GetProjectDoc = gql`
   query GetProject($slug: String) {
     project: allProject(where: { slug: { current: { eq: $slug } } }) {
+      mobileHeroImages {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
       heroImages {
         asset {
           ...imageAsset
@@ -2761,8 +2861,8 @@ export const GetProjectDoc = gql`
     }
   }
   ${ImageAssetFragmentDoc}
-  ${ImageCropFragmentDoc}
   ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
 `;
 export const getLanding = (
