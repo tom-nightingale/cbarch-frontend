@@ -104,7 +104,8 @@
   }
 
   .title1 {
-    @apply text-[40px] leading-[45px] font-heading;
+    @apply text-[25px] leading-[45px] font-heading;
+    @apply sm:text-[40px];
     @apply md:leading-normal;
     @apply 3xl:text-[65px];
   }

@@ -5,6 +5,7 @@
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Button from "$lib/components/Button/Button.svelte";
   import Glide from "@glidejs/glide";
+  import { inView, animate } from "motion";
 
   export let mobileImages: ImageType[] | null | undefined;
   export let images: ImageType[] | null | undefined;
@@ -16,6 +17,7 @@
   let mdWidth = 600;
 
   let gallery: any;
+  let imageContainer: HTMLElement;
 
   onMount(() => {
     if (images && images.length > 1) {
@@ -28,47 +30,51 @@
       });
 
       gallery.mount();
+
+      gallery.on("resize", () => {
+        gallery.update();
+      });
     }
+
+    // animate the image container
+    inView(imageContainer, () => {
+      animate(
+        imageContainer,
+        { opacity: 1 },
+        {
+          duration: 1,
+          easing: [0.17, 0.55, 0.55, 1],
+        },
+      );
+    });
   });
 
   $: randomImages =
-    isMobile && mobileImages
+    isMobile && mobileImages && mobileImages.length > 0
       ? mobileImages
-      : images
+      : images &&
+        images
           .map((value) => ({ value, sort: Math.random() }))
           .sort((a, b) => a.sort - b.sort)
           .map(({ value }) => value);
 
   $: isMobile = viewportWidth < mdWidth;
-
-  $: if (!isMobile) {
-    if (gallery) {
-      setTimeout(() => {
-        gallery.update();
-      });
-    }
-  } else {
-    if (gallery) {
-      setTimeout(() => {
-        gallery.update();
-      });
-    }
-  }
 </script>
 
 <svelte:window bind:innerWidth={viewportWidth} />
 
 <div class="relative w-full">
-  <div class="relative overflow-hidden bg-gray-100">
+  <div
+    class="relative overflow-hidden transition duration-500 bg-gray-100 opacity-0"
+    bind:this={imageContainer}
+  >
     {#if randomImages && randomImages.length > 1}
       <div class="relative glide-hero">
         <div data-glide-el="track" class="glide__track">
           <div class="glide__slides">
             {#if isMobile}
               {#each randomImages as image, i}
-                <div
-                  class="relative overflow-y-hidden bg-gray-100 hero-container"
-                >
+                <div class="relative overflow-y-hidden bg-gray-100">
                   <Image
                     lazyLoad={false}
                     {image}
@@ -78,28 +84,27 @@
                     lgImg={true}
                     lgSizes={{
                       lg: {
-                        width: 2560,
-                        height: 1400,
+                        width: 600,
+                        height: 1000,
                       },
                       md: {
-                        width: 1600,
-                        height: 760,
+                        width: 600,
+                        height: 1000,
                       },
                       sm: {
-                        width: 1280,
+                        width: 600,
                         height: 1000,
                       },
                       xs: {
-                        width: 768,
+                        width: 600,
                         height: 1000,
                       },
                       fallback: {
-                        width: 768,
-                        height: 1622,
+                        width: 600,
+                        height: 1000,
                       },
                     }}
                     pictureClasses="block"
-                    imageClasses="absolute top-0 left-0 w-full h-full object-cover object-center w-full"
                   />
                 </div>
               {/each}
