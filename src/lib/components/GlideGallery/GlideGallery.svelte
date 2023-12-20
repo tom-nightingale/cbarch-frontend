@@ -86,24 +86,20 @@
     // @ts-ignore
     const lightbox = new FsLightbox();
 
-    const projectImages = imageContainer.querySelectorAll("img");
-
-    projectImages.forEach((project) => {
-      inView(
-        project,
-        (item) => {
-          animate(
-            item.target,
-            { opacity: 1, y: [20, 0] },
-            {
-              duration: 1,
-              delay: 0.2,
-            },
-          );
-        },
-        { amount: 0.15 },
-      );
-    });
+    inView(
+      imageContainer,
+      () => {
+        animate(
+          imageContainer,
+          { opacity: 1, y: [20, 0] },
+          {
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
 
     //Initialise glide slider.
     new Glide(".glide-gallery", {
@@ -133,7 +129,8 @@
 
 <Container>
   <div
-    class="px-4 py-14 {removeMarginBottom && 'pb-0'}"
+    class="px-4 py-14 opacity-0 transform translate-y-[20px] {removeMarginBottom &&
+      'pb-0'}"
     bind:this={imageContainer}
   >
     <div class="relative glide-gallery">
@@ -170,7 +167,7 @@
                   ? primaryImageSizes
                   : secondaryImageSizes}
                 pictureClasses="block h-full transition-all duration-300 hover:scale-[1.05]"
-                imageClasses="opacity-0 object-cover object-center h-full"
+                imageClasses="object-cover object-center h-full"
               />
             </a>
           {/each}

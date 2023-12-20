@@ -10,16 +10,20 @@
   let textContainer: HTMLElement;
 
   onMount(() => {
-    inView(textContainer, () => {
-      animate(
-        textContainer,
-        { opacity: 1, y: [20, 0] },
-        {
-          duration: 1,
-          easing: [0.17, 0.55, 0.55, 1],
-        },
-      );
-    });
+    inView(
+      textContainer,
+      () => {
+        animate(
+          textContainer,
+          { opacity: 1, y: [20, 0] },
+          {
+            duration: 1,
+            easing: [0.17, 0.55, 0.55, 1],
+          },
+        );
+      },
+      { amount: 0.15 },
+    );
 
     //Initialise glide slider.
     new Glide(".testimonial-glide", {
