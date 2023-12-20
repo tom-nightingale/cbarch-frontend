@@ -34,7 +34,7 @@
         >&nbsp;</span
       >
       <Typography variant="sub1" component="p"
-        ><a class="hover:text-blue" href="/">Privacy Policy</a>
+        ><a class="hover:text-blue" href="/privacy-policy">Privacy Policy</a>
       </Typography>
     </div>
   </div>

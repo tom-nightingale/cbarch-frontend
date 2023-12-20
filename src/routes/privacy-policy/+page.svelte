@@ -1,10 +1,11 @@
 <script lang="ts">
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
+  import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
 </script>
 
 <Container>
-  <div class="flex flex-col gap-8 p-4 prose">
+  <div class="flex flex-col gap-8 p-4 prose md:w-1/2 md:p-8 md:mx-auto">
     <Typography component="h2" variant="headline2" theme="text-blue"
       >1. Cookies</Typography
     >
@@ -194,3 +195,5 @@
     </Typography>
   </div>
 </Container>
+
+<WorkWithUs />

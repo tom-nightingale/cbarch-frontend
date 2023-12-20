@@ -80,7 +80,7 @@
             <Typography
               component="p"
               variant="body1"
-              theme="w-1/2 sm:w-2/3  md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              theme="w-1/2 sm:w-2/3  md:w-1/2 lg:w-2/3 3xl:w-4/5 pl-4"
               >{location}</Typography
             >
           </div>
@@ -97,7 +97,7 @@
             <Typography
               component="p"
               variant="body1"
-              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5 pl-4"
               >{value}</Typography
             >
           </div>
@@ -114,7 +114,7 @@
             <Typography
               component="p"
               variant="body1"
-              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5"
+              theme="w-1/2 sm:w-2/3 md:w-1/2 lg:w-2/3 3xl:w-4/5 pl-4"
               >{involvement}</Typography
             >
           </div>
