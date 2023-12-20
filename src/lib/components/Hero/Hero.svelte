@@ -41,16 +41,14 @@
     }
 
     // animate the image container
-    inView(imageContainer, () => {
-      animate(
-        imageContainer,
-        { opacity: 1 },
-        {
-          duration: 1,
-          easing: [0.17, 0.55, 0.55, 1],
-        },
-      );
-    });
+    animate(
+      imageContainer,
+      { opacity: 1 },
+      {
+        duration: 0.5,
+        easing: [0.17, 0.55, 0.55, 1],
+      },
+    );
   });
 
   $: randomImages =
