@@ -4,16 +4,14 @@
   import Button from "$lib/components/Button/Button.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
   import NavItem from "$lib/components/NavItem/NavItem.svelte";
-  import Logo from "$lib/components/Logo/Logo.svelte";
   import { NavItems } from "$lib/data/NavItems";
 
   const dispatch = createEventDispatcher();
 
-  const handleMenuOpen = (e) => {
+  const handleMenuOpen = (e: any) => {
     dispatch("menuOpen", e.detail);
   };
 </script>
-
 
 <div class="fixed top-0 left-0 z-50 w-full bg-white shadow-sm header">
   <Container>
@@ -24,7 +22,13 @@
         class="hover:opacity-90 block w-[255px] max-w-[200px] md:max-w-[255px]"
         href="/"
       >
-        <Logo />
+        <span class="sr-only">Go to home</span>
+        <img
+          src="/logo.webp"
+          alt="Coleflax Bennett Logo"
+          width="349"
+          height="75"
+        />
       </a>
 
       <div class="items-center hidden gap-4 lg:flex">
@@ -45,6 +49,7 @@
         class="flex items-center justify-center p-2 border lg:hidden border-blue text-blue"
         on:click={handleMenuOpen}
       >
+        <span class="sr-only">Open mobile menu</span>
         <Icon icon="bars" />
       </button>
     </div>

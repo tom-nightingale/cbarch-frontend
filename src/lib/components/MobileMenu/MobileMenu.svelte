@@ -38,6 +38,7 @@
         class="p-2 transition-all duration-200 border lg:hidden border-blue text-blue hover:text-white hover:bg-blue cursor:pointer"
         on:click={handleMenuClose}
       >
+        <span class="sr-only">Close menu</span>
         <Icon icon="times" />
       </button>
     </div>

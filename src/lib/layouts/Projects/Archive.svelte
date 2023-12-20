@@ -6,7 +6,6 @@
   import ProjectCard from "$lib/components/ProjectCard/ProjectCard.svelte";
   import { inView, animate } from "motion";
 
-  export let title: string | null | undefined;
   export let projects: any;
 
   let projectContainer: HTMLElement;

@@ -19,4 +19,4 @@
   }}
 />
 
-<Archive title={page.introTitle} {projects} />
+<Archive {projects} />

@@ -99,9 +99,11 @@
     </div>
 
     {#if image && image.asset}
-      <div bind:this={imageComponent}
+      <div
+        bind:this={imageComponent}
         class="block opacity-0 transform transition-none
-        {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} ">
+        {reverse ? 'translate-x-[-400px]' : 'translate-x-[400px]'} "
+      >
         <Image
           {image}
           altText={image?.asset?.altText
@@ -126,8 +128,8 @@
               height: 768,
             },
             fallback: {
-              width: 768,
-              height: 768,
+              width: 389,
+              height: 389,
             },
           }}
           pictureClasses="block self-center overflow-hidden mt-12 md:mt-0"

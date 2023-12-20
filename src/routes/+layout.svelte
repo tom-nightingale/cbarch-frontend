@@ -3,12 +3,11 @@
   import Header from "$lib/components/Header/Header.svelte";
   import Footer from "$lib/components/Footer/Footer.svelte";
   import MobileMenu from "$lib/components/MobileMenu/MobileMenu.svelte";
-  export let data;
 
   let mobileMenuOpen: boolean = false;
   let animateItems: boolean = false;
 
-  const toggleMobileMenu = (e) => {
+  const toggleMobileMenu = (e: any) => {
     mobileMenuOpen = !mobileMenuOpen;
     window.document.body.classList.toggle("locked");
     if (mobileMenuOpen) {
@@ -38,5 +37,6 @@
     type="text/javascript"
     charset="UTF-8"
     src="//cdn.cookie-script.com/s/efa75847543057db5a836d83dd6179c5.js"
+    defer
   ></script>
 </svelte:head>

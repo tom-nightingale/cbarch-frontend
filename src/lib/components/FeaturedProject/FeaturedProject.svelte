@@ -59,7 +59,7 @@
       <Typography component="p" variant="sub1" uppercase>Our work</Typography>
 
       <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-start">
-        <Typography component="h3" variant="headline1"
+        <Typography component="p" variant="headline1"
           >Featured Project - {name}</Typography
         >
 
