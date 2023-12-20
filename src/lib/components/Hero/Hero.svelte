@@ -34,6 +34,10 @@
       gallery.on("resize", () => {
         gallery.update();
       });
+
+      setTimeout(() => {
+        gallery.update();
+      }, 0);
     }
 
     // animate the image container
@@ -71,7 +75,7 @@
     {#if randomImages && randomImages.length > 1}
       <div class="relative glide-hero">
         <div data-glide-el="track" class="glide__track">
-          <div class="glide__slides">
+          <div class=" glide__slides">
             {#if isMobile}
               {#each randomImages as image, i}
                 <div class="relative overflow-y-hidden bg-gray-100">
@@ -189,7 +193,7 @@
     {/if}
   </div>
   <div
-    class="absolute bottom-0 left-0 w-full py-[25px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-between"
+    class="absolute bottom-0 left-0 w-full py-[25px] px-4 md:px-8 bg-white/80 z-20 md:flex items-center justify-betwee"
   >
     <Typography component="p" variant="title1" theme="text-blue"
       >{title}</Typography

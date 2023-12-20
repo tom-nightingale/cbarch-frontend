@@ -10,7 +10,7 @@
 
   const toggleMobileMenu = (e) => {
     mobileMenuOpen = !mobileMenuOpen;
-    window.document.body.classList.toggle("overflow-y-hidden");
+    window.document.body.classList.toggle("locked");
     if (mobileMenuOpen) {
       setTimeout(() => {
         animateItems = !animateItems;

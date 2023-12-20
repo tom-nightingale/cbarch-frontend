@@ -1,11 +1,8 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { fade, fly } from "svelte/transition";
   import { NavItems } from "$lib/data/NavItems";
   import NavItem from "$lib/components/NavItem/NavItem.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
-  import Logo from "$lib/components/Logo/Logo.svelte";
-  import { quintOut } from "svelte/easing";
 
   export let open: boolean = false;
   export let animateItems: boolean = false;

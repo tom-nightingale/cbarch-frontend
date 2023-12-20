@@ -12,6 +12,10 @@ html {
 
 body {
   @apply font-sans antialiased leading-relaxed text-dark;
+
+  &.locked {
+    @apply fixed w-full h-full overflow-y-hidden;
+  }
 }
 
 blockquote:before {
