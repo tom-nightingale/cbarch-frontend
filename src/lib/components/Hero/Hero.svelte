@@ -7,7 +7,7 @@
   import Glide from "@glidejs/glide";
   import { inView, animate } from "motion";
 
-  export let mobileImages: ImageType[] | null | undefined;
+  export let mobileImages: ImageType[] | null | undefined = undefined;
   export let images: ImageType[] | null | undefined;
   export let title: string | null | undefined;
   export let isHome: boolean = false;

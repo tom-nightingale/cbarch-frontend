@@ -20,8 +20,6 @@
   export let copy: any[];
   export let testimonials: any[];
   export let galleryImages: ImageType[];
-
-  let open = true;
 </script>
 
 <Hero

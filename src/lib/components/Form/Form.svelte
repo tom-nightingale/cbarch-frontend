@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let formId: string = "";
+  export let formId: string = "xjvnbojk";
 
   let disabled = true;
   let nameEl: string;
@@ -14,7 +14,7 @@
 
 <form
   action="https://formspree.io/f/{formId}"
-  method="post"
+  method="POST"
   class="grid grid-cols-1 gap-[22px]"
 >
   <input
@@ -44,6 +44,8 @@
     placeholder="Your message *"
     required
   />
+
+  <input type="text" name="_gotcha" class="hidden" />
 
   <input type="submit" value="Submit Enquiry" {disabled} />
 </form>

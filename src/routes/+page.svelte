@@ -25,7 +25,6 @@
   heroImages={page.heroImages}
   heroTitle={page.heroHeadline}
   {testimonials}
-  author={page.testimonialAuthor}
   galleryImages={page.gallery}
   featuredProjectImages={page &&
   page.featuredProjects &&

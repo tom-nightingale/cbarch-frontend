@@ -107,7 +107,6 @@
     @apply text-[25px] leading-[45px] font-heading;
     @apply sm:text-[40px];
     @apply md:leading-normal;
-    /* @apply 4xl:text-[65px]; */
   }
 
   .title2 {

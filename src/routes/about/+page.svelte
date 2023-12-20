@@ -6,8 +6,6 @@
   export let data: PageData;
 
   $: page = data.data;
-
-  $: console.log(page.thirdCopyImage);
 </script>
 
 <Seo
