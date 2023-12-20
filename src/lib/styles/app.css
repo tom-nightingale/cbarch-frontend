@@ -85,3 +85,44 @@ a {
 .glide--rtl {
   direction: rtl;
 }
+
+.prose {
+  p {
+    @apply mb-8 last:mb-0;
+  }
+
+  ul {
+    @apply px-8;
+  }
+
+  li {
+    @apply leading-[35px] text-[18px] font-normal mb-4 list-disc last:mb-0;
+  }
+
+  a {
+    @apply relative font-bold text-blue;
+
+    &:after {
+      content: "";
+      @apply absolute bottom-0 left-0 w-0 h-[1px] bg-blue/50 transition-all duration-500;
+    }
+    &:hover:after {
+      @apply w-full;
+    }
+  }
+}
+
+#cookiescript_injected {
+  @apply bg-white/90 !important;
+}
+#cookiescript_accept {
+  @apply bg-blue !important;
+}
+#cookiescript_reject {
+  @apply border-blue bg-white text-blue !important;
+}
+
+#cookiescript_description,
+#cookiescript_header {
+  @apply text-dark !important;
+}

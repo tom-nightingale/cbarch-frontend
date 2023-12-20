@@ -32,3 +32,11 @@
   <slot />
 </div>
 <Footer />
+
+<svelte:head>
+  <script
+    type="text/javascript"
+    charset="UTF-8"
+    src="//cdn.cookie-script.com/s/efa75847543057db5a836d83dd6179c5.js"
+  ></script>
+</svelte:head>

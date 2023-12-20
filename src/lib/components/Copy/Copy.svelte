@@ -37,23 +37,3 @@
     }}
   />
 </div>
-
-<style>
-  .prose {
-    :global(p) {
-      @apply mb-8 last:mb-0;
-    }
-
-    :global(a) {
-      @apply relative text-blue font-bold;
-
-      &:after {
-        content: "";
-        @apply absolute bottom-0 left-0 w-0 h-[1px] bg-blue/50 transition-all duration-500;
-      }
-      &:hover:after {
-        @apply w-full;
-      }
-    }
-  }
-</style>
