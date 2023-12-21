@@ -3,6 +3,7 @@
   import Header from "$lib/components/Header/Header.svelte";
   import Footer from "$lib/components/Footer/Footer.svelte";
   import MobileMenu from "$lib/components/MobileMenu/MobileMenu.svelte";
+  import Analytics from "$lib/components/Analytics/Analytics.svelte";
 
   let mobileMenuOpen: boolean = false;
   let animateItems: boolean = false;
@@ -19,6 +20,8 @@
     }
   };
 </script>
+
+<Analytics />
 
 <MobileMenu
   on:menuClose={toggleMobileMenu}
