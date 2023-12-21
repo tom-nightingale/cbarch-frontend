@@ -13,19 +13,18 @@ export default {
       "4xl": "2000px",
     },
     fontFamily: {
-      sans: ["Mulish", "sans-serif"],
+      sans: ["Karla", "sans-serif"],
+      heading: ["Lexend", "sans-serif"],
     },
     extend: {
       colors: {
-        primary: {
-          light: "#eee",
-          DEFAULT: "#4E87A2",
-          dark: "#666",
+        dark: {
+          DEFAULT: "#1F1F1F",
+          dark: "#262626",
         },
-        secondary: {
-          light: "#f83",
-          DEFAULT: "#ff6a00",
-          dark: "#883900",
+        blue: {
+          light: "#F5F8FA",
+          DEFAULT: "#4D86A0",
         },
       },
       maxWidth: (theme) => ({

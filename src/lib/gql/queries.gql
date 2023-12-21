@@ -1,0 +1,351 @@
+fragment imageHotspot on SanityImageHotspot {
+  x
+  y
+  width
+  height
+}
+
+fragment imageCrop on SanityImageCrop {
+  top
+  bottom
+  left
+  right
+}
+
+fragment seo on Seo {
+  metaTitle
+  metaDesc
+  keywords
+  shareGraphic {
+    asset {
+      url
+      altText
+    }
+  }
+}
+
+fragment imageAsset on SanityImageAsset {
+  url
+  altText
+}
+
+query getLanding {
+  allLanding {
+    title
+    landingImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetHome {
+  allHome {
+    mobileHeroImages {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    heroImages {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    heroHeadline
+    copySubtitle
+    copyTitle
+    copyRaw
+    copyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    projectsSubtitle
+    featuredProjects {
+      title
+      slug {
+        current
+      }
+      featuredProjectGallery {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+      gallery {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    gallery {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+  testimonials: allTestimonial {
+    testimonial
+    testimonialAuthor
+  }
+}
+
+query GetAbout {
+  allAbout {
+    firstSubtitle
+    firstTitle
+    firstCopyRaw
+    secondSubtitle
+    secondTitle
+    secondCopyRaw
+    copyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    thirdSubtitle
+    thirdTitle
+    thirdCopyRaw
+    thirdCopyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetTeam {
+  allTeam {
+    teamSubtitle
+    teamTitle
+    team {
+      name
+      email
+      phone
+      bioRaw
+      image {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetContact {
+  allContact {
+    introSubtitle
+    introTitle
+    introCopyRaw
+    team {
+      name
+      email
+      phone
+      bioRaw
+      image {
+        asset {
+          ...imageAsset
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+    gallery {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetProjectSingleton {
+  page: allProjects {
+    introSubtitle
+    introTitle
+    introCopyRaw
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+  projects: allProject(sort: [{ orderRank: ASC }]) {
+    heroImages {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    title
+    projectLocation
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
+
+query GetProject($slug: String) {
+  project: allProject(where: { slug: { current: { eq: $slug } } }) {
+    mobileHeroImages {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    heroImages {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    title
+    projectCopyRaw
+    projectCopyImage {
+      asset {
+        ...imageAsset
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+    projectLocation
+    projectValue
+    projectInvolvement
+    gallery {
+      asset {
+        ...imageAsset
+      }
+      crop {
+        ...imageCrop
+      }
+      hotspot {
+        ...imageHotspot
+      }
+    }
+    slug {
+      current
+    }
+    seo {
+      ...seo
+    }
+  }
+}
