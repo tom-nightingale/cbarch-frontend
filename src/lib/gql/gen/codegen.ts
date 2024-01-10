@@ -1498,73 +1498,6 @@ export type ImageAssetFragment = {
   altText?: string | null | undefined;
 };
 
-export type GetLandingQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetLandingQuery = {
-  __typename?: "RootQuery";
-  allLanding: Array<{
-    __typename?: "Landing";
-    title?: string | null | undefined;
-    landingImage?:
-      | {
-          __typename?: "Image";
-          asset?:
-            | {
-                __typename?: "SanityImageAsset";
-                url?: string | null | undefined;
-                altText?: string | null | undefined;
-              }
-            | null
-            | undefined;
-          hotspot?:
-            | {
-                __typename?: "SanityImageHotspot";
-                x?: number | null | undefined;
-                y?: number | null | undefined;
-                width?: number | null | undefined;
-                height?: number | null | undefined;
-              }
-            | null
-            | undefined;
-          crop?:
-            | {
-                __typename?: "SanityImageCrop";
-                top?: number | null | undefined;
-                bottom?: number | null | undefined;
-                left?: number | null | undefined;
-                right?: number | null | undefined;
-              }
-            | null
-            | undefined;
-        }
-      | null
-      | undefined;
-    seo?:
-      | {
-          __typename?: "Seo";
-          metaTitle?: string | null | undefined;
-          metaDesc?: string | null | undefined;
-          keywords?: Array<string | null | undefined> | null | undefined;
-          shareGraphic?:
-            | {
-                __typename?: "Image";
-                asset?:
-                  | {
-                      __typename?: "SanityImageAsset";
-                      url?: string | null | undefined;
-                      altText?: string | null | undefined;
-                    }
-                  | null
-                  | undefined;
-              }
-            | null
-            | undefined;
-        }
-      | null
-      | undefined;
-  }>;
-};
-
 export type GetHomeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetHomeQuery = {
@@ -2509,31 +2442,6 @@ export const ImageAssetFragmentDoc = gql`
     altText
   }
 `;
-export const GetLandingDoc = gql`
-  query getLanding {
-    allLanding {
-      title
-      landingImage {
-        asset {
-          ...imageAsset
-        }
-        hotspot {
-          ...imageHotspot
-        }
-        crop {
-          ...imageCrop
-        }
-      }
-      seo {
-        ...seo
-      }
-    }
-  }
-  ${ImageAssetFragmentDoc}
-  ${ImageHotspotFragmentDoc}
-  ${ImageCropFragmentDoc}
-  ${SeoFragmentDoc}
-`;
 export const GetHomeDoc = gql`
   query GetHome {
     allHome {
@@ -2865,38 +2773,6 @@ export const GetProjectDoc = gql`
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
 `;
-export const getLanding = (
-  options: Omit<WatchQueryOptions<GetLandingQueryVariables>, "query">,
-): Readable<
-  ApolloQueryResult<GetLandingQuery> & {
-    query: ObservableQuery<GetLandingQuery, GetLandingQueryVariables>;
-  }
-> => {
-  const q = client.watchQuery({
-    query: GetLandingDoc,
-    ...options,
-  });
-  var result = readable<
-    ApolloQueryResult<GetLandingQuery> & {
-      query: ObservableQuery<GetLandingQuery, GetLandingQueryVariables>;
-    }
-  >(
-    {
-      data: {} as any,
-      loading: true,
-      error: undefined,
-      networkStatus: 1,
-      query: q,
-    },
-    (set) => {
-      q.subscribe((v: any) => {
-        set({ ...v, query: q });
-      });
-    },
-  );
-  return result;
-};
-
 export const GetHome = (
   options: Omit<WatchQueryOptions<GetHomeQueryVariables>, "query">,
 ): Readable<

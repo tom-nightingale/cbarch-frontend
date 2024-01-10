@@ -29,26 +29,6 @@ fragment imageAsset on SanityImageAsset {
   altText
 }
 
-query getLanding {
-  allLanding {
-    title
-    landingImage {
-      asset {
-        ...imageAsset
-      }
-      hotspot {
-        ...imageHotspot
-      }
-      crop {
-        ...imageCrop
-      }
-    }
-    seo {
-      ...seo
-    }
-  }
-}
-
 query GetHome {
   allHome {
     mobileHeroImages {
