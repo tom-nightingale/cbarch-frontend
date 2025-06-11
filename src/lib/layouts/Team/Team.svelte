@@ -52,7 +52,6 @@
             <TeamMember
               name={item.name}
               email={item.email}
-              phone={item.phone}
               bio={item.bioRaw}
               image={item.image}
             />

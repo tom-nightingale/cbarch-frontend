@@ -64,22 +64,31 @@
         class="mt-10 md:mt-[80px] grid gap-[59px] self-start"
         bind:this={teamContainer}
       >
-        {#each teamMembers as item, i}
-          <div class="opacity-0 team-member">
+          <div class="grid gap-2 opacity-0 team-member grid-col-1">
             <Typography component="h2" variant="headline2"
-              ><span>Contact {item.name.split(" ")[0]}</span></Typography
+              ><span>Contact Office</span></Typography
             >
-            <a href="mailto:{item.email}" class="hover:text-blue">
-              <Typography component="p" variant="sub1">{item.email}</Typography>
-            </a>
-            <a
-              href="tel:{item.phone.replaceAll(' ', '')}"
-              class="hover:text-blue"
-            >
-              <Typography component="p" variant="sub1">{item.phone}</Typography>
-            </a>
+
+            <div class="flex items-center gap-4">
+              Telephone:
+              <a
+                href="tel:01157956707"
+                class="hover:text-blue"
+              >
+                <Typography component="p" variant="sub1">0115 7956707</Typography>
+              </a>
+            </div>
+            
+            <div class="flex items-center gap-4 mb-8">
+              Email: 
+              <a href="mailto:enquiries@cbarch.co.uk" class="hover:text-blue">
+                <Typography component="p" variant="sub1">enquiries@cbarch.co.uk</Typography>
+              </a>
+            </div>
+
+            <Typography component="p" variant="sub1">16 Commerce Square<br />Lace Market<br />Nottingham<br />NG1 1HS</Typography>
+
           </div>
-        {/each}
       </div>
     {/if}
   </div>

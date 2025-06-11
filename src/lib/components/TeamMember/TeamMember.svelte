@@ -6,7 +6,6 @@
   export let image: Image | undefined;
   export let name: string | null | undefined;
   export let email: string | null | undefined;
-  export let phone: string | null | undefined;
   export let bio: any[];
 </script>
 
@@ -58,12 +57,7 @@
         >
           <Typography component="p" variant="sub1">{email}</Typography>
         </a>
-        <a
-          class="relative inline-block after:absolute after:bottom-[2px] after:left-0 after:h-[1px] after:w-[0px] hover:after:w-full after:transition-all after:duration-300 after:bg-white"
-          href="tel:{phone && phone.replaceAll(' ', '')}"
-        >
-          <Typography component="p" variant="sub1">{phone}</Typography>
-        </a>
+        
       </div>
     </div>
   </div>
