@@ -38,7 +38,7 @@
         class="grid grid-cols-1 gap-3 md:grid-cols-2"
         bind:this={projectContainer}
       >
-        {#each projects as item, i}
+        {#each projects as item (item.title)}
           <div class="opacity-0 translate-y-[20px] project transition-none">
             <ProjectCard
               title={item.title}
