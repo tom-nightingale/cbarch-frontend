@@ -6,18 +6,22 @@
   import Image from "$lib/components/Image/Image.svelte";
   import Container from "$lib/components/Container/Container.svelte";
   import { inView, animate, stagger } from "motion";
+  import type { ContentBlocks, Maybe } from "$lib/gql/gen/codegen";
+  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
 
-  export let firstSubtitle: string | null | undefined;
-  export let firstTitle: string | null | undefined;
-  export let firstCopy: any[];
-  export let secondSubtitle: string | null | undefined;
-  export let secondTitle: string | null | undefined;
-  export let secondCopy: any[];
-  export let copyImage: Image | undefined | null;
-  export let thirdSubtitle: string | null | undefined;
-  export let thirdTitle: string | null | undefined;
-  export let thirdCopy: any[];
-  export let thirdCopyImage: Image | undefined | null;
+  export let contentBlocks: ContentBlocks | Maybe<ContentBlocks>;
+
+  // export let firstSubtitle: string | null | undefined;
+  // export let firstTitle: string | null | undefined;
+  // export let firstCopy: any[];
+  // export let secondSubtitle: string | null | undefined;
+  // export let secondTitle: string | null | undefined;
+  // export let secondCopy: any[];
+  // export let copyImage: Image | undefined | null;
+  // export let thirdSubtitle: string | null | undefined;
+  // export let thirdTitle: string | null | undefined;
+  // export let thirdCopy: any[];
+  // export let thirdCopyImage: Image | undefined | null;
 
   let contentContainer: HTMLElement;
   let imageContainer: HTMLElement;
@@ -41,7 +45,7 @@
   });
 </script>
 
-<Container>
+<!-- <Container>
   <div class="bg-blue-light">
     <div
       class="grid grid-cols-1 gap-8 px-4 py-12 md:grid-cols-2 opacity-0 transform translate-y-[20px]"
@@ -164,6 +168,7 @@
       />
     </div>
   </div>
-</Container>
+</Container> -->
 
+<ContentBlockDigester {contentBlocks} />
 <WorkWithUs />

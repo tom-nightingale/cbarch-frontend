@@ -3,14 +3,16 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Button from "$lib/components/Button/Button.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
-  import NavItem from "$lib/components/NavItem/NavItem.svelte";
-  import { NavItems } from "$lib/data/NavItems";
+  import NavItem from "$lib/components/MobileMenu/NavItem/NavItem.svelte";
+  import type { Maybe, NavigationSection } from "$lib/gql/gen/codegen";
 
   const dispatch = createEventDispatcher();
 
   const handleMenuOpen = (e: any) => {
     dispatch("menuOpen", e.detail);
   };
+
+  export let navSections: Maybe<Array<Maybe<NavigationSection>>> = [];
 </script>
 
 <div class="fixed top-0 left-0 z-50 w-full bg-white shadow-sm header">
@@ -31,15 +33,17 @@
         />
       </a>
 
-      <div class="items-center hidden gap-4 lg:flex">
-        {#each NavItems as item}
-          <NavItem
-            label={item.label}
-            href={item.href}
-            classes={item.mobileOnly ? "hidden" : "p-2"}
-          />
-        {/each}
-      </div>
+      {#if navSections}
+        <div class="items-center hidden gap-4 lg:flex">
+          {#each navSections as section}
+            <NavItem
+              label={section?.target?.title}
+              href={section?.target?.slug?.current}
+              classes={"p-2"}
+            />
+          {/each}
+        </div>
+      {/if}
 
       <div class="hidden lg:block">
         <Button label="Get in touch" theme="primary" href="/contact" />

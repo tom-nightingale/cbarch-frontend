@@ -1,11 +1,13 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import { NavItems } from "$lib/data/NavItems";
-  import NavItem from "$lib/components/NavItem/NavItem.svelte";
+  import NavItem from "$lib/components/MobileMenu/NavItem/NavItem.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
+  import type { Maybe, NavigationSection } from "$lib/gql/gen/codegen";
 
   export let open: boolean = false;
   export let animateItems: boolean = false;
+  export let navSections: Maybe<Array<Maybe<NavigationSection>>> = [];
 
   const dispatch = createEventDispatcher();
 
@@ -43,17 +45,21 @@
       </button>
     </div>
 
-    <div class="flex flex-col py-[33px]">
-      {#each NavItems as item, i}
-        {#if animateItems}
+    {#if navSections}
+      <div class="flex flex-col py-[33px]">
+        {#each navSections as section}
           <NavItem
-            on:menuClose={handleMenuClose}
-            label={item.label}
-            href={item.href}
+            label={section?.target?.title}
+            href={section?.target?.slug?.current}
             classes="block py-[15px] px-[22px] border-b border-b-[#F5F5F5] hover:pl-[32px] duration-300"
           />
-        {/if}
-      {/each}
-    </div>
+        {/each}
+        <NavItem
+          label="Contact Us"
+          href="contact"
+          classes="block py-[15px] px-[22px] border-b border-b-[#F5F5F5] hover:pl-[32px] duration-300"
+        />
+      </div>
+    {/if}
   </div>
 </div>
