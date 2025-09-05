@@ -52,6 +52,7 @@ export type About = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  contentBlocks?: Maybe<ContentBlocks>;
   copyImage?: Maybe<Image>;
   firstCopyRaw?: Maybe<Scalars["JSON"]["output"]>;
   /** Text above the first heading */
@@ -84,6 +85,7 @@ export type AboutFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
+  contentBlocks?: InputMaybe<ContentBlocksFilter>;
   copyImage?: InputMaybe<ImageFilter>;
   firstSubtitle?: InputMaybe<StringFilter>;
   firstTitle?: InputMaybe<StringFilter>;
@@ -97,6 +99,14 @@ export type AboutFilter = {
   title?: InputMaybe<StringFilter>;
 };
 
+export type AboutOrContactOrHomeOrPageOrProjectsOrTeam =
+  | About
+  | Contact
+  | Home
+  | Page
+  | Projects
+  | Team;
+
 export type AboutSorting = {
   _createdAt?: InputMaybe<SortOrder>;
   _id?: InputMaybe<SortOrder>;
@@ -104,6 +114,7 @@ export type AboutSorting = {
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
+  contentBlocks?: InputMaybe<ContentBlocksSorting>;
   copyImage?: InputMaybe<ImageSorting>;
   firstSubtitle?: InputMaybe<SortOrder>;
   firstTitle?: InputMaybe<SortOrder>;
@@ -187,6 +198,23 @@ export type ContactSorting = {
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
+};
+
+export type ContentBlocks = {
+  __typename?: "ContentBlocks";
+  _key?: Maybe<Scalars["String"]["output"]>;
+  _type?: Maybe<Scalars["String"]["output"]>;
+  contentblocks?: Maybe<Array<Maybe<TextWithImage>>>;
+};
+
+export type ContentBlocksFilter = {
+  _key?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+};
+
+export type ContentBlocksSorting = {
+  _key?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
 };
 
 export type CrossDatasetReference = {
@@ -487,6 +515,29 @@ export type Image = {
   hotspot?: Maybe<SanityImageHotspot>;
 };
 
+export type ImageBlock = {
+  __typename?: "ImageBlock";
+  _key?: Maybe<Scalars["String"]["output"]>;
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Alt text to use for the image */
+  altText?: Maybe<Scalars["String"]["output"]>;
+  image?: Maybe<Image>;
+};
+
+export type ImageBlockFilter = {
+  _key?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  altText?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type ImageBlockSorting = {
+  _key?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  altText?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageSorting>;
+};
+
 export type ImageFilter = {
   _key?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
@@ -517,8 +568,8 @@ export type IntFilter = {
   neq?: InputMaybe<Scalars["Int"]["input"]>;
 };
 
-export type Landing = Document & {
-  __typename?: "Landing";
+export type Navigation = Document & {
+  __typename?: "Navigation";
   /** Date the document was created */
   _createdAt?: Maybe<Scalars["DateTime"]["output"]>;
   /** Document ID */
@@ -530,13 +581,12 @@ export type Landing = Document & {
   _type?: Maybe<Scalars["String"]["output"]>;
   /** Date the document was last modified */
   _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
-  landingImage?: Maybe<Image>;
-  seo?: Maybe<Seo>;
-  slug?: Maybe<Slug>;
+  name?: Maybe<Scalars["String"]["output"]>;
+  sections?: Maybe<Array<Maybe<NavigationSection>>>;
   title?: Maybe<Scalars["String"]["output"]>;
 };
 
-export type LandingFilter = {
+export type NavigationFilter = {
   /** Apply filters on document level */
   _?: InputMaybe<Sanity_DocumentFilter>;
   _createdAt?: InputMaybe<DatetimeFilter>;
@@ -545,20 +595,108 @@ export type LandingFilter = {
   _rev?: InputMaybe<StringFilter>;
   _type?: InputMaybe<StringFilter>;
   _updatedAt?: InputMaybe<DatetimeFilter>;
-  landingImage?: InputMaybe<ImageFilter>;
-  seo?: InputMaybe<SeoFilter>;
-  slug?: InputMaybe<SlugFilter>;
+  name?: InputMaybe<StringFilter>;
   title?: InputMaybe<StringFilter>;
 };
 
-export type LandingSorting = {
+export type NavigationLink = {
+  __typename?: "NavigationLink";
+  _key?: Maybe<Scalars["String"]["output"]>;
+  _type?: Maybe<Scalars["String"]["output"]>;
+  children?: Maybe<Array<Maybe<NavigationLink>>>;
+  /** Description */
+  target?: Maybe<AboutOrContactOrHomeOrPageOrProjectsOrTeam>;
+  /** Override title from the target. */
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type NavigationLinkFilter = {
+  _key?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type NavigationLinkSorting = {
+  _key?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
+};
+
+export type NavigationSection = {
+  __typename?: "NavigationSection";
+  _key?: Maybe<Scalars["String"]["output"]>;
+  _type?: Maybe<Scalars["String"]["output"]>;
+  children?: Maybe<Array<Maybe<NavigationLink>>>;
+  target?: Maybe<AboutOrContactOrHomeOrPageOrProjectsOrTeam>;
+  /** Override title from the target. */
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type NavigationSectionFilter = {
+  _key?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type NavigationSectionSorting = {
+  _key?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
+};
+
+export type NavigationSorting = {
   _createdAt?: InputMaybe<SortOrder>;
   _id?: InputMaybe<SortOrder>;
   _key?: InputMaybe<SortOrder>;
   _rev?: InputMaybe<SortOrder>;
   _type?: InputMaybe<SortOrder>;
   _updatedAt?: InputMaybe<SortOrder>;
-  landingImage?: InputMaybe<ImageSorting>;
+  name?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
+};
+
+export type Page = Document & {
+  __typename?: "Page";
+  /** Date the document was created */
+  _createdAt?: Maybe<Scalars["DateTime"]["output"]>;
+  /** Document ID */
+  _id?: Maybe<Scalars["ID"]["output"]>;
+  _key?: Maybe<Scalars["String"]["output"]>;
+  /** Current document revision */
+  _rev?: Maybe<Scalars["String"]["output"]>;
+  /** Document type */
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Date the document was last modified */
+  _updatedAt?: Maybe<Scalars["DateTime"]["output"]>;
+  contentBlocks?: Maybe<ContentBlocks>;
+  seo?: Maybe<Seo>;
+  slug?: Maybe<Slug>;
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type PageFilter = {
+  /** Apply filters on document level */
+  _?: InputMaybe<Sanity_DocumentFilter>;
+  _createdAt?: InputMaybe<DatetimeFilter>;
+  _id?: InputMaybe<IdFilter>;
+  _key?: InputMaybe<StringFilter>;
+  _rev?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  _updatedAt?: InputMaybe<DatetimeFilter>;
+  contentBlocks?: InputMaybe<ContentBlocksFilter>;
+  seo?: InputMaybe<SeoFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type PageSorting = {
+  _createdAt?: InputMaybe<SortOrder>;
+  _id?: InputMaybe<SortOrder>;
+  _key?: InputMaybe<SortOrder>;
+  _rev?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  _updatedAt?: InputMaybe<SortOrder>;
+  contentBlocks?: InputMaybe<ContentBlocksSorting>;
   seo?: InputMaybe<SeoSorting>;
   slug?: InputMaybe<SlugSorting>;
   title?: InputMaybe<SortOrder>;
@@ -693,7 +831,8 @@ export type RootQuery = {
   Document?: Maybe<Document>;
   Global?: Maybe<Global>;
   Home?: Maybe<Home>;
-  Landing?: Maybe<Landing>;
+  Navigation?: Maybe<Navigation>;
+  Page?: Maybe<Page>;
   Project?: Maybe<Project>;
   Projects?: Maybe<Projects>;
   SanityFileAsset?: Maybe<SanityFileAsset>;
@@ -706,7 +845,8 @@ export type RootQuery = {
   allDocument: Array<Document>;
   allGlobal: Array<Global>;
   allHome: Array<Home>;
-  allLanding: Array<Landing>;
+  allNavigation: Array<Navigation>;
+  allPage: Array<Page>;
   allProject: Array<Project>;
   allProjects: Array<Projects>;
   allSanityFileAsset: Array<SanityFileAsset>;
@@ -736,7 +876,11 @@ export type RootQueryHomeArgs = {
   id: Scalars["ID"]["input"];
 };
 
-export type RootQueryLandingArgs = {
+export type RootQueryNavigationArgs = {
+  id: Scalars["ID"]["input"];
+};
+
+export type RootQueryPageArgs = {
   id: Scalars["ID"]["input"];
 };
 
@@ -803,11 +947,18 @@ export type RootQueryAllHomeArgs = {
   where?: InputMaybe<HomeFilter>;
 };
 
-export type RootQueryAllLandingArgs = {
+export type RootQueryAllNavigationArgs = {
   limit?: InputMaybe<Scalars["Int"]["input"]>;
   offset?: InputMaybe<Scalars["Int"]["input"]>;
-  sort?: InputMaybe<Array<LandingSorting>>;
-  where?: InputMaybe<LandingFilter>;
+  sort?: InputMaybe<Array<NavigationSorting>>;
+  where?: InputMaybe<NavigationFilter>;
+};
+
+export type RootQueryAllPageArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  offset?: InputMaybe<Scalars["Int"]["input"]>;
+  sort?: InputMaybe<Array<PageSorting>>;
+  where?: InputMaybe<PageFilter>;
 };
 
 export type RootQueryAllProjectArgs = {
@@ -1455,6 +1606,42 @@ export type TestimonialSorting = {
   testimonialAuthor?: InputMaybe<SortOrder>;
 };
 
+export type TextWithImage = {
+  __typename?: "TextWithImage";
+  _key?: Maybe<Scalars["String"]["output"]>;
+  _type?: Maybe<Scalars["String"]["output"]>;
+  /** Apply a light background for this block? */
+  applyBackground?: Maybe<Scalars["Boolean"]["output"]>;
+  contentRaw?: Maybe<Scalars["JSON"]["output"]>;
+  image?: Maybe<ImageBlock>;
+  /** Revserse the layout for this block? */
+  reverseLayout?: Maybe<Scalars["Boolean"]["output"]>;
+  /** Text above the heading */
+  subtitle?: Maybe<Scalars["String"]["output"]>;
+  /** Text above the heading */
+  title?: Maybe<Scalars["String"]["output"]>;
+};
+
+export type TextWithImageFilter = {
+  _key?: InputMaybe<StringFilter>;
+  _type?: InputMaybe<StringFilter>;
+  applyBackground?: InputMaybe<BooleanFilter>;
+  image?: InputMaybe<ImageBlockFilter>;
+  reverseLayout?: InputMaybe<BooleanFilter>;
+  subtitle?: InputMaybe<StringFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export type TextWithImageSorting = {
+  _key?: InputMaybe<SortOrder>;
+  _type?: InputMaybe<SortOrder>;
+  applyBackground?: InputMaybe<SortOrder>;
+  image?: InputMaybe<ImageBlockSorting>;
+  reverseLayout?: InputMaybe<SortOrder>;
+  subtitle?: InputMaybe<SortOrder>;
+  title?: InputMaybe<SortOrder>;
+};
+
 export type ImageHotspotFragment = {
   __typename?: "SanityImageHotspot";
   x?: number | null | undefined;
@@ -1496,73 +1683,6 @@ export type ImageAssetFragment = {
   __typename?: "SanityImageAsset";
   url?: string | null | undefined;
   altText?: string | null | undefined;
-};
-
-export type GetLandingQueryVariables = Exact<{ [key: string]: never }>;
-
-export type GetLandingQuery = {
-  __typename?: "RootQuery";
-  allLanding: Array<{
-    __typename?: "Landing";
-    title?: string | null | undefined;
-    landingImage?:
-      | {
-          __typename?: "Image";
-          asset?:
-            | {
-                __typename?: "SanityImageAsset";
-                url?: string | null | undefined;
-                altText?: string | null | undefined;
-              }
-            | null
-            | undefined;
-          hotspot?:
-            | {
-                __typename?: "SanityImageHotspot";
-                x?: number | null | undefined;
-                y?: number | null | undefined;
-                width?: number | null | undefined;
-                height?: number | null | undefined;
-              }
-            | null
-            | undefined;
-          crop?:
-            | {
-                __typename?: "SanityImageCrop";
-                top?: number | null | undefined;
-                bottom?: number | null | undefined;
-                left?: number | null | undefined;
-                right?: number | null | undefined;
-              }
-            | null
-            | undefined;
-        }
-      | null
-      | undefined;
-    seo?:
-      | {
-          __typename?: "Seo";
-          metaTitle?: string | null | undefined;
-          metaDesc?: string | null | undefined;
-          keywords?: Array<string | null | undefined> | null | undefined;
-          shareGraphic?:
-            | {
-                __typename?: "Image";
-                asset?:
-                  | {
-                      __typename?: "SanityImageAsset";
-                      url?: string | null | undefined;
-                      altText?: string | null | undefined;
-                    }
-                  | null
-                  | undefined;
-              }
-            | null
-            | undefined;
-        }
-      | null
-      | undefined;
-  }>;
 };
 
 export type GetHomeQueryVariables = Exact<{ [key: string]: never }>;
@@ -1955,6 +2075,74 @@ export type GetAboutQuery = {
                   | null
                   | undefined;
               }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    contentBlocks?:
+      | {
+          __typename?: "ContentBlocks";
+          contentblocks?:
+            | Array<
+                | {
+                    __typename?: "TextWithImage";
+                    reverseLayout?: boolean | null | undefined;
+                    applyBackground?: boolean | null | undefined;
+                    subtitle?: string | null | undefined;
+                    title?: string | null | undefined;
+                    contentRaw?: any | null | undefined;
+                    image?:
+                      | {
+                          __typename?: "ImageBlock";
+                          image?:
+                            | {
+                                __typename?: "Image";
+                                asset?:
+                                  | {
+                                      __typename?: "SanityImageAsset";
+                                      url?: string | null | undefined;
+                                      altText?: string | null | undefined;
+                                      metadata?:
+                                        | {
+                                            __typename?: "SanityImageMetadata";
+                                            lqip?: string | null | undefined;
+                                          }
+                                        | null
+                                        | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                hotspot?:
+                                  | {
+                                      __typename?: "SanityImageHotspot";
+                                      x?: number | null | undefined;
+                                      y?: number | null | undefined;
+                                      width?: number | null | undefined;
+                                      height?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                crop?:
+                                  | {
+                                      __typename?: "SanityImageCrop";
+                                      top?: number | null | undefined;
+                                      bottom?: number | null | undefined;
+                                      left?: number | null | undefined;
+                                      right?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                              }
+                            | null
+                            | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined
+              >
             | null
             | undefined;
         }
@@ -2474,6 +2662,279 @@ export type GetProjectQuery = {
   }>;
 };
 
+export type NavigationSectionFragment = {
+  __typename?: "NavigationSection";
+  target?:
+    | {
+        __typename?: "About";
+        title?: string | null | undefined;
+        slug?:
+          | { __typename?: "Slug"; current?: string | null | undefined }
+          | null
+          | undefined;
+      }
+    | { __typename?: "Contact" }
+    | {
+        __typename?: "Home";
+        title?: string | null | undefined;
+        slug?:
+          | { __typename?: "Slug"; current?: string | null | undefined }
+          | null
+          | undefined;
+      }
+    | {
+        __typename?: "Page";
+        title?: string | null | undefined;
+        slug?:
+          | { __typename?: "Slug"; current?: string | null | undefined }
+          | null
+          | undefined;
+      }
+    | {
+        __typename?: "Projects";
+        title?: string | null | undefined;
+        slug?:
+          | { __typename?: "Slug"; current?: string | null | undefined }
+          | null
+          | undefined;
+      }
+    | {
+        __typename?: "Team";
+        title?: string | null | undefined;
+        slug?:
+          | { __typename?: "Slug"; current?: string | null | undefined }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+  children?:
+    | Array<
+        | {
+            __typename?: "NavigationLink";
+            title?: string | null | undefined;
+            target?:
+              | {
+                  __typename?: "About";
+                  title?: string | null | undefined;
+                  slug?:
+                    | {
+                        __typename?: "Slug";
+                        current?: string | null | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | { __typename?: "Contact" }
+              | {
+                  __typename?: "Home";
+                  title?: string | null | undefined;
+                  slug?:
+                    | {
+                        __typename?: "Slug";
+                        current?: string | null | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | {
+                  __typename?: "Page";
+                  title?: string | null | undefined;
+                  slug?:
+                    | {
+                        __typename?: "Slug";
+                        current?: string | null | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | {
+                  __typename?: "Projects";
+                  title?: string | null | undefined;
+                  slug?:
+                    | {
+                        __typename?: "Slug";
+                        current?: string | null | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | {
+                  __typename?: "Team";
+                  title?: string | null | undefined;
+                  slug?:
+                    | {
+                        __typename?: "Slug";
+                        current?: string | null | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | null
+              | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+};
+
+export type GetNavigationByIdQueryVariables = Exact<{
+  id: Scalars["ID"]["input"];
+}>;
+
+export type GetNavigationByIdQuery = {
+  __typename?: "RootQuery";
+  Navigation?:
+    | {
+        __typename?: "Navigation";
+        _id?: string | null | undefined;
+        title?: string | null | undefined;
+        sections?:
+          | Array<
+              | {
+                  __typename?: "NavigationSection";
+                  target?:
+                    | {
+                        __typename?: "About";
+                        title?: string | null | undefined;
+                        slug?:
+                          | {
+                              __typename?: "Slug";
+                              current?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | { __typename?: "Contact" }
+                    | {
+                        __typename?: "Home";
+                        title?: string | null | undefined;
+                        slug?:
+                          | {
+                              __typename?: "Slug";
+                              current?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | {
+                        __typename?: "Page";
+                        title?: string | null | undefined;
+                        slug?:
+                          | {
+                              __typename?: "Slug";
+                              current?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | {
+                        __typename?: "Projects";
+                        title?: string | null | undefined;
+                        slug?:
+                          | {
+                              __typename?: "Slug";
+                              current?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | {
+                        __typename?: "Team";
+                        title?: string | null | undefined;
+                        slug?:
+                          | {
+                              __typename?: "Slug";
+                              current?: string | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | null
+                    | undefined;
+                  children?:
+                    | Array<
+                        | {
+                            __typename?: "NavigationLink";
+                            title?: string | null | undefined;
+                            target?:
+                              | {
+                                  __typename?: "About";
+                                  title?: string | null | undefined;
+                                  slug?:
+                                    | {
+                                        __typename?: "Slug";
+                                        current?: string | null | undefined;
+                                      }
+                                    | null
+                                    | undefined;
+                                }
+                              | { __typename?: "Contact" }
+                              | {
+                                  __typename?: "Home";
+                                  title?: string | null | undefined;
+                                  slug?:
+                                    | {
+                                        __typename?: "Slug";
+                                        current?: string | null | undefined;
+                                      }
+                                    | null
+                                    | undefined;
+                                }
+                              | {
+                                  __typename?: "Page";
+                                  title?: string | null | undefined;
+                                  slug?:
+                                    | {
+                                        __typename?: "Slug";
+                                        current?: string | null | undefined;
+                                      }
+                                    | null
+                                    | undefined;
+                                }
+                              | {
+                                  __typename?: "Projects";
+                                  title?: string | null | undefined;
+                                  slug?:
+                                    | {
+                                        __typename?: "Slug";
+                                        current?: string | null | undefined;
+                                      }
+                                    | null
+                                    | undefined;
+                                }
+                              | {
+                                  __typename?: "Team";
+                                  title?: string | null | undefined;
+                                  slug?:
+                                    | {
+                                        __typename?: "Slug";
+                                        current?: string | null | undefined;
+                                      }
+                                    | null
+                                    | undefined;
+                                }
+                              | null
+                              | undefined;
+                          }
+                        | null
+                        | undefined
+                      >
+                    | null
+                    | undefined;
+                }
+              | null
+              | undefined
+            >
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
 export const ImageHotspotFragmentDoc = gql`
   fragment imageHotspot on SanityImageHotspot {
     x
@@ -2509,30 +2970,82 @@ export const ImageAssetFragmentDoc = gql`
     altText
   }
 `;
-export const GetLandingDoc = gql`
-  query getLanding {
-    allLanding {
-      title
-      landingImage {
-        asset {
-          ...imageAsset
-        }
-        hotspot {
-          ...imageHotspot
-        }
-        crop {
-          ...imageCrop
+export const NavigationSectionFragmentDoc = gql`
+  fragment NavigationSection on NavigationSection {
+    target {
+      ... on Page {
+        title
+        slug {
+          current
         }
       }
-      seo {
-        ...seo
+      ... on Home {
+        title
+        slug {
+          current
+        }
+      }
+      ... on About {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Projects {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Team {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Page {
+        title
+        slug {
+          current
+        }
+      }
+    }
+    children {
+      title
+      target {
+        ... on Home {
+          title
+          slug {
+            current
+          }
+        }
+        ... on About {
+          title
+          slug {
+            current
+          }
+        }
+        ... on Projects {
+          title
+          slug {
+            current
+          }
+        }
+        ... on Team {
+          title
+          slug {
+            current
+          }
+        }
+        ... on Page {
+          title
+          slug {
+            current
+          }
+        }
       }
     }
   }
-  ${ImageAssetFragmentDoc}
-  ${ImageHotspotFragmentDoc}
-  ${ImageCropFragmentDoc}
-  ${SeoFragmentDoc}
 `;
 export const GetHomeDoc = gql`
   query GetHome {
@@ -2670,6 +3183,33 @@ export const GetAboutDoc = gql`
       }
       seo {
         ...seo
+      }
+      contentBlocks {
+        contentblocks {
+          reverseLayout
+          applyBackground
+          subtitle
+          title
+          contentRaw
+          ... on TextWithImage {
+            image {
+              image {
+                asset {
+                  ...imageAsset
+                  metadata {
+                    lqip
+                  }
+                }
+                hotspot {
+                  ...imageHotspot
+                }
+                crop {
+                  ...imageCrop
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -2865,38 +3405,18 @@ export const GetProjectDoc = gql`
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
 `;
-export const getLanding = (
-  options: Omit<WatchQueryOptions<GetLandingQueryVariables>, "query">,
-): Readable<
-  ApolloQueryResult<GetLandingQuery> & {
-    query: ObservableQuery<GetLandingQuery, GetLandingQueryVariables>;
-  }
-> => {
-  const q = client.watchQuery({
-    query: GetLandingDoc,
-    ...options,
-  });
-  var result = readable<
-    ApolloQueryResult<GetLandingQuery> & {
-      query: ObservableQuery<GetLandingQuery, GetLandingQueryVariables>;
+export const GetNavigationByIdDoc = gql`
+  query GetNavigationById($id: ID!) {
+    Navigation(id: $id) {
+      _id
+      title
+      sections {
+        ...NavigationSection
+      }
     }
-  >(
-    {
-      data: {} as any,
-      loading: true,
-      error: undefined,
-      networkStatus: 1,
-      query: q,
-    },
-    (set) => {
-      q.subscribe((v: any) => {
-        set({ ...v, query: q });
-      });
-    },
-  );
-  return result;
-};
-
+  }
+  ${NavigationSectionFragmentDoc}
+`;
 export const GetHome = (
   options: Omit<WatchQueryOptions<GetHomeQueryVariables>, "query">,
 ): Readable<
@@ -3077,6 +3597,44 @@ export const GetProject = (
   var result = readable<
     ApolloQueryResult<GetProjectQuery> & {
       query: ObservableQuery<GetProjectQuery, GetProjectQueryVariables>;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetNavigationById = (
+  options: Omit<WatchQueryOptions<GetNavigationByIdQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetNavigationByIdQuery> & {
+    query: ObservableQuery<
+      GetNavigationByIdQuery,
+      GetNavigationByIdQueryVariables
+    >;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetNavigationByIdDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetNavigationByIdQuery> & {
+      query: ObservableQuery<
+        GetNavigationByIdQuery,
+        GetNavigationByIdQueryVariables
+      >;
     }
   >(
     {

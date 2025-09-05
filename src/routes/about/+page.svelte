@@ -2,10 +2,13 @@
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
   import About from "$lib/layouts/About/About.svelte";
+  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
 
   export let data: PageData;
 
   $: page = data.data;
+
+  $: console.log(page);
 </script>
 
 <Seo
@@ -19,16 +22,4 @@
   }}
 />
 
-<About
-  firstSubtitle={page.firstSubtitle}
-  firstTitle={page.firstTitle}
-  firstCopy={page.firstCopyRaw}
-  secondSubtitle={page.secondSubtitle}
-  secondTitle={page.secondTitle}
-  secondCopy={page.secondCopyRaw}
-  copyImage={page.copyImage}
-  thirdSubtitle={page.thirdSubtitle}
-  thirdTitle={page.thirdTitle}
-  thirdCopy={page.thirdCopyRaw}
-  thirdCopyImage={page.thirdCopyImage}
-/>
+<About contentBlocks={page?.contentBlocks} />

@@ -29,25 +29,25 @@ fragment imageAsset on SanityImageAsset {
   altText
 }
 
-query getLanding {
-  allLanding {
-    title
-    landingImage {
-      asset {
-        ...imageAsset
-      }
-      hotspot {
-        ...imageHotspot
-      }
-      crop {
-        ...imageCrop
-      }
-    }
-    seo {
-      ...seo
-    }
-  }
-}
+# query getLanding {
+#   allLanding {
+#     title
+#     landingImage {
+#       asset {
+#         ...imageAsset
+#       }
+#       hotspot {
+#         ...imageHotspot
+#       }
+#       crop {
+#         ...imageCrop
+#       }
+#     }
+#     seo {
+#       ...seo
+#     }
+#   }
+# }
 
 query GetHome {
   allHome {
@@ -179,6 +179,33 @@ query GetAbout {
     }
     seo {
       ...seo
+    }
+    contentBlocks {
+      contentblocks {
+        reverseLayout
+        applyBackground
+        subtitle
+        title
+        contentRaw
+        ... on TextWithImage {
+          image {
+            image {
+              asset {
+                ...imageAsset
+                metadata {
+                  lqip
+                }
+              }
+              hotspot {
+                ...imageHotspot
+              }
+              crop {
+                ...imageCrop
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -346,6 +373,92 @@ query GetProject($slug: String) {
     }
     seo {
       ...seo
+    }
+  }
+}
+
+fragment NavigationSection on NavigationSection {
+  target {
+    ... on Page {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Home {
+      title
+      slug {
+        current
+      }
+    }
+    ... on About {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Projects {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Team {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Page {
+      title
+      slug {
+        current
+      }
+    }
+  }
+  children {
+    title
+    target {
+      ... on Home {
+        title
+        slug {
+          current
+        }
+      }
+      ... on About {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Projects {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Team {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Page {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+}
+
+query GetNavigationById($id: ID!) {
+  Navigation(id: $id) {
+    _id
+    title
+    sections {
+      ...NavigationSection
     }
   }
 }
