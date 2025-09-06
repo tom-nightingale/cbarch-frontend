@@ -4709,9 +4709,13 @@
         "name": "Link",
         "description": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "isOneOf": null,
 =======
 >>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
+=======
+        "isOneOf": null,
+>>>>>>> 554a418 (chore(S/kit): Update to sveltekit 2)
         "fields": [
           {
             "name": "_key",
@@ -4772,9 +4776,13 @@
         "name": "LinkFilter",
         "description": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "isOneOf": false,
 =======
 >>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
+=======
+        "isOneOf": false,
+>>>>>>> 554a418 (chore(S/kit): Update to sveltekit 2)
         "fields": null,
         "inputFields": [
           {
@@ -4835,9 +4843,13 @@
         "name": "LinkSorting",
         "description": null,
 <<<<<<< HEAD
+<<<<<<< HEAD
         "isOneOf": false,
 =======
 >>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
+=======
+        "isOneOf": false,
+>>>>>>> 554a418 (chore(S/kit): Update to sveltekit 2)
         "fields": null,
         "inputFields": [
           {

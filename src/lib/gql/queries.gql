@@ -54,6 +54,7 @@ fragment TextWithImageFragment on TextWithImage {
   applyBackground
   subtitle
   title
+  titleLevel
   contentRaw
   links {
     label

@@ -13,6 +13,7 @@
   export let applyBackground: Maybe<boolean> = false;
   export let reverseLayout: Maybe<boolean> = false;
   export let links: Maybe<Maybe<Link>[]> = [];
+  export let titleLevel: Maybe<string> = "h1";
 </script>
 
 <Container>
@@ -27,7 +28,7 @@
             >{subtitle}</Typography
           >
 
-          <Typography component="h1" variant="headline1"
+          <Typography component={titleLevel} variant="headline1"
             >{@html title}</Typography
           >
         </div>

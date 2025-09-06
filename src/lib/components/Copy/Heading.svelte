@@ -4,7 +4,6 @@
 
   export let portableText;
   export let style = "h1";
-  export let component = "h1";
 
   if (portableText) {
     heading = portableText.value.children[0].text;
@@ -12,4 +11,4 @@
   }
 </script>
 
-<Typography {component} variant={style}>{heading}</Typography>
+<Typography component={style} variant={style}>{heading}</Typography>

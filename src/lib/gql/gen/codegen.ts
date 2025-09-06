@@ -1749,6 +1749,7 @@ export type TextWithImageFragmentFragment = {
   applyBackground?: boolean | null | undefined;
   subtitle?: string | null | undefined;
   title?: string | null | undefined;
+  titleLevel?: string | null | undefined;
   contentRaw?: any | null | undefined;
   links?:
     | Array<
@@ -1821,6 +1822,7 @@ export type ContentBlockFragmentFragment = {
             applyBackground?: boolean | null | undefined;
             subtitle?: string | null | undefined;
             title?: string | null | undefined;
+            titleLevel?: string | null | undefined;
             contentRaw?: any | null | undefined;
             links?:
               | Array<
@@ -2021,6 +2023,7 @@ export type GetHomeQuery = {
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
+                    titleLevel?: string | null | undefined;
                     contentRaw?: any | null | undefined;
                     links?:
                       | Array<
@@ -2375,6 +2378,7 @@ export type GetAboutQuery = {
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
+                    titleLevel?: string | null | undefined;
                     contentRaw?: any | null | undefined;
                     links?:
                       | Array<
@@ -2682,6 +2686,7 @@ export type GetProjectSingletonQuery = {
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
+                    titleLevel?: string | null | undefined;
                     contentRaw?: any | null | undefined;
                     links?:
                       | Array<
@@ -3046,6 +3051,7 @@ export type GetProjectQuery = {
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
+                    titleLevel?: string | null | undefined;
                     contentRaw?: any | null | undefined;
                     links?:
                       | Array<
@@ -3412,6 +3418,7 @@ export type GetPageBySlugQuery = {
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
+                    titleLevel?: string | null | undefined;
                     contentRaw?: any | null | undefined;
                     links?:
                       | Array<
@@ -3548,6 +3555,7 @@ export const TextWithImageFragmentFragmentDoc = gql`
     applyBackground
     subtitle
     title
+    titleLevel
     contentRaw
     links {
       label
