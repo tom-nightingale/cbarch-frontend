@@ -4708,7 +4708,10 @@
         "kind": "OBJECT",
         "name": "Link",
         "description": null,
+<<<<<<< HEAD
         "isOneOf": null,
+=======
+>>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
         "fields": [
           {
             "name": "_key",
@@ -4768,7 +4771,10 @@
         "kind": "INPUT_OBJECT",
         "name": "LinkFilter",
         "description": null,
+<<<<<<< HEAD
         "isOneOf": false,
+=======
+>>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
         "fields": null,
         "inputFields": [
           {
@@ -4828,7 +4834,10 @@
         "kind": "INPUT_OBJECT",
         "name": "LinkSorting",
         "description": null,
+<<<<<<< HEAD
         "isOneOf": false,
+=======
+>>>>>>> 703c8cb (feat(CatchAll): Add catchall route for pages)
         "fields": null,
         "inputFields": [
           {

@@ -5,8 +5,6 @@
   export let contentBlocks: ContentBlocks | Maybe<ContentBlocks>;
 
   $: blocks = contentBlocks?.contentblocks;
-
-  $: console.log(blocks);
 </script>
 
 {#if blocks && blocks.length > 0}
@@ -19,6 +17,7 @@
         image={block?.image}
         applyBackground={block?.applyBackground}
         reverseLayout={block?.reverseLayout}
+        links={block?.links}
       />
     {/if}
   {/each}

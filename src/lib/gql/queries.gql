@@ -49,6 +49,42 @@ fragment imageAsset on SanityImageAsset {
 #   }
 # }
 
+fragment TextWithImageFragment on TextWithImage {
+  reverseLayout
+  applyBackground
+  subtitle
+  title
+  contentRaw
+  links {
+    label
+    href
+  }
+  image {
+    image {
+      asset {
+        ...imageAsset
+        metadata {
+          lqip
+        }
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+  }
+}
+
+fragment ContentBlockFragment on ContentBlocks {
+  contentblocks {
+    ... on TextWithImage {
+      ...TextWithImageFragment
+    }
+  }
+}
+
 query GetHome {
   allHome {
     mobileHeroImages {
@@ -86,6 +122,11 @@ query GetHome {
       }
       crop {
         ...imageCrop
+      }
+    }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
       }
     }
     projectsSubtitle
@@ -181,30 +222,8 @@ query GetAbout {
       ...seo
     }
     contentBlocks {
-      contentblocks {
-        reverseLayout
-        applyBackground
-        subtitle
-        title
-        contentRaw
-        ... on TextWithImage {
-          image {
-            image {
-              asset {
-                ...imageAsset
-                metadata {
-                  lqip
-                }
-              }
-              hotspot {
-                ...imageHotspot
-              }
-              crop {
-                ...imageCrop
-              }
-            }
-          }
-        }
+      ... on ContentBlocks {
+        ...ContentBlockFragment
       }
     }
   }
@@ -290,6 +309,11 @@ query GetProjectSingleton {
     slug {
       current
     }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
+    }
     seo {
       ...seo
     }
@@ -373,6 +397,11 @@ query GetProject($slug: String) {
     }
     seo {
       ...seo
+    }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
     }
   }
 }
@@ -459,6 +488,21 @@ query GetNavigationById($id: ID!) {
     title
     sections {
       ...NavigationSection
+    }
+  }
+}
+
+query GetPageBySlug($slug: String) {
+  page: allPage(where: { slug: { current: { eq: $slug } } }) {
+    _id
+    title
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
+    }
+    seo {
+      ...seo
     }
   }
 }

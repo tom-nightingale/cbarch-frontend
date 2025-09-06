@@ -5,8 +5,11 @@
   import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
 
   export let data: PageData;
+  console.log(data);
 
   $: page = data.data;
+
+  $: console.log(page);
 </script>
 
 <Seo

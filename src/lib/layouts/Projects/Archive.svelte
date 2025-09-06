@@ -5,7 +5,10 @@
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import ProjectCard from "$lib/components/ProjectCard/ProjectCard.svelte";
   import { inView, animate } from "motion";
+  import type { ContentBlocks, Maybe } from "$lib/gql/gen/codegen";
+  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
 
+  export let contentBlocks: ContentBlocks | Maybe<ContentBlocks>;
   export let projects: any;
 
   let projectContainer: HTMLElement;
@@ -54,5 +57,9 @@
     </Container>
   {/if}
 </div>
+
+{#if contentBlocks?.contentblocks && contentBlocks?.contentblocks?.length > 0}
+  <ContentBlockDigester {contentBlocks} />
+{/if}
 
 <WorkWithUs />

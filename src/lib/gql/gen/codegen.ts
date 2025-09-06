@@ -1743,6 +1743,152 @@ export type ImageAssetFragment = {
   altText?: string | null | undefined;
 };
 
+export type TextWithImageFragmentFragment = {
+  __typename?: "TextWithImage";
+  reverseLayout?: boolean | null | undefined;
+  applyBackground?: boolean | null | undefined;
+  subtitle?: string | null | undefined;
+  title?: string | null | undefined;
+  contentRaw?: any | null | undefined;
+  links?:
+    | Array<
+        | {
+            __typename?: "Link";
+            label?: string | null | undefined;
+            href?: string | null | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+  image?:
+    | {
+        __typename?: "ImageBlock";
+        image?:
+          | {
+              __typename?: "Image";
+              asset?:
+                | {
+                    __typename?: "SanityImageAsset";
+                    url?: string | null | undefined;
+                    altText?: string | null | undefined;
+                    metadata?:
+                      | {
+                          __typename?: "SanityImageMetadata";
+                          lqip?: string | null | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined;
+              hotspot?:
+                | {
+                    __typename?: "SanityImageHotspot";
+                    x?: number | null | undefined;
+                    y?: number | null | undefined;
+                    width?: number | null | undefined;
+                    height?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+              crop?:
+                | {
+                    __typename?: "SanityImageCrop";
+                    top?: number | null | undefined;
+                    bottom?: number | null | undefined;
+                    left?: number | null | undefined;
+                    right?: number | null | undefined;
+                  }
+                | null
+                | undefined;
+            }
+          | null
+          | undefined;
+      }
+    | null
+    | undefined;
+};
+
+export type ContentBlockFragmentFragment = {
+  __typename?: "ContentBlocks";
+  contentblocks?:
+    | Array<
+        | {
+            __typename?: "TextWithImage";
+            reverseLayout?: boolean | null | undefined;
+            applyBackground?: boolean | null | undefined;
+            subtitle?: string | null | undefined;
+            title?: string | null | undefined;
+            contentRaw?: any | null | undefined;
+            links?:
+              | Array<
+                  | {
+                      __typename?: "Link";
+                      label?: string | null | undefined;
+                      href?: string | null | undefined;
+                    }
+                  | null
+                  | undefined
+                >
+              | null
+              | undefined;
+            image?:
+              | {
+                  __typename?: "ImageBlock";
+                  image?:
+                    | {
+                        __typename?: "Image";
+                        asset?:
+                          | {
+                              __typename?: "SanityImageAsset";
+                              url?: string | null | undefined;
+                              altText?: string | null | undefined;
+                              metadata?:
+                                | {
+                                    __typename?: "SanityImageMetadata";
+                                    lqip?: string | null | undefined;
+                                  }
+                                | null
+                                | undefined;
+                            }
+                          | null
+                          | undefined;
+                        hotspot?:
+                          | {
+                              __typename?: "SanityImageHotspot";
+                              x?: number | null | undefined;
+                              y?: number | null | undefined;
+                              width?: number | null | undefined;
+                              height?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                        crop?:
+                          | {
+                              __typename?: "SanityImageCrop";
+                              top?: number | null | undefined;
+                              bottom?: number | null | undefined;
+                              left?: number | null | undefined;
+                              right?: number | null | undefined;
+                            }
+                          | null
+                          | undefined;
+                      }
+                    | null
+                    | undefined;
+                }
+              | null
+              | undefined;
+          }
+        | null
+        | undefined
+      >
+    | null
+    | undefined;
+};
+
 export type GetHomeQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetHomeQuery = {
@@ -1859,6 +2005,86 @@ export type GetHomeQuery = {
                 left?: number | null | undefined;
                 right?: number | null | undefined;
               }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    contentBlocks?:
+      | {
+          __typename?: "ContentBlocks";
+          contentblocks?:
+            | Array<
+                | {
+                    __typename?: "TextWithImage";
+                    reverseLayout?: boolean | null | undefined;
+                    applyBackground?: boolean | null | undefined;
+                    subtitle?: string | null | undefined;
+                    title?: string | null | undefined;
+                    contentRaw?: any | null | undefined;
+                    links?:
+                      | Array<
+                          | {
+                              __typename?: "Link";
+                              label?: string | null | undefined;
+                              href?: string | null | undefined;
+                            }
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    image?:
+                      | {
+                          __typename?: "ImageBlock";
+                          image?:
+                            | {
+                                __typename?: "Image";
+                                asset?:
+                                  | {
+                                      __typename?: "SanityImageAsset";
+                                      url?: string | null | undefined;
+                                      altText?: string | null | undefined;
+                                      metadata?:
+                                        | {
+                                            __typename?: "SanityImageMetadata";
+                                            lqip?: string | null | undefined;
+                                          }
+                                        | null
+                                        | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                hotspot?:
+                                  | {
+                                      __typename?: "SanityImageHotspot";
+                                      x?: number | null | undefined;
+                                      y?: number | null | undefined;
+                                      width?: number | null | undefined;
+                                      height?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                crop?:
+                                  | {
+                                      __typename?: "SanityImageCrop";
+                                      top?: number | null | undefined;
+                                      bottom?: number | null | undefined;
+                                      left?: number | null | undefined;
+                                      right?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                              }
+                            | null
+                            | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined
+              >
             | null
             | undefined;
         }
@@ -2150,6 +2376,18 @@ export type GetAboutQuery = {
                     subtitle?: string | null | undefined;
                     title?: string | null | undefined;
                     contentRaw?: any | null | undefined;
+                    links?:
+                      | Array<
+                          | {
+                              __typename?: "Link";
+                              label?: string | null | undefined;
+                              href?: string | null | undefined;
+                            }
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
                     image?:
                       | {
                           __typename?: "ImageBlock";
@@ -2431,6 +2669,86 @@ export type GetProjectSingletonQuery = {
     introCopyRaw?: any | null | undefined;
     slug?:
       | { __typename?: "Slug"; current?: string | null | undefined }
+      | null
+      | undefined;
+    contentBlocks?:
+      | {
+          __typename?: "ContentBlocks";
+          contentblocks?:
+            | Array<
+                | {
+                    __typename?: "TextWithImage";
+                    reverseLayout?: boolean | null | undefined;
+                    applyBackground?: boolean | null | undefined;
+                    subtitle?: string | null | undefined;
+                    title?: string | null | undefined;
+                    contentRaw?: any | null | undefined;
+                    links?:
+                      | Array<
+                          | {
+                              __typename?: "Link";
+                              label?: string | null | undefined;
+                              href?: string | null | undefined;
+                            }
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    image?:
+                      | {
+                          __typename?: "ImageBlock";
+                          image?:
+                            | {
+                                __typename?: "Image";
+                                asset?:
+                                  | {
+                                      __typename?: "SanityImageAsset";
+                                      url?: string | null | undefined;
+                                      altText?: string | null | undefined;
+                                      metadata?:
+                                        | {
+                                            __typename?: "SanityImageMetadata";
+                                            lqip?: string | null | undefined;
+                                          }
+                                        | null
+                                        | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                hotspot?:
+                                  | {
+                                      __typename?: "SanityImageHotspot";
+                                      x?: number | null | undefined;
+                                      y?: number | null | undefined;
+                                      width?: number | null | undefined;
+                                      height?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                crop?:
+                                  | {
+                                      __typename?: "SanityImageCrop";
+                                      top?: number | null | undefined;
+                                      bottom?: number | null | undefined;
+                                      left?: number | null | undefined;
+                                      right?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                              }
+                            | null
+                            | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined
+              >
+            | null
+            | undefined;
+        }
       | null
       | undefined;
     seo?:
@@ -2717,6 +3035,86 @@ export type GetProjectQuery = {
         }
       | null
       | undefined;
+    contentBlocks?:
+      | {
+          __typename?: "ContentBlocks";
+          contentblocks?:
+            | Array<
+                | {
+                    __typename?: "TextWithImage";
+                    reverseLayout?: boolean | null | undefined;
+                    applyBackground?: boolean | null | undefined;
+                    subtitle?: string | null | undefined;
+                    title?: string | null | undefined;
+                    contentRaw?: any | null | undefined;
+                    links?:
+                      | Array<
+                          | {
+                              __typename?: "Link";
+                              label?: string | null | undefined;
+                              href?: string | null | undefined;
+                            }
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    image?:
+                      | {
+                          __typename?: "ImageBlock";
+                          image?:
+                            | {
+                                __typename?: "Image";
+                                asset?:
+                                  | {
+                                      __typename?: "SanityImageAsset";
+                                      url?: string | null | undefined;
+                                      altText?: string | null | undefined;
+                                      metadata?:
+                                        | {
+                                            __typename?: "SanityImageMetadata";
+                                            lqip?: string | null | undefined;
+                                          }
+                                        | null
+                                        | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                hotspot?:
+                                  | {
+                                      __typename?: "SanityImageHotspot";
+                                      x?: number | null | undefined;
+                                      y?: number | null | undefined;
+                                      width?: number | null | undefined;
+                                      height?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                crop?:
+                                  | {
+                                      __typename?: "SanityImageCrop";
+                                      top?: number | null | undefined;
+                                      bottom?: number | null | undefined;
+                                      left?: number | null | undefined;
+                                      right?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                              }
+                            | null
+                            | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined
+              >
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
   }>;
 };
 
@@ -2993,22 +3391,122 @@ export type GetNavigationByIdQuery = {
     | undefined;
 };
 
-export const ImageHotspotFragmentDoc = gql`
-  fragment imageHotspot on SanityImageHotspot {
-    x
-    y
-    width
-    height
-  }
-`;
-export const ImageCropFragmentDoc = gql`
-  fragment imageCrop on SanityImageCrop {
-    top
-    bottom
-    left
-    right
-  }
-`;
+export type GetPageBySlugQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars["String"]["input"]>;
+}>;
+
+export type GetPageBySlugQuery = {
+  __typename?: "RootQuery";
+  page: Array<{
+    __typename?: "Page";
+    _id?: string | null | undefined;
+    title?: string | null | undefined;
+    contentBlocks?:
+      | {
+          __typename?: "ContentBlocks";
+          contentblocks?:
+            | Array<
+                | {
+                    __typename?: "TextWithImage";
+                    reverseLayout?: boolean | null | undefined;
+                    applyBackground?: boolean | null | undefined;
+                    subtitle?: string | null | undefined;
+                    title?: string | null | undefined;
+                    contentRaw?: any | null | undefined;
+                    links?:
+                      | Array<
+                          | {
+                              __typename?: "Link";
+                              label?: string | null | undefined;
+                              href?: string | null | undefined;
+                            }
+                          | null
+                          | undefined
+                        >
+                      | null
+                      | undefined;
+                    image?:
+                      | {
+                          __typename?: "ImageBlock";
+                          image?:
+                            | {
+                                __typename?: "Image";
+                                asset?:
+                                  | {
+                                      __typename?: "SanityImageAsset";
+                                      url?: string | null | undefined;
+                                      altText?: string | null | undefined;
+                                      metadata?:
+                                        | {
+                                            __typename?: "SanityImageMetadata";
+                                            lqip?: string | null | undefined;
+                                          }
+                                        | null
+                                        | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                hotspot?:
+                                  | {
+                                      __typename?: "SanityImageHotspot";
+                                      x?: number | null | undefined;
+                                      y?: number | null | undefined;
+                                      width?: number | null | undefined;
+                                      height?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                                crop?:
+                                  | {
+                                      __typename?: "SanityImageCrop";
+                                      top?: number | null | undefined;
+                                      bottom?: number | null | undefined;
+                                      left?: number | null | undefined;
+                                      right?: number | null | undefined;
+                                    }
+                                  | null
+                                  | undefined;
+                              }
+                            | null
+                            | undefined;
+                        }
+                      | null
+                      | undefined;
+                  }
+                | null
+                | undefined
+              >
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+    seo?:
+      | {
+          __typename?: "Seo";
+          metaTitle?: string | null | undefined;
+          metaDesc?: string | null | undefined;
+          keywords?: Array<string | null | undefined> | null | undefined;
+          shareGraphic?:
+            | {
+                __typename?: "Image";
+                asset?:
+                  | {
+                      __typename?: "SanityImageAsset";
+                      url?: string | null | undefined;
+                      altText?: string | null | undefined;
+                    }
+                  | null
+                  | undefined;
+              }
+            | null
+            | undefined;
+        }
+      | null
+      | undefined;
+  }>;
+};
+
 export const SeoFragmentDoc = gql`
   fragment seo on Seo {
     metaTitle
@@ -3027,6 +3525,64 @@ export const ImageAssetFragmentDoc = gql`
     url
     altText
   }
+`;
+export const ImageHotspotFragmentDoc = gql`
+  fragment imageHotspot on SanityImageHotspot {
+    x
+    y
+    width
+    height
+  }
+`;
+export const ImageCropFragmentDoc = gql`
+  fragment imageCrop on SanityImageCrop {
+    top
+    bottom
+    left
+    right
+  }
+`;
+export const TextWithImageFragmentFragmentDoc = gql`
+  fragment TextWithImageFragment on TextWithImage {
+    reverseLayout
+    applyBackground
+    subtitle
+    title
+    contentRaw
+    links {
+      label
+      href
+    }
+    image {
+      image {
+        asset {
+          ...imageAsset
+          metadata {
+            lqip
+          }
+        }
+        hotspot {
+          ...imageHotspot
+        }
+        crop {
+          ...imageCrop
+        }
+      }
+    }
+  }
+  ${ImageAssetFragmentDoc}
+  ${ImageHotspotFragmentDoc}
+  ${ImageCropFragmentDoc}
+`;
+export const ContentBlockFragmentFragmentDoc = gql`
+  fragment ContentBlockFragment on ContentBlocks {
+    contentblocks {
+      ... on TextWithImage {
+        ...TextWithImageFragment
+      }
+    }
+  }
+  ${TextWithImageFragmentFragmentDoc}
 `;
 export const NavigationSectionFragmentDoc = gql`
   fragment NavigationSection on NavigationSection {
@@ -3145,6 +3701,11 @@ export const GetHomeDoc = gql`
           ...imageCrop
         }
       }
+      contentBlocks {
+        ... on ContentBlocks {
+          ...ContentBlockFragment
+        }
+      }
       projectsSubtitle
       featuredProjects {
         title
@@ -3200,6 +3761,7 @@ export const GetHomeDoc = gql`
   ${ImageAssetFragmentDoc}
   ${ImageHotspotFragmentDoc}
   ${ImageCropFragmentDoc}
+  ${ContentBlockFragmentFragmentDoc}
   ${SeoFragmentDoc}
 `;
 export const GetAboutDoc = gql`
@@ -3243,30 +3805,8 @@ export const GetAboutDoc = gql`
         ...seo
       }
       contentBlocks {
-        contentblocks {
-          reverseLayout
-          applyBackground
-          subtitle
-          title
-          contentRaw
-          ... on TextWithImage {
-            image {
-              image {
-                asset {
-                  ...imageAsset
-                  metadata {
-                    lqip
-                  }
-                }
-                hotspot {
-                  ...imageHotspot
-                }
-                crop {
-                  ...imageCrop
-                }
-              }
-            }
-          }
+        ... on ContentBlocks {
+          ...ContentBlockFragment
         }
       }
     }
@@ -3275,6 +3815,7 @@ export const GetAboutDoc = gql`
   ${ImageHotspotFragmentDoc}
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
+  ${ContentBlockFragmentFragmentDoc}
 `;
 export const GetTeamDoc = gql`
   query GetTeam {
@@ -3367,6 +3908,11 @@ export const GetProjectSingletonDoc = gql`
       slug {
         current
       }
+      contentBlocks {
+        ... on ContentBlocks {
+          ...ContentBlockFragment
+        }
+      }
       seo {
         ...seo
       }
@@ -3393,6 +3939,7 @@ export const GetProjectSingletonDoc = gql`
       }
     }
   }
+  ${ContentBlockFragmentFragmentDoc}
   ${SeoFragmentDoc}
   ${ImageAssetFragmentDoc}
   ${ImageCropFragmentDoc}
@@ -3456,12 +4003,18 @@ export const GetProjectDoc = gql`
       seo {
         ...seo
       }
+      contentBlocks {
+        ... on ContentBlocks {
+          ...ContentBlockFragment
+        }
+      }
     }
   }
   ${ImageAssetFragmentDoc}
   ${ImageHotspotFragmentDoc}
   ${ImageCropFragmentDoc}
   ${SeoFragmentDoc}
+  ${ContentBlockFragmentFragmentDoc}
 `;
 export const GetNavigationByIdDoc = gql`
   query GetNavigationById($id: ID!) {
@@ -3474,6 +4027,24 @@ export const GetNavigationByIdDoc = gql`
     }
   }
   ${NavigationSectionFragmentDoc}
+`;
+export const GetPageBySlugDoc = gql`
+  query GetPageBySlug($slug: String) {
+    page: allPage(where: { slug: { current: { eq: $slug } } }) {
+      _id
+      title
+      contentBlocks {
+        ... on ContentBlocks {
+          ...ContentBlockFragment
+        }
+      }
+      seo {
+        ...seo
+      }
+    }
+  }
+  ${ContentBlockFragmentFragmentDoc}
+  ${SeoFragmentDoc}
 `;
 export const GetHome = (
   options: Omit<WatchQueryOptions<GetHomeQueryVariables>, "query">,
@@ -3693,6 +4264,38 @@ export const GetNavigationById = (
         GetNavigationByIdQuery,
         GetNavigationByIdQueryVariables
       >;
+    }
+  >(
+    {
+      data: {} as any,
+      loading: true,
+      error: undefined,
+      networkStatus: 1,
+      query: q,
+    },
+    (set) => {
+      q.subscribe((v: any) => {
+        set({ ...v, query: q });
+      });
+    },
+  );
+  return result;
+};
+
+export const GetPageBySlug = (
+  options: Omit<WatchQueryOptions<GetPageBySlugQueryVariables>, "query">,
+): Readable<
+  ApolloQueryResult<GetPageBySlugQuery> & {
+    query: ObservableQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>;
+  }
+> => {
+  const q = client.watchQuery({
+    query: GetPageBySlugDoc,
+    ...options,
+  });
+  var result = readable<
+    ApolloQueryResult<GetPageBySlugQuery> & {
+      query: ObservableQuery<GetPageBySlugQuery, GetPageBySlugQueryVariables>;
     }
   >(
     {

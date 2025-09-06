@@ -2,8 +2,9 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
   import Image from "$lib/components/Image/Image.svelte";
-  import type { Maybe, ImageBlock } from "$lib/gql/gen/codegen";
+  import type { Maybe, ImageBlock, Link } from "$lib/gql/gen/codegen";
   import Copy from "$lib/components/Copy/Copy.svelte";
+  import Button from "$lib/components/Button/Button.svelte";
 
   export let subtitle: Maybe<string>;
   export let title: Maybe<string>;
@@ -11,6 +12,7 @@
   export let image: Maybe<ImageBlock>;
   export let applyBackground: Maybe<boolean> = false;
   export let reverseLayout: Maybe<boolean> = false;
+  export let links: Maybe<Maybe<Link>[]> = [];
 </script>
 
 <Container>
@@ -25,10 +27,20 @@
             >{subtitle}</Typography
           >
 
-          <Typography component="h1" variant="headline1">{title}</Typography>
+          <Typography component="h1" variant="headline1"
+            >{@html title}</Typography
+          >
         </div>
 
         <Copy {content} />
+
+        {#if links && links.length > 0}
+          <div class="my-12">
+            {#each links as link}
+              <Button href={link?.href} label={link?.label} />
+            {/each}
+          </div>
+        {/if}
       </div>
     </div>
 
