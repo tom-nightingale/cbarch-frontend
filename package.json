@@ -35,7 +35,7 @@
     "@storybook/svelte": "^7.4.0",
     "@storybook/sveltekit": "^7.4.0",
     "@storybook/testing-library": "^0.2.0",
-    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/adapter-auto": "^2.1.1",
     "@sveltejs/adapter-static": "2.0.3",
     "@sveltejs/kit": "^1.30.3",
     "@types/glidejs__glide": "^3.6.5",
