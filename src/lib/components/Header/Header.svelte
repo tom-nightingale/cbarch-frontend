@@ -36,11 +36,32 @@
       {#if navSections}
         <div class="items-center hidden gap-4 lg:flex">
           {#each navSections as section}
-            <NavItem
-              label={section?.target?.title}
-              href={section?.target?.slug?.current}
-              classes={"p-2"}
-            />
+            <div class="relative group">
+              <NavItem
+                label={section?.target?.title}
+                href={section?.target?.slug?.current}
+                classes={"p-2"}
+              />
+
+              {#if section?.children && section.children.length > 0}
+                <span
+                  class="absolute tracking-wide -translate-x-1/2 pointer-events-none -bottom-2 left-1/2 text-blue"
+                >
+                  &hellip;
+                </span>
+                <div
+                  class="absolute left-0 invisible overflow-hidden transition-all duration-200 bg-white border opacity-0 pointer-events-none top-full border-blue/20 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:visible"
+                >
+                  {#each section?.children as child}
+                    <NavItem
+                      label={child?.target?.title}
+                      href={child?.target?.slug?.current}
+                      classes={"p-2"}
+                    />
+                  {/each}
+                </div>
+              {/if}
+            </div>
           {/each}
         </div>
       {/if}
