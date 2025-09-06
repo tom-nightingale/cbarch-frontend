@@ -3,8 +3,6 @@
   import Container from "$lib/components/Container/Container.svelte";
   import Typography from "$lib/components/Typography/Typography.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
-
-  $: console.log($page.error);
 </script>
 
 <Container>

@@ -1,12 +1,13 @@
 <script lang="ts">
   import Typography from "$lib/components/Typography/Typography.svelte";
   import { createEventDispatcher } from "svelte";
+  import type { Maybe } from "$lib/gql/gen/codegen";
 
   const dispatch = createEventDispatcher();
 
-  export let href = "";
+  export let href: string | Maybe<string> = "";
   export let newTab = false;
-  export let label = "";
+  export let label: string | Maybe<string> = "";
   export let theme = "primary";
 
   /**

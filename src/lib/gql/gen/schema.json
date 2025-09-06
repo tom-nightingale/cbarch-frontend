@@ -1,7 +1,8 @@
 {
   "__schema": {
     "queryType": {
-      "name": "RootQuery"
+      "name": "RootQuery",
+      "kind": "OBJECT"
     },
     "mutationType": null,
     "subscriptionType": null,
@@ -10,6 +11,7 @@
         "kind": "OBJECT",
         "name": "About",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -279,6 +281,7 @@
         "kind": "INPUT_OBJECT",
         "name": "AboutFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -518,6 +521,7 @@
         "kind": "UNION",
         "name": "AboutOrContactOrHomeOrPageOrProjectsOrTeam",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -559,6 +563,7 @@
         "kind": "INPUT_OBJECT",
         "name": "AboutSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -786,6 +791,7 @@
         "kind": "OBJECT",
         "name": "Block",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -861,6 +867,7 @@
         "kind": "SCALAR",
         "name": "Boolean",
         "description": "The `Boolean` scalar type represents `true` or `false`.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -871,6 +878,7 @@
         "kind": "INPUT_OBJECT",
         "name": "BooleanFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -906,6 +914,7 @@
         "kind": "OBJECT",
         "name": "Contact",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -1099,6 +1108,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContactFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1254,6 +1264,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContactSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1397,6 +1408,7 @@
         "kind": "OBJECT",
         "name": "ContentBlocks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -1448,6 +1460,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContentBlocksFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1483,6 +1496,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContentBlocksSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1518,6 +1532,7 @@
         "kind": "OBJECT",
         "name": "CrossDatasetReference",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_dataset",
@@ -1601,6 +1616,7 @@
         "kind": "INPUT_OBJECT",
         "name": "CrossDatasetReferenceFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1684,6 +1700,7 @@
         "kind": "INPUT_OBJECT",
         "name": "CrossDatasetReferenceSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1767,6 +1784,7 @@
         "kind": "SCALAR",
         "name": "Date",
         "description": "A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1777,6 +1795,7 @@
         "kind": "INPUT_OBJECT",
         "name": "DateFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1860,6 +1879,7 @@
         "kind": "SCALAR",
         "name": "DateTime",
         "description": "A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1870,6 +1890,7 @@
         "kind": "INPUT_OBJECT",
         "name": "DatetimeFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1953,6 +1974,7 @@
         "kind": "INTERFACE",
         "name": "Document",
         "description": "A Sanity document",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -2090,6 +2112,7 @@
         "kind": "INPUT_OBJECT",
         "name": "DocumentFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2173,6 +2196,7 @@
         "kind": "INPUT_OBJECT",
         "name": "DocumentSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2244,6 +2268,7 @@
         "kind": "OBJECT",
         "name": "File",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -2291,6 +2316,7 @@
         "kind": "INPUT_OBJECT",
         "name": "FileFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2338,6 +2364,7 @@
         "kind": "INPUT_OBJECT",
         "name": "FileSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2373,6 +2400,7 @@
         "kind": "SCALAR",
         "name": "Float",
         "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -2383,6 +2411,7 @@
         "kind": "INPUT_OBJECT",
         "name": "FloatFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2466,6 +2495,7 @@
         "kind": "OBJECT",
         "name": "Geopoint",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -2537,6 +2567,7 @@
         "kind": "INPUT_OBJECT",
         "name": "GeopointFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2608,6 +2639,7 @@
         "kind": "INPUT_OBJECT",
         "name": "GeopointSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2679,6 +2711,7 @@
         "kind": "OBJECT",
         "name": "Global",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -2840,6 +2873,7 @@
         "kind": "INPUT_OBJECT",
         "name": "GlobalFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3007,6 +3041,7 @@
         "kind": "INPUT_OBJECT",
         "name": "GlobalSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3162,6 +3197,7 @@
         "kind": "OBJECT",
         "name": "Home",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -3459,6 +3495,7 @@
         "kind": "INPUT_OBJECT",
         "name": "HomeFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3686,6 +3723,7 @@
         "kind": "INPUT_OBJECT",
         "name": "HomeSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3901,6 +3939,7 @@
         "kind": "SCALAR",
         "name": "ID",
         "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3911,6 +3950,7 @@
         "kind": "INPUT_OBJECT",
         "name": "IDFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -3998,6 +4038,7 @@
         "kind": "OBJECT",
         "name": "Image",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -4069,6 +4110,7 @@
         "kind": "OBJECT",
         "name": "ImageBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -4128,6 +4170,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ImageBlockFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4187,6 +4230,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ImageBlockSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4246,6 +4290,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ImageFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4317,6 +4362,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ImageSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4376,6 +4422,7 @@
         "kind": "SCALAR",
         "name": "Int",
         "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -4386,6 +4433,7 @@
         "kind": "INPUT_OBJECT",
         "name": "IntFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4469,6 +4517,7 @@
         "kind": "SCALAR",
         "name": "JSON",
         "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -4479,6 +4528,7 @@
         "kind": "OBJECT",
         "name": "Link",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -4538,6 +4588,7 @@
         "kind": "INPUT_OBJECT",
         "name": "LinkFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4597,6 +4648,7 @@
         "kind": "INPUT_OBJECT",
         "name": "LinkSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4656,6 +4708,7 @@
         "kind": "OBJECT",
         "name": "Navigation",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -4785,6 +4838,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -4904,6 +4958,7 @@
         "kind": "OBJECT",
         "name": "NavigationLink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -4979,6 +5034,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationLinkFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5026,6 +5082,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationLinkSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5073,6 +5130,7 @@
         "kind": "OBJECT",
         "name": "NavigationSection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -5148,6 +5206,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationSectionFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5195,6 +5254,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationSectionSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5242,6 +5302,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5349,6 +5410,7 @@
         "kind": "OBJECT",
         "name": "Page",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -5486,6 +5548,7 @@
         "kind": "INPUT_OBJECT",
         "name": "PageFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5629,6 +5692,7 @@
         "kind": "INPUT_OBJECT",
         "name": "PageSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5760,6 +5824,7 @@
         "kind": "OBJECT",
         "name": "Project",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -6033,6 +6098,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ProjectFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6236,6 +6302,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ProjectSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6427,6 +6494,7 @@
         "kind": "OBJECT",
         "name": "Projects",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -6600,6 +6668,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ProjectsFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6767,6 +6836,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ProjectsSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6922,6 +6992,7 @@
         "kind": "OBJECT",
         "name": "RootQuery",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "About",
@@ -8473,6 +8544,7 @@
         "kind": "OBJECT",
         "name": "SanityAssetSourceData",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -8544,6 +8616,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityAssetSourceDataFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -8615,6 +8688,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityAssetSourceDataSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -8686,6 +8760,7 @@
         "kind": "OBJECT",
         "name": "SanityFileAsset",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -8931,6 +9006,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityFileAssetFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -9182,6 +9258,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityFileAssetSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -9421,6 +9498,7 @@
         "kind": "OBJECT",
         "name": "SanityImageAsset",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -9690,6 +9768,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageAssetFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -9965,6 +10044,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageAssetSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10228,6 +10308,7 @@
         "kind": "OBJECT",
         "name": "SanityImageCrop",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -10311,6 +10392,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageCropFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10394,6 +10476,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageCropSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10477,6 +10560,7 @@
         "kind": "OBJECT",
         "name": "SanityImageDimensions",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -10548,6 +10632,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageDimensionsFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10619,6 +10704,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageDimensionsSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10690,6 +10776,7 @@
         "kind": "OBJECT",
         "name": "SanityImageHotspot",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -10773,6 +10860,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageHotspotFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10856,6 +10944,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageHotspotSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10939,6 +11028,7 @@
         "kind": "OBJECT",
         "name": "SanityImageMetadata",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -11058,6 +11148,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageMetadataFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11177,6 +11268,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImageMetadataSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11296,6 +11388,7 @@
         "kind": "OBJECT",
         "name": "SanityImagePalette",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -11415,6 +11508,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImagePaletteFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11534,6 +11628,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImagePaletteSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11653,6 +11748,7 @@
         "kind": "OBJECT",
         "name": "SanityImagePaletteSwatch",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -11736,6 +11832,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImagePaletteSwatchFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11819,6 +11916,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SanityImagePaletteSwatchSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11902,6 +12000,7 @@
         "kind": "INPUT_OBJECT",
         "name": "Sanity_DocumentFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11937,6 +12036,7 @@
         "kind": "OBJECT",
         "name": "Seo",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -12024,6 +12124,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SeoFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12095,6 +12196,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SeoSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12166,6 +12268,7 @@
         "kind": "OBJECT",
         "name": "Slug",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -12225,6 +12328,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SlugFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12284,6 +12388,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SlugSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12343,6 +12448,7 @@
         "kind": "ENUM",
         "name": "SortOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -12366,6 +12472,7 @@
         "kind": "OBJECT",
         "name": "Span",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -12429,6 +12536,7 @@
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -12439,6 +12547,7 @@
         "kind": "INPUT_OBJECT",
         "name": "StringFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12526,6 +12635,7 @@
         "kind": "OBJECT",
         "name": "Team",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -12691,6 +12801,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TeamFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -12846,6 +12957,7 @@
         "kind": "OBJECT",
         "name": "TeamMember",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -12995,6 +13107,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TeamMemberFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13138,6 +13251,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TeamMemberSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13269,6 +13383,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TeamSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13412,6 +13527,7 @@
         "kind": "OBJECT",
         "name": "Testimonial",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_createdAt",
@@ -13525,6 +13641,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TestimonialFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13644,6 +13761,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TestimonialSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13751,6 +13869,7 @@
         "kind": "OBJECT",
         "name": "TextWithImage",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_key",
@@ -13863,6 +13982,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "titleLevel",
+            "description": "What level would you like the heading for this block to be?",
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -13874,6 +14005,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TextWithImageFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13959,6 +14091,18 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "titleLevel",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringFilter",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -13969,6 +14113,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TextWithImageSorting",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14054,6 +14199,18 @@
             "defaultValue": null,
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "titleLevel",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "SortOrder",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "interfaces": null,
@@ -14064,6 +14221,7 @@
         "kind": "OBJECT",
         "name": "__Directive",
         "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -14180,6 +14338,7 @@
         "kind": "ENUM",
         "name": "__DirectiveLocation",
         "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14305,6 +14464,7 @@
         "kind": "OBJECT",
         "name": "__EnumValue",
         "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -14372,6 +14532,7 @@
         "kind": "OBJECT",
         "name": "__Field",
         "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -14492,6 +14653,7 @@
         "kind": "OBJECT",
         "name": "__InputValue",
         "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -14587,6 +14749,7 @@
         "kind": "OBJECT",
         "name": "__Schema",
         "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "description",
@@ -14698,6 +14861,7 @@
         "kind": "OBJECT",
         "name": "__Type",
         "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByURL`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "kind",
@@ -14901,6 +15065,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "isOneOf",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -14912,6 +15088,7 @@
         "kind": "ENUM",
         "name": "__TypeKind",
         "description": "An enum describing what kind of type a given `__Type` is.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,

@@ -1,15 +1,10 @@
 <script lang="ts">
   import type { PageData } from "./$types";
   import Seo from "$lib/components/Seo/Seo.svelte";
-  import About from "$lib/layouts/About/About.svelte";
-  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
+  import DefaultLayout from "$lib/layouts/Default/Default.svelte";
 
   export let data: PageData;
-  console.log(data);
-
   $: page = data.data;
-
-  $: console.log(page);
 </script>
 
 <Seo
@@ -23,4 +18,4 @@
   }}
 />
 
-<About contentBlocks={page?.contentBlocks} />
+<DefaultLayout contentBlocks={page?.contentBlocks} />

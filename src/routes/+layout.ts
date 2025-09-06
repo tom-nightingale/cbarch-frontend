@@ -16,7 +16,7 @@ export async function load() {
   });
 
   if (!data?.data?.Navigation) {
-    throw error(404, "Not found");
+    error(404, "Not found");
   }
 
   return {

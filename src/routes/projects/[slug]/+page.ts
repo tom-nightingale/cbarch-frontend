@@ -14,7 +14,7 @@ export async function load({ params }) {
   });
 
   if (data?.data?.project?.length < 1) {
-    throw error(404, "Not found");
+    error(404, "Not found");
   }
 
   return {

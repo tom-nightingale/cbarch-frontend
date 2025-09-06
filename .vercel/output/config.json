@@ -1,0 +1,269 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/about",
+			"dest": "/about/"
+		},
+		{
+			"src": "/about/",
+			"status": 308,
+			"headers": {
+				"Location": "/about"
+			}
+		},
+		{
+			"src": "/contact",
+			"dest": "/contact/"
+		},
+		{
+			"src": "/contact/",
+			"status": 308,
+			"headers": {
+				"Location": "/contact"
+			}
+		},
+		{
+			"src": "/privacy-policy",
+			"dest": "/privacy-policy/"
+		},
+		{
+			"src": "/privacy-policy/",
+			"status": 308,
+			"headers": {
+				"Location": "/privacy-policy"
+			}
+		},
+		{
+			"src": "/projects",
+			"dest": "/projects/"
+		},
+		{
+			"src": "/projects/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects"
+			}
+		},
+		{
+			"src": "/team",
+			"dest": "/team/"
+		},
+		{
+			"src": "/team/",
+			"status": 308,
+			"headers": {
+				"Location": "/team"
+			}
+		},
+		{
+			"src": "/projects/cassio-green",
+			"dest": "/projects/cassio-green/"
+		},
+		{
+			"src": "/projects/cassio-green/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/cassio-green"
+			}
+		},
+		{
+			"src": "/projects/Colwick",
+			"dest": "/projects/Colwick/"
+		},
+		{
+			"src": "/projects/Colwick/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/Colwick"
+			}
+		},
+		{
+			"src": "/projects/makers-yard-leyton",
+			"dest": "/projects/makers-yard-leyton/"
+		},
+		{
+			"src": "/projects/makers-yard-leyton/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/makers-yard-leyton"
+			}
+		},
+		{
+			"src": "/projects/wilton-park",
+			"dest": "/projects/wilton-park/"
+		},
+		{
+			"src": "/projects/wilton-park/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/wilton-park"
+			}
+		},
+		{
+			"src": "/projects/belmont-apartments",
+			"dest": "/projects/belmont-apartments/"
+		},
+		{
+			"src": "/projects/belmont-apartments/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/belmont-apartments"
+			}
+		},
+		{
+			"src": "/projects/grand-union-apartments",
+			"dest": "/projects/grand-union-apartments/"
+		},
+		{
+			"src": "/projects/grand-union-apartments/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/grand-union-apartments"
+			}
+		},
+		{
+			"src": "/projects/flora-gardens",
+			"dest": "/projects/flora-gardens/"
+		},
+		{
+			"src": "/projects/flora-gardens/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/flora-gardens"
+			}
+		},
+		{
+			"src": "/projects/white-post-street",
+			"dest": "/projects/white-post-street/"
+		},
+		{
+			"src": "/projects/white-post-street/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/white-post-street"
+			}
+		},
+		{
+			"src": "/projects/the-link-apartments-brent-cross",
+			"dest": "/projects/the-link-apartments-brent-cross/"
+		},
+		{
+			"src": "/projects/the-link-apartments-brent-cross/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/the-link-apartments-brent-cross"
+			}
+		},
+		{
+			"src": "/projects/vanquish-house-northwood",
+			"dest": "/projects/vanquish-house-northwood/"
+		},
+		{
+			"src": "/projects/vanquish-house-northwood/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/vanquish-house-northwood"
+			}
+		},
+		{
+			"src": "/projects/whsc",
+			"dest": "/projects/whsc/"
+		},
+		{
+			"src": "/projects/whsc/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/whsc"
+			}
+		},
+		{
+			"src": "/projects/grovewood-apartments",
+			"dest": "/projects/grovewood-apartments/"
+		},
+		{
+			"src": "/projects/grovewood-apartments/",
+			"status": 308,
+			"headers": {
+				"Location": "/projects/grovewood-apartments"
+			}
+		},
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/projects/([^/]+?)/?(?:/__data.json)?$",
+			"dest": "/projects/[slug]"
+		},
+		{
+			"src": "^(/[^]*)?/?(?:/__data.json)?$",
+			"dest": "/[...slug]"
+		},
+		{
+			"src": "/.*",
+			"dest": "/![-]/catchall"
+		}
+	],
+	"overrides": {
+		"index.html": {
+			"path": ""
+		},
+		"about.html": {
+			"path": "about"
+		},
+		"contact.html": {
+			"path": "contact"
+		},
+		"privacy-policy.html": {
+			"path": "privacy-policy"
+		},
+		"projects.html": {
+			"path": "projects"
+		},
+		"team.html": {
+			"path": "team"
+		},
+		"projects/cassio-green.html": {
+			"path": "projects/cassio-green"
+		},
+		"projects/Colwick.html": {
+			"path": "projects/Colwick"
+		},
+		"projects/makers-yard-leyton.html": {
+			"path": "projects/makers-yard-leyton"
+		},
+		"projects/wilton-park.html": {
+			"path": "projects/wilton-park"
+		},
+		"projects/belmont-apartments.html": {
+			"path": "projects/belmont-apartments"
+		},
+		"projects/grand-union-apartments.html": {
+			"path": "projects/grand-union-apartments"
+		},
+		"projects/flora-gardens.html": {
+			"path": "projects/flora-gardens"
+		},
+		"projects/white-post-street.html": {
+			"path": "projects/white-post-street"
+		},
+		"projects/the-link-apartments-brent-cross.html": {
+			"path": "projects/the-link-apartments-brent-cross"
+		},
+		"projects/vanquish-house-northwood.html": {
+			"path": "projects/vanquish-house-northwood"
+		},
+		"projects/whsc.html": {
+			"path": "projects/whsc"
+		},
+		"projects/grovewood-apartments.html": {
+			"path": "projects/grovewood-apartments"
+		}
+	}
+}

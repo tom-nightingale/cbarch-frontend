@@ -13,6 +13,7 @@
       <TextWithImage
         subtitle={block?.subtitle}
         title={block?.title}
+        titleLevel={block?.titleLevel ?? "h1"}
         content={block?.contentRaw}
         image={block?.image}
         applyBackground={block?.applyBackground}
