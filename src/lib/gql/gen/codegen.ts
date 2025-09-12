@@ -1719,6 +1719,7 @@ export type SeoFragment = {
 
 export type ImageAssetFragment = {
   __typename?: "SanityImageAsset";
+  _key?: string | null | undefined;
   url?: string | null | undefined;
   altText?: string | null | undefined;
 };
@@ -1746,12 +1747,14 @@ export type TextWithImageFragmentFragment = {
   image?:
     | {
         __typename?: "ImageBlock";
+        _key?: string | null | undefined;
         image?:
           | {
               __typename?: "Image";
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                     metadata?:
@@ -1798,6 +1801,7 @@ export type ContentBlockFragmentFragment = {
     | Array<
         | {
             __typename?: "TextWithImage";
+            _key?: string | null | undefined;
             reverseLayout?: boolean | null | undefined;
             applyBackground?: boolean | null | undefined;
             subtitle?: string | null | undefined;
@@ -1819,12 +1823,14 @@ export type ContentBlockFragmentFragment = {
             image?:
               | {
                   __typename?: "ImageBlock";
+                  _key?: string | null | undefined;
                   image?:
                     | {
                         __typename?: "Image";
                         asset?:
                           | {
                               __typename?: "SanityImageAsset";
+                              _key?: string | null | undefined;
                               url?: string | null | undefined;
                               altText?: string | null | undefined;
                               metadata?:
@@ -1889,6 +1895,7 @@ export type GetHomeQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -1927,6 +1934,7 @@ export type GetHomeQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -1964,6 +1972,7 @@ export type GetHomeQuery = {
           asset?:
             | {
                 __typename?: "SanityImageAsset";
+                _key?: string | null | undefined;
                 url?: string | null | undefined;
                 altText?: string | null | undefined;
               }
@@ -1999,6 +2008,7 @@ export type GetHomeQuery = {
             | Array<
                 | {
                     __typename?: "TextWithImage";
+                    _key?: string | null | undefined;
                     reverseLayout?: boolean | null | undefined;
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
@@ -2020,12 +2030,14 @@ export type GetHomeQuery = {
                     image?:
                       | {
                           __typename?: "ImageBlock";
+                          _key?: string | null | undefined;
                           image?:
                             | {
                                 __typename?: "Image";
                                 asset?:
                                   | {
                                       __typename?: "SanityImageAsset";
+                                      _key?: string | null | undefined;
                                       url?: string | null | undefined;
                                       altText?: string | null | undefined;
                                       metadata?:
@@ -2089,6 +2101,7 @@ export type GetHomeQuery = {
                         asset?:
                           | {
                               __typename?: "SanityImageAsset";
+                              _key?: string | null | undefined;
                               url?: string | null | undefined;
                               altText?: string | null | undefined;
                             }
@@ -2127,6 +2140,7 @@ export type GetHomeQuery = {
                         asset?:
                           | {
                               __typename?: "SanityImageAsset";
+                              _key?: string | null | undefined;
                               url?: string | null | undefined;
                               altText?: string | null | undefined;
                             }
@@ -2171,6 +2185,7 @@ export type GetHomeQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -2258,6 +2273,7 @@ export type GetAboutQuery = {
           asset?:
             | {
                 __typename?: "SanityImageAsset";
+                _key?: string | null | undefined;
                 url?: string | null | undefined;
                 altText?: string | null | undefined;
               }
@@ -2292,6 +2308,7 @@ export type GetAboutQuery = {
           asset?:
             | {
                 __typename?: "SanityImageAsset";
+                _key?: string | null | undefined;
                 url?: string | null | undefined;
                 altText?: string | null | undefined;
               }
@@ -2354,6 +2371,7 @@ export type GetAboutQuery = {
             | Array<
                 | {
                     __typename?: "TextWithImage";
+                    _key?: string | null | undefined;
                     reverseLayout?: boolean | null | undefined;
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
@@ -2375,12 +2393,14 @@ export type GetAboutQuery = {
                     image?:
                       | {
                           __typename?: "ImageBlock";
+                          _key?: string | null | undefined;
                           image?:
                             | {
                                 __typename?: "Image";
                                 asset?:
                                   | {
                                       __typename?: "SanityImageAsset";
+                                      _key?: string | null | undefined;
                                       url?: string | null | undefined;
                                       altText?: string | null | undefined;
                                       metadata?:
@@ -2453,6 +2473,7 @@ export type GetTeamQuery = {
                     asset?:
                       | {
                           __typename?: "SanityImageAsset";
+                          _key?: string | null | undefined;
                           url?: string | null | undefined;
                           altText?: string | null | undefined;
                         }
@@ -2540,6 +2561,7 @@ export type GetContactQuery = {
                     asset?:
                       | {
                           __typename?: "SanityImageAsset";
+                          _key?: string | null | undefined;
                           url?: string | null | undefined;
                           altText?: string | null | undefined;
                         }
@@ -2581,6 +2603,7 @@ export type GetContactQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -2662,6 +2685,7 @@ export type GetProjectSingletonQuery = {
             | Array<
                 | {
                     __typename?: "TextWithImage";
+                    _key?: string | null | undefined;
                     reverseLayout?: boolean | null | undefined;
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
@@ -2683,12 +2707,14 @@ export type GetProjectSingletonQuery = {
                     image?:
                       | {
                           __typename?: "ImageBlock";
+                          _key?: string | null | undefined;
                           image?:
                             | {
                                 __typename?: "Image";
                                 asset?:
                                   | {
                                       __typename?: "SanityImageAsset";
+                                      _key?: string | null | undefined;
                                       url?: string | null | undefined;
                                       altText?: string | null | undefined;
                                       metadata?:
@@ -2771,6 +2797,7 @@ export type GetProjectSingletonQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -2852,6 +2879,7 @@ export type GetProjectQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -2890,6 +2918,7 @@ export type GetProjectQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -2927,6 +2956,7 @@ export type GetProjectQuery = {
           asset?:
             | {
                 __typename?: "SanityImageAsset";
+                _key?: string | null | undefined;
                 url?: string | null | undefined;
                 altText?: string | null | undefined;
               }
@@ -2962,6 +2992,7 @@ export type GetProjectQuery = {
               asset?:
                 | {
                     __typename?: "SanityImageAsset";
+                    _key?: string | null | undefined;
                     url?: string | null | undefined;
                     altText?: string | null | undefined;
                   }
@@ -3027,6 +3058,7 @@ export type GetProjectQuery = {
             | Array<
                 | {
                     __typename?: "TextWithImage";
+                    _key?: string | null | undefined;
                     reverseLayout?: boolean | null | undefined;
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
@@ -3048,12 +3080,14 @@ export type GetProjectQuery = {
                     image?:
                       | {
                           __typename?: "ImageBlock";
+                          _key?: string | null | undefined;
                           image?:
                             | {
                                 __typename?: "Image";
                                 asset?:
                                   | {
                                       __typename?: "SanityImageAsset";
+                                      _key?: string | null | undefined;
                                       url?: string | null | undefined;
                                       altText?: string | null | undefined;
                                       metadata?:
@@ -3394,6 +3428,7 @@ export type GetPageBySlugQuery = {
             | Array<
                 | {
                     __typename?: "TextWithImage";
+                    _key?: string | null | undefined;
                     reverseLayout?: boolean | null | undefined;
                     applyBackground?: boolean | null | undefined;
                     subtitle?: string | null | undefined;
@@ -3415,12 +3450,14 @@ export type GetPageBySlugQuery = {
                     image?:
                       | {
                           __typename?: "ImageBlock";
+                          _key?: string | null | undefined;
                           image?:
                             | {
                                 __typename?: "Image";
                                 asset?:
                                   | {
                                       __typename?: "SanityImageAsset";
+                                      _key?: string | null | undefined;
                                       url?: string | null | undefined;
                                       altText?: string | null | undefined;
                                       metadata?:
@@ -3509,6 +3546,7 @@ export const SeoFragmentDoc = gql`
 `;
 export const ImageAssetFragmentDoc = gql`
   fragment imageAsset on SanityImageAsset {
+    _key
     url
     altText
   }
@@ -3542,6 +3580,7 @@ export const TextWithImageFragmentFragmentDoc = gql`
       href
     }
     image {
+      _key
       image {
         asset {
           ...imageAsset
@@ -3565,6 +3604,7 @@ export const TextWithImageFragmentFragmentDoc = gql`
 export const ContentBlockFragmentFragmentDoc = gql`
   fragment ContentBlockFragment on ContentBlocks {
     contentblocks {
+      _key
       ... on TextWithImage {
         ...TextWithImageFragment
       }

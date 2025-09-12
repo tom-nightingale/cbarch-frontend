@@ -25,6 +25,7 @@ fragment seo on Seo {
 }
 
 fragment imageAsset on SanityImageAsset {
+  _key
   url
   altText
 }
@@ -61,6 +62,7 @@ fragment TextWithImageFragment on TextWithImage {
     href
   }
   image {
+    _key
     image {
       asset {
         ...imageAsset
@@ -80,6 +82,7 @@ fragment TextWithImageFragment on TextWithImage {
 
 fragment ContentBlockFragment on ContentBlocks {
   contentblocks {
+    _key
     ... on TextWithImage {
       ...TextWithImageFragment
     }

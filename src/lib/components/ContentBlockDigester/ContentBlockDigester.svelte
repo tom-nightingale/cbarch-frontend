@@ -8,7 +8,7 @@
 </script>
 
 {#if blocks && blocks.length > 0}
-  {#each blocks as block, i}
+  {#each blocks as block (block?._key)}
     {#if block?.__typename === "TextWithImage"}
       <TextWithImage
         subtitle={block?.subtitle}
