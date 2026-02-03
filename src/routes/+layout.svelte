@@ -29,10 +29,9 @@
   on:menuClose={toggleMobileMenu}
   open={mobileMenuOpen}
   {animateItems}
-  navSections={data.navSections}
 />
 
-<Header on:menuOpen={toggleMobileMenu} navSections={data.navSections} />
+<Header on:menuOpen={toggleMobileMenu} />
 <div class="pt-[107px] md:pt-[119px]">
   <slot />
 </div>
