@@ -10,6 +10,11 @@
 
   export let introTitle: string | null | undefined;
   export let introSubtitle: string | null | undefined;
+  export let officePhoneNumber: string | null | undefined;
+  export let addressLine1: string | null | undefined;
+  export let addressLine2: string | null | undefined;
+  export let city: string | null | undefined;
+  export let postcode: string | null | undefined;
   export let introCopy: any[];
   export let images: ImageType[] | null | undefined;
   export let teamMembers: any;
@@ -59,38 +64,79 @@
       <Form />
     </div>
 
-    {#if teamMembers && teamMembers.length > 0}
-      <div
-        class="mt-10 md:mt-[80px] grid gap-[59px] self-start"
-        bind:this={teamContainer}
-      >
-          <div class="grid gap-2 opacity-0 team-member grid-col-1">
+    <div
+      class="mt-10 md:mt-[80px] grid gap-[59px] self-start"
+      bind:this={teamContainer}
+    >
+      {#if officePhoneNumber}
+        <div class="opacity-0 team-member">
+          <Typography component="h2" variant="headline2"
+            ><span>Telephone:</span></Typography
+          >
+          <a
+            href="tel:{officePhoneNumber?.replaceAll(' ', '')}"
+            class="hover:text-blue"
+          >
+            <Typography component="p" variant="sub1"
+              >{officePhoneNumber}</Typography
+            >
+          </a>
+        </div>
+
+        <div class="opacity-0 team-member">
+          <Typography component="h2" variant="headline2"
+            ><span>Email:</span></Typography
+          >
+          <a href="mailto:enquiries@cbarch.co.uk" class="hover:text-blue">
+            <Typography component="p" variant="sub1"
+              >enquiries@cbarch.co.uk</Typography
+            >
+          </a>
+        </div>
+      {/if}
+
+      {#if !officePhoneNumber && teamMembers && teamMembers.length > 0}
+        {#each teamMembers as item, i}
+          <div class="opacity-0 team-member">
             <Typography component="h2" variant="headline2"
               ><span>Contact Office</span></Typography
             >
 
             <div class="flex items-center gap-4">
               Telephone:
-              <a
-                href="tel:01157956707"
-                class="hover:text-blue"
-              >
-                <Typography component="p" variant="sub1">0115 7956707</Typography>
+              <a href="tel:01157956707" class="hover:text-blue">
+                <Typography component="p" variant="sub1"
+                  >0115 7956707</Typography
+                >
               </a>
             </div>
-            
+
             <div class="flex items-center gap-4 mb-8">
-              Email: 
+              Email:
               <a href="mailto:enquiries@cbarch.co.uk" class="hover:text-blue">
-                <Typography component="p" variant="sub1">enquiries@cbarch.co.uk</Typography>
+                <Typography component="p" variant="sub1"
+                  >enquiries@cbarch.co.uk</Typography
+                >
               </a>
             </div>
 
-            <Typography component="p" variant="sub1">16 Commerce Square<br />Lace Market<br />Nottingham<br />NG1 1HS</Typography>
-
+            <Typography component="p" variant="sub1"
+              >16 Commerce Square<br />Lace Market<br />Nottingham<br />NG1 1HS</Typography
+            >
           </div>
+        {/each}
+      {/if}
+
+      <div class="opacity-0 team-member">
+        <Typography component="h2" variant="headline2"
+          ><span>Address:</span></Typography
+        >
+        <Typography component="p" variant="sub1"
+          >{addressLine1}<br />{addressLine2}<br />{city}<br
+          />{postcode}</Typography
+        >
       </div>
-    {/if}
+    </div>
   </div>
 </Container>
 

@@ -265,6 +265,11 @@ query GetContact {
     introSubtitle
     introTitle
     introCopyRaw
+    officePhoneNumber
+    addressLine1
+    addressLine2
+    city
+    postcode
     team {
       name
       email

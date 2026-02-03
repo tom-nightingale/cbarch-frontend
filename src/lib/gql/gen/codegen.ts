@@ -2546,6 +2546,11 @@ export type GetContactQuery = {
     introSubtitle?: string | null | undefined;
     introTitle?: string | null | undefined;
     introCopyRaw?: any | null | undefined;
+    officePhoneNumber?: string | null | undefined;
+    addressLine1?: string | null | undefined;
+    addressLine2?: string | null | undefined;
+    city?: string | null | undefined;
+    postcode?: string | null | undefined;
     team?:
       | Array<
           | {
@@ -3866,6 +3871,11 @@ export const GetContactDoc = gql`
       introSubtitle
       introTitle
       introCopyRaw
+      officePhoneNumber
+      addressLine1
+      addressLine2
+      city
+      postcode
       team {
         name
         email
