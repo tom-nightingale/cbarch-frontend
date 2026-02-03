@@ -1,6 +1,8 @@
 <script lang="ts">
+  import type { Maybe } from "$lib/gql/gen/codegen";
+
   export let variant = "body1";
-  export let component = "";
+  export let component: string | Maybe<string> = "";
   export let theme = "";
   export let uppercase = false;
   export let underline = false;

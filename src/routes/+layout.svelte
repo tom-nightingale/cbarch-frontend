@@ -19,6 +19,8 @@
       animateItems = false;
     }
   };
+
+  // export let data;
 </script>
 
 <Analytics />

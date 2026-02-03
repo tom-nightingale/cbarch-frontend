@@ -32,4 +32,5 @@
   gallery={project.gallery}
   copy={project.projectCopyRaw}
   copyImage={project.projectCopyImage}
+  contentBlocks={project?.contentBlocks}
 />

@@ -8,7 +8,9 @@
   import GlideGallery from "$lib/components/GlideGallery/GlideGallery.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
   import { onMount } from "svelte";
-  import { page } from "$app/stores";
+  import type { ContentBlocks, Maybe } from "$lib/gql/gen/codegen";
+  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
+  export let contentBlocks: ContentBlocks | Maybe<ContentBlocks>;
 
   export let heroImages: ImageType[] | null | undefined;
   export let title: string | null | undefined;
@@ -56,12 +58,10 @@
   });
 </script>
 
-{#key $page.url.pathname}
-  <Hero
-    images={heroImages && heroImages.length > 0 && [heroImages[0]]}
-    title={`${title}${location && location !== null ? `, ${location}` : ``}`}
-  />
-{/key}
+<Hero
+  images={heroImages && heroImages.length > 0 && [heroImages[0]]}
+  title={`${title}${location && location !== null ? `, ${location}` : ``}`}
+/>
 
 <Container>
   <div class="md:grid md:grid-cols-2 md:mb-12">
@@ -70,39 +70,37 @@
       bind:this={imageContainer}
     >
       {#if copyImage && copyImage.asset}
-        {#key $page.url.pathname}
-          <Image
-            image={copyImage}
-            altText={copyImage?.asset?.altText
-              ? copyImage?.asset?.altText
-              : "Coleflax Bennett Architecture"}
-            lgImg={true}
-            lgSizes={{
-              lg: {
-                width: 1600,
-                height: 1200,
-              },
-              md: {
-                width: 800,
-                height: 700,
-              },
-              sm: {
-                width: 650,
-                height: 1000,
-              },
-              xs: {
-                width: 768,
-                height: 768,
-              },
-              fallback: {
-                width: 768,
-                height: 768,
-              },
-            }}
-            pictureClasses="block md:sticky md:top-40"
-            imageClasses="object-cover object-center h-full w-full"
-          />
-        {/key}
+        <Image
+          image={copyImage}
+          altText={copyImage?.asset?.altText
+            ? copyImage?.asset?.altText
+            : "Coleflax Bennett Architecture"}
+          lgImg={true}
+          lgSizes={{
+            lg: {
+              width: 1600,
+              height: 1200,
+            },
+            md: {
+              width: 800,
+              height: 700,
+            },
+            sm: {
+              width: 650,
+              height: 1000,
+            },
+            xs: {
+              width: 768,
+              height: 768,
+            },
+            fallback: {
+              width: 768,
+              height: 768,
+            },
+          }}
+          pictureClasses="block md:sticky md:top-40"
+          imageClasses="object-cover object-center h-full w-full"
+        />
       {/if}
     </div>
 
@@ -171,9 +169,10 @@
 </Container>
 
 {#if gallery && gallery.length > 3}
-  {#key $page.url.pathname}
-    <GlideGallery images={gallery} square />
-  {/key}
+  <GlideGallery images={gallery} square />
 {/if}
 
+{#if contentBlocks?.contentblocks && contentBlocks?.contentblocks?.length > 0}
+  <ContentBlockDigester {contentBlocks} />
+{/if}
 <WorkWithUs />

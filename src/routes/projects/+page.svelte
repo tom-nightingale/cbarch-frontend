@@ -19,4 +19,4 @@
   }}
 />
 
-<Archive {projects} />
+<Archive {projects} contentBlocks={page?.contentBlocks} />

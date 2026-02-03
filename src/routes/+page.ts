@@ -9,7 +9,7 @@ export async function load() {
   });
 
   if (data?.data?.allHome?.length < 1) {
-    throw error(404, "Not found");
+    error(404, "Not found");
   }
 
   return {

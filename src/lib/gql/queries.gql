@@ -29,6 +29,63 @@ fragment imageAsset on SanityImageAsset {
   altText
 }
 
+# query getLanding {
+#   allLanding {
+#     title
+#     landingImage {
+#       asset {
+#         ...imageAsset
+#       }
+#       hotspot {
+#         ...imageHotspot
+#       }
+#       crop {
+#         ...imageCrop
+#       }
+#     }
+#     seo {
+#       ...seo
+#     }
+#   }
+# }
+
+fragment TextWithImageFragment on TextWithImage {
+  reverseLayout
+  applyBackground
+  subtitle
+  title
+  titleLevel
+  contentRaw
+  links {
+    label
+    href
+  }
+  image {
+    image {
+      asset {
+        ...imageAsset
+        metadata {
+          lqip
+        }
+      }
+      hotspot {
+        ...imageHotspot
+      }
+      crop {
+        ...imageCrop
+      }
+    }
+  }
+}
+
+fragment ContentBlockFragment on ContentBlocks {
+  contentblocks {
+    ... on TextWithImage {
+      ...TextWithImageFragment
+    }
+  }
+}
+
 query GetHome {
   allHome {
     mobileHeroImages {
@@ -66,6 +123,11 @@ query GetHome {
       }
       crop {
         ...imageCrop
+      }
+    }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
       }
     }
     projectsSubtitle
@@ -160,6 +222,11 @@ query GetAbout {
     seo {
       ...seo
     }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
+    }
   }
 }
 
@@ -198,6 +265,11 @@ query GetContact {
     introSubtitle
     introTitle
     introCopyRaw
+    officePhoneNumber
+    addressLine1
+    addressLine2
+    city
+    postcode
     team {
       name
       email
@@ -242,6 +314,11 @@ query GetProjectSingleton {
     introCopyRaw
     slug {
       current
+    }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
     }
     seo {
       ...seo
@@ -323,6 +400,112 @@ query GetProject($slug: String) {
     }
     slug {
       current
+    }
+    seo {
+      ...seo
+    }
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
+    }
+  }
+}
+
+fragment NavigationSection on NavigationSection {
+  target {
+    ... on Page {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Home {
+      title
+      slug {
+        current
+      }
+    }
+    ... on About {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Projects {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Team {
+      title
+      slug {
+        current
+      }
+    }
+    ... on Page {
+      title
+      slug {
+        current
+      }
+    }
+  }
+  children {
+    title
+    target {
+      ... on Home {
+        title
+        slug {
+          current
+        }
+      }
+      ... on About {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Projects {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Team {
+        title
+        slug {
+          current
+        }
+      }
+      ... on Page {
+        title
+        slug {
+          current
+        }
+      }
+    }
+  }
+}
+
+query GetNavigationById($id: ID!) {
+  Navigation(id: $id) {
+    _id
+    title
+    sections {
+      ...NavigationSection
+    }
+  }
+}
+
+query GetPageBySlug($slug: String) {
+  page: allPage(where: { slug: { current: { eq: $slug } } }) {
+    _id
+    title
+    contentBlocks {
+      ... on ContentBlocks {
+        ...ContentBlockFragment
+      }
     }
     seo {
       ...seo

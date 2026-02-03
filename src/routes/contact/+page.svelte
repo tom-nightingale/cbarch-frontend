@@ -25,4 +25,9 @@
   introCopy={page.introCopyRaw}
   images={page.gallery}
   teamMembers={page.team}
+  officePhoneNumber={page.officePhoneNumber}
+  addressLine1={page.addressLine1}
+  addressLine2={page.addressLine2}
+  city={page.city}
+  postcode={page.postcode}
 />

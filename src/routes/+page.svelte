@@ -40,4 +40,5 @@
   copySubtitle={page.copySubtitle}
   copyImage={page.copyImage && page.copyImage}
   copy={page.copyRaw}
+  contentBlocks={page?.contentBlocks}
 />
