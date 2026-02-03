@@ -127,15 +127,17 @@
         {/each}
       {/if}
 
-      <div class="opacity-0 team-member">
-        <Typography component="h2" variant="headline2"
-          ><span>Address:</span></Typography
-        >
-        <Typography component="p" variant="sub1"
-          >{addressLine1}<br />{addressLine2}<br />{city}<br
-          />{postcode}</Typography
-        >
-      </div>
+      {#if addressLine1 || addressLine2 || city || postcode}
+        <div class="opacity-0 team-member">
+          <Typography component="h2" variant="headline2"
+            ><span>Address:</span></Typography
+          >
+          <Typography component="p" variant="sub1"
+            >{addressLine1}<br />{addressLine2}<br />{city}<br
+            />{postcode}</Typography
+          >
+        </div>
+      {/if}
     </div>
   </div>
 </Container>
