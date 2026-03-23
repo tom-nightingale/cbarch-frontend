@@ -58,8 +58,8 @@
   {/if}
 </div>
 
-{#if contentBlocks?.contentblocks && contentBlocks?.contentblocks?.length > 0}
+<!-- {#if contentBlocks?.contentblocks && contentBlocks?.contentblocks?.length > 0}
   <ContentBlockDigester {contentBlocks} />
-{/if}
+{/if} -->
 
 <WorkWithUs />
