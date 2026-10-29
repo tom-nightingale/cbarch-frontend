@@ -1,17 +1,18 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import { NavItems } from "$lib/data/NavItems";
   import NavItem from "$lib/components/NavItem/NavItem.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
+  import type { Maybe, NavigationSection } from "$lib/gql/gen/codegen";
 
   export let open: boolean = false;
   export let animateItems: boolean = false;
+  export let navSections: Maybe<Array<Maybe<NavigationSection>>> = [];
 
   const dispatch = createEventDispatcher();
 
-  const handleMenuClose = (e) => {
+  const handleMenuClose = (e: Event) => {
     open = !open;
-    dispatch("menuClose", e.detail);
+    dispatch("menuClose", e);
   };
 </script>
 
@@ -43,17 +44,44 @@
       </button>
     </div>
 
-    <div class="flex flex-col py-[33px]">
-      {#each NavItems as item, i}
+    {#if navSections && navSections.length > 0}
+      <div class="flex flex-col py-[33px]">
+        {#each navSections as section}
+          {#if animateItems}
+            <NavItem
+              on:menuClose={handleMenuClose}
+              label={section?.target?.title}
+              href={section?.target?.slug?.current}
+              classes="block py-[15px] px-[22px] border-b border-b-[#F5F5F5] hover:pl-[32px] duration-300"
+            />
+          {/if}
+
+          {#if section?.children && section.children.length > 0}
+            {#each section.children as child}
+              {#if animateItems}
+                <div
+                  class="relative block py-[15px] px-10 border-b border-b-[#F5F5F5] hover:pl-12 duration-300"
+                >
+                  <NavItem
+                    on:menuClose={handleMenuClose}
+                    label={child?.target?.title}
+                    href={child?.target?.slug?.current}
+                  />
+                </div>
+              {/if}
+            {/each}
+          {/if}
+        {/each}
+
         {#if animateItems}
           <NavItem
             on:menuClose={handleMenuClose}
-            label={item.label}
-            href={item.href}
+            label="Contact Us"
+            href="contact"
             classes="block py-[15px] px-[22px] border-b border-b-[#F5F5F5] hover:pl-[32px] duration-300"
           />
         {/if}
-      {/each}
-    </div>
+      </div>
+    {/if}
   </div>
 </div>

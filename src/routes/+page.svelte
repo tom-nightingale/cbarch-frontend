@@ -36,8 +36,5 @@
   featuredProjectName={page.featuredProjects && page.featuredProjects[0]?.title}
   featuredProjectSlug={page.featuredProjects &&
     page.featuredProjects[0]?.slug?.current}
-  copyTitle={page.copyTitle}
-  copySubtitle={page.copySubtitle}
-  copyImage={page.copyImage && page.copyImage}
-  copy={page.copyRaw}
+  contentBlocks={page?.contentBlocks}
 />

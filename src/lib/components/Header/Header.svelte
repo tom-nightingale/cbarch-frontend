@@ -4,7 +4,9 @@
   import Button from "$lib/components/Button/Button.svelte";
   import Icon from "$lib/components/Icon/Icon.svelte";
   import NavItem from "$lib/components/NavItem/NavItem.svelte";
-  import { NavItems } from "$lib/data/NavItems";
+  import type { Maybe, NavigationSection } from "$lib/gql/gen/codegen";
+
+  export let navSections: Maybe<Array<Maybe<NavigationSection>>> = [];
 
   const dispatch = createEventDispatcher();
 
@@ -31,15 +33,38 @@
         />
       </a>
 
-      <div class="items-center hidden gap-4 lg:flex">
-        {#each NavItems as item}
-          <NavItem
-            label={item.label}
-            href={item.href}
-            classes={item.mobileOnly ? "hidden" : "p-2"}
-          />
-        {/each}
-      </div>
+      {#if navSections && navSections.length > 0}
+        <div class="items-center hidden gap-4 lg:flex">
+          {#each navSections as section}
+            <div class="relative group">
+              <NavItem
+                label={section?.target?.title}
+                href={section?.target?.slug?.current}
+                classes={"p-2"}
+              />
+
+              {#if section?.children && section.children.length > 0}
+                <span
+                  class="absolute tracking-wide -translate-x-1/2 pointer-events-none -bottom-2 left-1/2 text-blue"
+                >
+                  &hellip;
+                </span>
+                <div
+                  class="absolute left-0 invisible overflow-hidden transition-all duration-200 bg-white border opacity-0 pointer-events-none top-full border-blue/20 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:visible"
+                >
+                  {#each section.children as child}
+                    <NavItem
+                      label={child?.target?.title}
+                      href={child?.target?.slug?.current}
+                      classes={"p-2"}
+                    />
+                  {/each}
+                </div>
+              {/if}
+            </div>
+          {/each}
+        </div>
+      {/if}
 
       <div class="hidden lg:block">
         <Button label="Get in touch" theme="primary" href="/contact" />

@@ -5,10 +5,8 @@
   import Testimonials from "$lib/components/Testimonials/Testimonials.svelte";
   import Gallery from "$lib/components/Gallery/Gallery.svelte";
   import WorkWithUs from "$lib/components/WorkWithUs/WorkWithUs.svelte";
-  import CopyImageSection from "$lib/components/CopyImageSection/CopyImageSection.svelte";
-  import type Image from "$lib/components/Image/Image.svelte";
-  // import type { ContentBlocks, Maybe } from "$lib/gql/gen/codegen";
-  // import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
+  import type { ContentBlocks, Maybe } from "$lib/gql/gen/codegen";
+  import ContentBlockDigester from "$lib/components/ContentBlockDigester/ContentBlockDigester.svelte";
 
   export let mobileHeroImages: ImageType[] | null | undefined;
   export let heroImages: ImageType[] | null | undefined;
@@ -16,12 +14,9 @@
   export let featuredProjectName: string | null | undefined;
   export let featuredProjectImages: ImageType[] | null | undefined | boolean;
   export let featuredProjectSlug: string | null | undefined;
-  export let copyTitle: string | null | undefined;
-  export let copySubtitle: string | null | undefined;
-  export let copyImage: Image | undefined;
-  export let copy: any[];
   export let testimonials: any[];
   export let galleryImages: ImageType[];
+  export let contentBlocks: ContentBlocks | Maybe<ContentBlocks>;
 </script>
 
 <Hero
@@ -31,16 +26,9 @@
   isHome
 />
 
-<div class="px-4 py-12 md:py-20">
-  <CopyImageSection
-    title={copyTitle}
-    subtitle={copySubtitle}
-    {copy}
-    image={copyImage}
-    linkLabel="Meet the team"
-    linkUrl="/team"
-  />
-</div>
+{#if contentBlocks?.contentblocks && contentBlocks?.contentblocks?.length > 0}
+  <ContentBlockDigester {contentBlocks} />
+{/if}
 
 {#if featuredProjectImages && featuredProjectImages.length > 0}
   <FeaturedProject

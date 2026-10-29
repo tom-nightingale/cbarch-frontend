@@ -24,13 +24,17 @@
     <div class="flex flex-col justify-center col-span-1 gap-4">
       <div>
         <div class="grid gap-6 mb-8">
-          <Typography component="p" variant="sub1" uppercase
-            >{subtitle}</Typography
-          >
+          {#if subtitle}
+            <Typography component="p" variant="sub1" uppercase
+              >{subtitle}</Typography
+            >
+          {/if}
 
-          <Typography component={titleLevel} variant="headline1"
-            >{@html title}</Typography
-          >
+          {#if title}
+            <Typography component={titleLevel} variant="headline1"
+              >{@html title}</Typography
+            >
+          {/if}
         </div>
 
         <Copy {content} />

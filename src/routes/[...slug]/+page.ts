@@ -1,0 +1,23 @@
+import { error } from "@sveltejs/kit";
+import client from "$lib/gql/apolloClient";
+import type { GetPageBySlugQuery } from "$lib/gql/gen/codegen";
+import { GetPageBySlugDoc } from "$lib/gql/gen/codegen";
+
+export const prerender = "auto";
+
+export async function load({ params }) {
+  const data = await client.query<GetPageBySlugQuery>({
+    query: GetPageBySlugDoc,
+    variables: {
+      slug: params.slug,
+    },
+  });
+
+  if (data?.data?.page.length < 1) {
+    error(404, "Not found");
+  }
+
+  return {
+    data: data?.data?.page[0],
+  };
+}
